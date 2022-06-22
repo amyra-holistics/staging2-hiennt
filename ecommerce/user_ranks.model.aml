@@ -1,0 +1,56 @@
+import './user_total_purchases.model.aml' {
+  user_total_purchases as model__user_total_purchases
+}
+
+Model user_ranks {
+  type: 'query'
+  label: 'User Ranks'
+  description: ''
+  data_source_name: 'demodb'
+  dimension user_id {
+    label: 'User Id'
+    type: 'number'
+    hidden: false
+    definition: @sql {{ #SOURCE.user_id }};;
+  }
+  dimension total_purchase {
+    label: 'Total Purchase'
+    type: 'number'
+    hidden: false
+    definition: @sql {{ #SOURCE.total_purchase }};;
+  }
+  dimension rank_name {
+    label: 'Rank Name'
+    type: 'text'
+    hidden: false
+    definition: @sql {{ #SOURCE.rank_name }};;
+  }
+  dimension rank_number {
+    label: 'Rank Number'
+    type: 'number'
+    hidden: false
+    definition: @sql {{ #SOURCE.rank_number }};;
+  }
+
+  owner: 'scott.bui@holistics.io'
+  query: @sql
+    select user_id, total_purchase,
+
+          case
+          when total_purchase >= 10000 then 'VIP PRO PLUS'
+          when total_purchase >= 5000 then 'VIP PRO'
+          when total_purchase >= 3000 then 'VIP'
+          else NULL
+          end rank_name,
+
+          case
+          when total_purchase >= 10000 then 3
+          when total_purchase >= 5000 then 2
+          when total_purchase >= 3000 then 1
+          else NULL
+          end rank_number
+        from {{ #user_total_purchases }};;
+  models: [
+    model__user_total_purchases
+  ]
+}
