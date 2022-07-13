@@ -1,6 +1,6 @@
 Model test_persisted_test_utf_8_csv {
   type: 'table'
-  label: 'Persisted Test Utf 8 Csv'
+  label: 'Persisted Test Utf 8 Csv tê'
   description: ''
   data_source_name: 'bigquery_test'
   dimension col_1 {
