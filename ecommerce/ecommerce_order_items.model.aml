@@ -21,6 +21,12 @@ Model ecommerce_order_items {
     hidden: false
     definition: @sql {{ #SOURCE.quantity }};;
   }
+    dimension quantity2 {
+    label: 'Quantity Negative'
+    type: 'number'
+    hidden: false
+    definition: @sql -1*{{ #SOURCE.quantity }};;
+  }
 
   owner: 'scott.bui@holistics.io'
   table_name: '"ecommerce"."order_items"'
