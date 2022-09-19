@@ -4,4 +4,4 @@
 // Add a dataset named "ecommerce_details" in "ecommerce.dataset.aml" file to "index.aml" file
 // import './dataset/ecommerce.dataset.aml' { ecommerce_details }
 
-import './ecommerce.dataset.aml' {ecommerce}
+// import './ecommerce.dataset.aml' {ecommerce}
