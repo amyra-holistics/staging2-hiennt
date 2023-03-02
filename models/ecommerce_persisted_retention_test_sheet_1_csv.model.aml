@@ -1,0 +1,267 @@
+Model ecommerce_persisted_retention_test_sheet_1_csv {
+  type: 'table'
+  label: 'Persisted Retention Test Sheet 1 Csv'
+  description: ''
+  data_source_name: 'demodb'
+  dimension date {
+    label: 'Date'
+    type: 'date'
+    hidden: false
+    definition: @sql {{ #SOURCE.date }};;
+  }
+  dimension date_time {
+    label: 'Date Time'
+    type: 'datetime'
+    hidden: false
+    definition: @sql {{ #SOURCE.date_time }};;
+  }
+  dimension number {
+    label: 'Number'
+    type: 'number'
+    hidden: false
+    definition: @sql {{ #SOURCE.number }};;
+  }
+  dimension phone {
+    label: 'Phone'
+    type: 'number'
+    hidden: false
+    definition: @sql {{ #SOURCE.phone }};;
+  }
+  dimension user {
+    label: 'User'
+    type: 'text'
+    hidden: false
+    definition: @sql {{ #SOURCE.user }};;
+  }
+  dimension street_address {
+    label: 'Street Address'
+    type: 'text'
+    hidden: false
+    definition: @sql {{ #SOURCE.street_address }};;
+  }
+  dimension ward {
+    label: 'Ward'
+    type: 'text'
+    hidden: false
+    definition: @sql {{ #SOURCE.ward }};;
+  }
+  dimension district {
+    label: 'District'
+    type: 'text'
+    hidden: false
+    definition: @sql {{ #SOURCE.district }};;
+  }
+  dimension city {
+    label: 'City'
+    type: 'text'
+    hidden: false
+    definition: @sql {{ #SOURCE.city }};;
+  }
+  dimension total {
+    label: 'Total'
+    type: 'number'
+    hidden: false
+    definition: @sql {{ #SOURCE.total }};;
+  }
+  dimension status {
+    label: 'Status'
+    type: 'text'
+    hidden: false
+    definition: @sql {{ #SOURCE.status }};;
+  }
+  dimension vendor {
+    label: 'Vendor'
+    type: 'text'
+    hidden: false
+    definition: @sql {{ #SOURCE.vendor }};;
+  }
+  dimension code {
+    label: 'Code'
+    type: 'text'
+    hidden: false
+    definition: @sql {{ #SOURCE.code }};;
+  }
+  dimension asm_name {
+    label: 'Asm Name'
+    type: 'text'
+    hidden: false
+    definition: @sql {{ #SOURCE.asm_name }};;
+  }
+  dimension dsr_name {
+    label: 'Dsr Name'
+    type: 'text'
+    hidden: false
+    definition: @sql {{ #SOURCE.dsr_name }};;
+  }
+  dimension area {
+    label: 'Area'
+    type: 'text'
+    hidden: false
+    definition: @sql {{ #SOURCE.area }};;
+  }
+  dimension delivery_date {
+    label: 'Delivery Date'
+    type: 'text'
+    hidden: false
+    definition: @sql {{ #SOURCE.delivery_date }};;
+  }
+  dimension deliveried_value {
+    label: 'Deliveried Value'
+    type: 'text'
+    hidden: false
+    definition: @sql {{ #SOURCE.deliveried_value }};;
+  }
+  dimension reason_of_cancel {
+    label: 'Reason Of Cancel'
+    type: 'text'
+    hidden: false
+    definition: @sql {{ #SOURCE.reason_of_cancel }};;
+  }
+  dimension pictures_on_zalo_group {
+    label: 'Pictures On Zalo Group'
+    type: 'text'
+    hidden: false
+    definition: @sql {{ #SOURCE.pictures_on_zalo_group }};;
+  }
+  dimension chekcing_order_by_asm_order_value_2_m {
+    label: 'Chekcing Order By Asm Order Value 2 M'
+    type: 'text'
+    hidden: false
+    definition: @sql {{ #SOURCE.chekcing_order_by_asm_order_value_2_m }};;
+  }
+  dimension fake_order_after_checking {
+    label: 'Fake Order After Checking'
+    type: 'text'
+    hidden: false
+    definition: @sql {{ #SOURCE.fake_order_after_checking }};;
+  }
+  dimension note {
+    label: 'Note'
+    type: 'text'
+    hidden: false
+    definition: @sql {{ #SOURCE.note }};;
+  }
+  dimension delivery_days {
+    label: 'Delivery Days'
+    type: 'text'
+    hidden: false
+    definition: @sql {{ #SOURCE.delivery_days }};;
+  }
+  dimension new_distributor {
+    label: 'New Distributor'
+    type: 'text'
+    hidden: false
+    definition: @sql {{ #SOURCE.new_distributor }};;
+  }
+  dimension new_outlet {
+    label: 'New Outlet'
+    type: 'text'
+    hidden: false
+    definition: @sql {{ #SOURCE.new_outlet }};;
+  }
+  dimension number_of_new_retailer {
+    label: 'Number Of New Retailer'
+    type: 'text'
+    hidden: false
+    definition: @sql {{ #SOURCE.number_of_new_retailer }};;
+  }
+  dimension number_of_new_distributor {
+    label: 'Number Of New Distributor'
+    type: 'text'
+    hidden: false
+    definition: @sql {{ #SOURCE.number_of_new_distributor }};;
+  }
+  dimension week {
+    label: 'Week'
+    type: 'text'
+    hidden: false
+    definition: @sql {{ #SOURCE.week }};;
+  }
+  dimension month {
+    label: 'Month'
+    type: 'text'
+    hidden: false
+    definition: @sql {{ #SOURCE.month }};;
+  }
+  dimension active_retailers_of_date {
+    label: 'Active Retailers Of Date'
+    type: 'text'
+    hidden: false
+    definition: @sql {{ #SOURCE.active_retailers_of_date }};;
+  }
+  dimension active_retailers_of_week {
+    label: 'Active Retailers Of Week'
+    type: 'text'
+    hidden: false
+    definition: @sql {{ #SOURCE.active_retailers_of_week }};;
+  }
+  dimension active_retailers_of_month {
+    label: 'Active Retailers Of Month'
+    type: 'text'
+    hidden: false
+    definition: @sql {{ #SOURCE.active_retailers_of_month }};;
+  }
+  dimension active_distributors_of_date {
+    label: 'Active Distributors Of Date'
+    type: 'text'
+    hidden: false
+    definition: @sql {{ #SOURCE.active_distributors_of_date }};;
+  }
+  dimension active_distributors_of_week {
+    label: 'Active Distributors Of Week'
+    type: 'text'
+    hidden: false
+    definition: @sql {{ #SOURCE.active_distributors_of_week }};;
+  }
+  dimension active_distributors_of_month {
+    label: 'Active Distributors Of Month'
+    type: 'text'
+    hidden: false
+    definition: @sql {{ #SOURCE.active_distributors_of_month }};;
+  }
+  dimension active_retailers_of_month_count {
+    label: 'Active Retailers Of Month Count'
+    type: 'text'
+    hidden: false
+    definition: @sql {{ #SOURCE.active_retailers_of_month_count }};;
+  }
+  dimension order_times {
+    label: 'Order Times'
+    type: 'text'
+    hidden: false
+    definition: @sql {{ #SOURCE.order_times }};;
+  }
+  dimension new_outlet_included_cancelled {
+    label: 'New Outlet Included Cancelled'
+    type: 'text'
+    hidden: false
+    definition: @sql {{ #SOURCE.new_outlet_included_cancelled }};;
+  }
+  dimension active_retailers_of_month_included_cancelled {
+    label: 'Active Retailers Of Month Included Cancelled'
+    type: 'text'
+    hidden: false
+    definition: @sql {{ #SOURCE.active_retailers_of_month_included_cancelled }};;
+  }
+  dimension year {
+    label: 'Year'
+    type: 'text'
+    hidden: false
+    definition: @sql {{ #SOURCE.year }};;
+  }
+  dimension active_retailers_of_year {
+    label: 'Active Retailers Of Year'
+    type: 'text'
+    hidden: false
+    definition: @sql {{ #SOURCE.active_retailers_of_year }};;
+  }
+  dimension active_from_begining {
+    label: 'Active From Begining'
+    type: 'text'
+    hidden: false
+    definition: @sql {{ #SOURCE.active_from_begining }};;
+  }
+
+  owner: 'tien.tt@holistics.io'
+  table_name: '"ecommerce"."persisted_retention_test_sheet_1_csv"'
+}

@@ -1,0 +1,33 @@
+Model ecommerce_persisted_longgg_nameeeeee_neeeeeeeeeee {
+  type: 'table'
+  label: 'Persisted Longgg Nameeeeee Neeeeeeeeeee'
+  description: ''
+  data_source_name: 'demodb'
+  dimension ecommerce_dev_persisted_order_master_delivery_attempts {
+    label: 'Ecommerce Dev Persisted Order Master Delivery Attempts'
+    type: 'datetime'
+    hidden: false
+    definition: @sql {{ #SOURCE.ecommerce_dev_persisted_order_master_delivery_attempts }};;
+  }
+  dimension test_nua_ne {
+    label: 'Test Nua Ne'
+    type: 'text'
+    hidden: false
+    definition: @sql {{ #SOURCE.test_nua_ne }};;
+  }
+  dimension teet {
+    label: 'Teet'
+    type: 'text'
+    hidden: false
+    definition: @sql {{ #SOURCE.teet }};;
+  }
+  dimension teeeqqq {
+    label: 'Teeeqqq'
+    type: 'text'
+    hidden: false
+    definition: @sql {{ #SOURCE.teeeqqq }};;
+  }
+
+  owner: 'tien.tt@holistics.io'
+  table_name: '"ecommerce"."persisted_longgg_nameeeeee_neeeeeeeeeee"'
+}

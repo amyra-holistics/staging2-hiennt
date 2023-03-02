@@ -25,7 +25,6 @@ Dataset user_rank_distribution {
     model__ecommerce_users,
     user_ranks
   ]
-  relationships: [
-  ]
+  relationships: [relationship(model__ecommerce_order_items.product_id > model__ecommerce_products.id, true)]
   owner: 'scott.bui@holistics.io'
 }

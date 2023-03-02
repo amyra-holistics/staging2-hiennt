@@ -1,0 +1,51 @@
+Model ecommerce_persisted_carriage_service_stock_csv {
+  type: 'table'
+  label: 'Persisted Carriage Service Stock Csv'
+  description: ''
+  data_source_name: 'demodb'
+  dimension date {
+    label: 'Date'
+    type: 'date'
+    hidden: false
+    definition: @sql {{ #SOURCE.date }};;
+  }
+  dimension open {
+    label: 'Open'
+    type: 'number'
+    hidden: false
+    definition: @sql {{ #SOURCE.open }};;
+  }
+  dimension high {
+    label: 'High'
+    type: 'number'
+    hidden: false
+    definition: @sql {{ #SOURCE.high }};;
+  }
+  dimension low {
+    label: 'Low'
+    type: 'number'
+    hidden: false
+    definition: @sql {{ #SOURCE.low }};;
+  }
+  dimension close {
+    label: 'Close'
+    type: 'number'
+    hidden: false
+    definition: @sql {{ #SOURCE.close }};;
+  }
+  dimension adj_close {
+    label: 'Adj Close'
+    type: 'number'
+    hidden: false
+    definition: @sql {{ #SOURCE.adj_close }};;
+  }
+  dimension volume {
+    label: 'Volume'
+    type: 'number'
+    hidden: false
+    definition: @sql {{ #SOURCE.volume }};;
+  }
+
+  owner: 'tien.tt@holistics.io'
+  table_name: '"ecommerce"."persisted_carriage_service_stock_csv"'
+}
