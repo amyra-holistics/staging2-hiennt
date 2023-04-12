@@ -1,0 +1,15 @@
+import '../test_persisted_test_utf_8_csv.model.aml' {
+  test_persisted_test_utf_8_csv as model__test_persisted_test_utf_8_csv
+}
+
+Dataset _123 {
+  label: '123'
+  description: ''
+  data_source_name: 'bigquery_test'
+  models: [
+    model__test_persisted_test_utf_8_csv
+  ]
+  relationships: 
+  ]
+  owner: 'tien.tt@holistics.io'
+}
