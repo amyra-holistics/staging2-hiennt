@@ -1,5 +1,4 @@
 Model ecommerce_order_items {
-  label: 'Order Items'
   description: ''
   data_source_name: 'demodb'
   dimension order_id {
