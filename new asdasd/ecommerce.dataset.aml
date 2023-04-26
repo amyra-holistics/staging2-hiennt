@@ -9,7 +9,7 @@ import '../ecommerce/ecommerce_orders.model.aml' {
 }
 
 Dataset ecommerce {
-  label: 'Ecommerce'
+  label: "Ecommerce 123"
   description: ''
   data_source_name: 'demodb'
   models: [
