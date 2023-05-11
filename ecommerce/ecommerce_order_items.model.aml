@@ -1,4 +1,6 @@
 Model ecommerce_order_items {
+  type: 'table'
+  label: "Order Items 123"
   description: ''
   data_source_name: 'demodb'
   dimension order_id {
@@ -19,7 +21,7 @@ Model ecommerce_order_items {
     hidden: false
     definition: @sql {{ #SOURCE.quantity }};;
   }
-    dimension quantity2 {
+  dimension quantity2 {
     label: 'Quantity Negative'
     type: 'number'
     hidden: false
