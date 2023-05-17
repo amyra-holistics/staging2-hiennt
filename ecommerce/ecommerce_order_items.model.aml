@@ -1,6 +1,6 @@
 Model ecommerce_order_items {
   type: 'table'
-  label: "Order Items 123"
+  label: "Order Items"
   description: ''
   data_source_name: 'demodb'
   dimension order_id {
