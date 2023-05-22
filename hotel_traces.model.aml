@@ -1,6 +1,6 @@
 Model hotel_traces {
   type: 'table'
-  label: 'Hotel Traces'
+  label: "Nice"
   description: ''
   data_source_name: 'hotel'
   dimension timestamp {
