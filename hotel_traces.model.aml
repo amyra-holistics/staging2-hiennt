@@ -118,7 +118,13 @@ Model hotel_traces {
     definition: @sql {{ #SOURCE.Links.TraceState }};;
   }
   dimension links_attributes {
-    label: 'Links.attributes.hahaha'
+    label: 'Links.attributes'
+    type: 'text'
+    hidden: false
+    definition: @sql {{ #SOURCE.Links.Attributes }};;
+  }
+  dimension links_attributes_as {
+    label: 'Links.attributes'
     type: 'text'
     hidden: false
     definition: @sql {{ #SOURCE.Links.Attributes }};;
