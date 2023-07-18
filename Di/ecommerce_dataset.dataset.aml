@@ -10,3 +10,4 @@ Dataset ecommerce_dataset {
   relationships: [relationship(ecommerce_order_items.order_id > ecommerce_orders.id, true), relationship(ecommerce_orders.user_id > ecommerce_users.id, true)]
   owner: 'di.hoang@holistics.io'
 }
+
