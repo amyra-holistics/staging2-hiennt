@@ -1,0 +1,15 @@
+Model ecommerce_persisted_responsecode_csv {
+  type: 'table'
+  label: 'Persisted Responsecode Csv'
+  description: ''
+  data_source_name: 'demodb'
+  dimension responsecode {
+    label: 'Responsecode'
+    type: 'text'
+    hidden: false
+    definition: @sql {{ #SOURCE.responsecode }};;
+  }
+
+  owner: 'tien.tt@holistics.io'
+  table_name: '"ecommerce"."persisted_responsecode_csv"'
+}

@@ -1,0 +1,57 @@
+Model ecommerce_persisted_adventure_works_sales_2015_csv {
+  type: 'table'
+  label: 'Persisted Adventure Works Sales 2015 Csv'
+  description: ''
+  data_source_name: 'demodb'
+  dimension order_date {
+    label: 'Order Date'
+    type: 'datetime'
+    hidden: false
+    definition: @sql {{ #SOURCE.order_date }};;
+  }
+  dimension stock_date {
+    label: 'Stock Date'
+    type: 'datetime'
+    hidden: false
+    definition: @sql {{ #SOURCE.stock_date }};;
+  }
+  dimension order_number {
+    label: 'Order Number'
+    type: 'number'
+    hidden: false
+    definition: @sql {{ #SOURCE.order_number }};;
+  }
+  dimension product_key {
+    label: 'Product Key'
+    type: 'text'
+    hidden: false
+    definition: @sql {{ #SOURCE.product_key }};;
+  }
+  dimension customer_key {
+    label: 'Customer Key'
+    type: 'text'
+    hidden: false
+    definition: @sql {{ #SOURCE.customer_key }};;
+  }
+  dimension territory_key {
+    label: 'Territory Key'
+    type: 'text'
+    hidden: false
+    definition: @sql {{ #SOURCE.territory_key }};;
+  }
+  dimension order_line_item {
+    label: 'Order Line Item'
+    type: 'text'
+    hidden: false
+    definition: @sql {{ #SOURCE.order_line_item }};;
+  }
+  dimension order_quantity {
+    label: 'Order Quantity'
+    type: 'number'
+    hidden: false
+    definition: @sql {{ #SOURCE.order_quantity }};;
+  }
+
+  owner: 'tien.tt@holistics.io'
+  table_name: '"ecommerce"."persisted_adventure_works_sales_2015_csv"'
+}

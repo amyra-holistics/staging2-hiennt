@@ -1,0 +1,33 @@
+Model ecommerce_persisted_csv_data_1_csv9 {
+  type: 'table'
+  label: 'Persisted Csv Data 1 Csv9'
+  description: ''
+  data_source_name: 'demodb'
+  dimension code {
+    label: 'Code'
+    type: 'text'
+    hidden: false
+    definition: @sql {{ #SOURCE.code }};;
+  }
+  dimension city {
+    label: 'City'
+    type: 'text'
+    hidden: false
+    definition: @sql {{ #SOURCE.city }};;
+  }
+  dimension county {
+    label: 'County'
+    type: 'text'
+    hidden: false
+    definition: @sql {{ #SOURCE.county }};;
+  }
+  dimension pop {
+    label: 'Pop'
+    type: 'number'
+    hidden: false
+    definition: @sql {{ #SOURCE.pop }};;
+  }
+
+  owner: 'tien.tt@holistics.io'
+  table_name: '"ecommerce"."persisted_csv_data_1_csv9"'
+}

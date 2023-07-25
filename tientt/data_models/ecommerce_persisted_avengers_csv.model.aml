@@ -1,0 +1,135 @@
+Model ecommerce_persisted_avengers_csv {
+  type: 'table'
+  label: 'Persisted Avengers Csv'
+  description: ''
+  data_source_name: 'demodb'
+  dimension url {
+    label: 'Url'
+    type: 'text'
+    hidden: false
+    definition: @sql {{ #SOURCE.url }};;
+  }
+  dimension name_alias {
+    label: 'Name Alias'
+    type: 'text'
+    hidden: false
+    definition: @sql {{ #SOURCE.name_alias }};;
+  }
+  dimension appearances {
+    label: 'Appearances'
+    type: 'text'
+    hidden: false
+    definition: @sql {{ #SOURCE.appearances }};;
+  }
+  dimension current {
+    label: 'Current'
+    type: 'text'
+    hidden: false
+    definition: @sql {{ #SOURCE.current }};;
+  }
+  dimension gender {
+    label: 'Gender'
+    type: 'text'
+    hidden: false
+    definition: @sql {{ #SOURCE.gender }};;
+  }
+  dimension probationary_introl {
+    label: 'Probationary Introl'
+    type: 'text'
+    hidden: false
+    definition: @sql {{ #SOURCE.probationary_introl }};;
+  }
+  dimension full_reserve_avengers_intro {
+    label: 'Full Reserve Avengers Intro'
+    type: 'text'
+    hidden: false
+    definition: @sql {{ #SOURCE.full_reserve_avengers_intro }};;
+  }
+  dimension year {
+    label: 'Year'
+    type: 'text'
+    hidden: false
+    definition: @sql {{ #SOURCE.year }};;
+  }
+  dimension years_since_joining {
+    label: 'Years Since Joining'
+    type: 'text'
+    hidden: false
+    definition: @sql {{ #SOURCE.years_since_joining }};;
+  }
+  dimension honorary {
+    label: 'Honorary'
+    type: 'text'
+    hidden: false
+    definition: @sql {{ #SOURCE.honorary }};;
+  }
+  dimension death_1 {
+    label: 'Death 1'
+    type: 'text'
+    hidden: false
+    definition: @sql {{ #SOURCE.death_1 }};;
+  }
+  dimension return_1 {
+    label: 'Return 1'
+    type: 'text'
+    hidden: false
+    definition: @sql {{ #SOURCE.return_1 }};;
+  }
+  dimension death_2 {
+    label: 'Death 2'
+    type: 'text'
+    hidden: false
+    definition: @sql {{ #SOURCE.death_2 }};;
+  }
+  dimension return_2 {
+    label: 'Return 2'
+    type: 'text'
+    hidden: false
+    definition: @sql {{ #SOURCE.return_2 }};;
+  }
+  dimension death_3 {
+    label: 'Death 3'
+    type: 'text'
+    hidden: false
+    definition: @sql {{ #SOURCE.death_3 }};;
+  }
+  dimension return_3 {
+    label: 'Return 3'
+    type: 'text'
+    hidden: false
+    definition: @sql {{ #SOURCE.return_3 }};;
+  }
+  dimension death_4 {
+    label: 'Death 4'
+    type: 'text'
+    hidden: false
+    definition: @sql {{ #SOURCE.death_4 }};;
+  }
+  dimension return_4 {
+    label: 'Return 4'
+    type: 'text'
+    hidden: false
+    definition: @sql {{ #SOURCE.return_4 }};;
+  }
+  dimension death_5 {
+    label: 'Death 5'
+    type: 'text'
+    hidden: false
+    definition: @sql {{ #SOURCE.death_5 }};;
+  }
+  dimension return_5 {
+    label: 'Return 5'
+    type: 'text'
+    hidden: false
+    definition: @sql {{ #SOURCE.return_5 }};;
+  }
+  dimension notes {
+    label: 'Notes'
+    type: 'text'
+    hidden: false
+    definition: @sql {{ #SOURCE.notes }};;
+  }
+
+  owner: 'tien.tt@holistics.io'
+  table_name: '"ecommerce"."persisted_avengers_csv"'
+}
