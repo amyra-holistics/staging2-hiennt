@@ -1,7 +1,7 @@
 Model ecommerce_business_conditions_confidence {
   type: 'table'
   label: 'Business Conditions Confidence'
-  description: ''
+  description: "123"
   data_source_name: 'demodb'
   dimension date {
     label: 'Date'
