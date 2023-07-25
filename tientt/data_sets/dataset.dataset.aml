@@ -1,6 +1,6 @@
 Dataset dataset {
   label: 'Dataset'
-  description: "asdf"
+  description: "asdf 123\n"
   data_source_name: 'demodb'
   models: [
     ecommerce_users_1,
