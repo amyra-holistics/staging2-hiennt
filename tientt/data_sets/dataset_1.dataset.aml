@@ -1,6 +1,6 @@
 Dataset dataset_1 {
   label: 'Dataset 1'
-  description: ''
+  description: "760eefde-33d5-47d9-bd4d-c9755d81e0b2"
   data_source_name: 'demodb'
   models: [
     ecommerce_users_1,
