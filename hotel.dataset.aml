@@ -1,0 +1,11 @@
+Dataset hotel {
+  label: 'Hotel'
+  description: ''
+  data_source_name: 'hotel'
+  models: [
+    hotel_traces
+  ]
+  relationships: [
+  ]
+  owner: 'hoa.huynh@holistics.io'
+}
