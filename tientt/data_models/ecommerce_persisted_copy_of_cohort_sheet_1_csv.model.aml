@@ -1,0 +1,57 @@
+Model ecommerce_persisted_copy_of_cohort_sheet_1_csv {
+  type: 'table'
+  label: 'Persisted Copy Of Cohort Sheet 1 Csv'
+  description: ''
+  data_source_name: 'demodb'
+  dimension invoice_id {
+    label: 'Invoice Id'
+    type: 'text'
+    hidden: false
+    definition: @sql {{ #SOURCE.invoice_id }};;
+  }
+  dimension date {
+    label: 'Date'
+    type: 'text'
+    hidden: false
+    definition: @sql {{ #SOURCE.date }};;
+  }
+  dimension shipping {
+    label: 'Shipping'
+    type: 'text'
+    hidden: false
+    definition: @sql {{ #SOURCE.shipping }};;
+  }
+  dimension user_id {
+    label: 'User Id'
+    type: 'text'
+    hidden: false
+    definition: @sql {{ #SOURCE.user_id }};;
+  }
+  dimension item_id {
+    label: 'Item Id'
+    type: 'text'
+    hidden: false
+    definition: @sql {{ #SOURCE.item_id }};;
+  }
+  dimension item_name {
+    label: 'Item Name'
+    type: 'text'
+    hidden: false
+    definition: @sql {{ #SOURCE.item_name }};;
+  }
+  dimension item_price {
+    label: 'Item Price'
+    type: 'text'
+    hidden: false
+    definition: @sql {{ #SOURCE.item_price }};;
+  }
+  dimension quantity {
+    label: 'Quantity'
+    type: 'text'
+    hidden: false
+    definition: @sql {{ #SOURCE.quantity }};;
+  }
+
+  owner: 'tien.tt@holistics.io'
+  table_name: '"ecommerce"."persisted_copy_of_cohort_sheet_1_csv"'
+}

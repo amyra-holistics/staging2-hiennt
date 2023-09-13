@@ -1,0 +1,51 @@
+Model ecommerce_persisted_contestants1 {
+  type: 'table'
+  label: 'Persisted Contestants1'
+  description: ''
+  data_source_name: 'demodb'
+  dimension id {
+    label: 'Id'
+    type: 'number'
+    hidden: false
+    definition: @sql {{ #SOURCE.id }};;
+  }
+  dimension email {
+    label: 'Email'
+    type: 'text'
+    hidden: false
+    definition: @sql {{ #SOURCE.email }};;
+  }
+  dimension birth_date {
+    label: 'Birth Date'
+    type: 'date'
+    hidden: false
+    definition: @sql {{ #SOURCE.birth_date }};;
+  }
+  dimension x {
+    label: 'X'
+    type: 'text'
+    hidden: false
+    definition: @sql {{ #SOURCE.x }};;
+  }
+  dimension win {
+    label: 'Win'
+    type: 'truefalse'
+    hidden: false
+    definition: @sql {{ #SOURCE.win }};;
+  }
+  dimension gift_price {
+    label: 'Gift Price'
+    type: 'number'
+    hidden: false
+    definition: @sql {{ #SOURCE.gift_price }};;
+  }
+  dimension cdc {
+    label: 'Cdc'
+    type: 'text'
+    hidden: false
+    definition: @sql {{ #SOURCE.cdc }};;
+  }
+
+  owner: 'tien.tt@holistics.io'
+  table_name: '"ecommerce"."persisted_contestants1"'
+}

@@ -1,0 +1,33 @@
+Model ecommerce_persisted_sheet_13 {
+  type: 'table'
+  label: 'Persisted Sheet 13'
+  description: ''
+  data_source_name: 'demodb'
+  dimension country_name {
+    label: 'Country Name'
+    type: 'text'
+    hidden: false
+    definition: @sql {{ #SOURCE.country_name }};;
+  }
+  dimension country_code {
+    label: 'Country Code'
+    type: 'text'
+    hidden: false
+    definition: @sql {{ #SOURCE.country_code }};;
+  }
+  dimension year {
+    label: 'Year'
+    type: 'text'
+    hidden: false
+    definition: @sql {{ #SOURCE.year }};;
+  }
+  dimension value {
+    label: 'Value'
+    type: 'number'
+    hidden: false
+    definition: @sql {{ #SOURCE.value }};;
+  }
+
+  owner: 'tien.tt@holistics.io'
+  table_name: '"ecommerce"."persisted_sheet_13"'
+}
