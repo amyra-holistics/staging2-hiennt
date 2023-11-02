@@ -1,5 +1,5 @@
-Dataset test_dataset {
-  label: 'Test Dataset'
+Dataset test_dataset_no_relationship {
+  label: 'Test Dataset No Relationship'
   description: ''
   data_source_name: 'demodb'
   models: [
@@ -11,7 +11,6 @@ Dataset test_dataset {
     ecommerce_order_items
   ]
   relationships: [
-    relationship(user_total_purchases.user_id > ecommerce_products.name, true)
   ]
   owner: 'duong.ly@holistics.io'
 }
