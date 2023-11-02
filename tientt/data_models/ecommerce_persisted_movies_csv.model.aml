@@ -1,0 +1,105 @@
+Model ecommerce_persisted_movies_csv {
+  type: 'table'
+  label: 'Persisted Movies Csv'
+  description: ''
+  data_source_name: 'demodb'
+  dimension title {
+    label: 'Title'
+    type: 'text'
+    hidden: false
+    definition: @sql {{ #SOURCE.title }};;
+  }
+  dimension us_gross {
+    label: 'Us Gross'
+    type: 'number'
+    hidden: false
+    definition: @sql {{ #SOURCE.us_gross }};;
+  }
+  dimension worldwide_gross {
+    label: 'Worldwide Gross'
+    type: 'number'
+    hidden: false
+    definition: @sql {{ #SOURCE.worldwide_gross }};;
+  }
+  dimension us_dvd_sales {
+    label: 'Us Dvd Sales'
+    type: 'number'
+    hidden: false
+    definition: @sql {{ #SOURCE.us_dvd_sales }};;
+  }
+  dimension production_budget {
+    label: 'Production Budget'
+    type: 'number'
+    hidden: false
+    definition: @sql {{ #SOURCE.production_budget }};;
+  }
+  dimension release_date {
+    label: 'Release Date'
+    type: 'date'
+    hidden: false
+    definition: @sql {{ #SOURCE.release_date }};;
+  }
+  dimension mpaa_rating {
+    label: 'Mpaa Rating'
+    type: 'text'
+    hidden: false
+    definition: @sql {{ #SOURCE.mpaa_rating }};;
+  }
+  dimension running_time_min {
+    label: 'Running Time Min'
+    type: 'text'
+    hidden: false
+    definition: @sql {{ #SOURCE.running_time_min }};;
+  }
+  dimension distributor {
+    label: 'Distributor'
+    type: 'text'
+    hidden: false
+    definition: @sql {{ #SOURCE.distributor }};;
+  }
+  dimension source {
+    label: 'Source'
+    type: 'text'
+    hidden: false
+    definition: @sql {{ #SOURCE.source }};;
+  }
+  dimension major_genre {
+    label: 'Major Genre'
+    type: 'text'
+    hidden: false
+    definition: @sql {{ #SOURCE.major_genre }};;
+  }
+  dimension creative_type {
+    label: 'Creative Type'
+    type: 'text'
+    hidden: false
+    definition: @sql {{ #SOURCE.creative_type }};;
+  }
+  dimension director {
+    label: 'Director'
+    type: 'text'
+    hidden: false
+    definition: @sql {{ #SOURCE.director }};;
+  }
+  dimension rotten_tomatoes_rating {
+    label: 'Rotten Tomatoes Rating'
+    type: 'text'
+    hidden: false
+    definition: @sql {{ #SOURCE.rotten_tomatoes_rating }};;
+  }
+  dimension imdb_rating {
+    label: 'Imdb Rating'
+    type: 'number'
+    hidden: false
+    definition: @sql {{ #SOURCE.imdb_rating }};;
+  }
+  dimension imdb_votes {
+    label: 'Imdb Votes'
+    type: 'number'
+    hidden: false
+    definition: @sql {{ #SOURCE.imdb_votes }};;
+  }
+
+  owner: 'tien.tt@holistics.io'
+  table_name: '"ecommerce"."persisted_movies_csv"'
+}

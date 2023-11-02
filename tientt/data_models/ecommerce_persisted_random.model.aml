@@ -1,0 +1,21 @@
+Model ecommerce_persisted_random {
+  type: 'table'
+  label: 'Persisted Random'
+  description: ''
+  data_source_name: 'demodb'
+  dimension collection_name {
+    label: 'Collection Name'
+    type: 'text'
+    hidden: false
+    definition: @sql {{ #SOURCE.collection_name }};;
+  }
+  dimension production_company_name {
+    label: 'Production Company Name'
+    type: 'text'
+    hidden: false
+    definition: @sql {{ #SOURCE.production_company_name }};;
+  }
+
+  owner: 'tien.tt@holistics.io'
+  table_name: '"ecommerce"."persisted_random"'
+}

@@ -1,0 +1,117 @@
+Model ecommerce_persisted_sales_data_csv {
+  type: 'table'
+  label: 'Persisted Sales Data Csv'
+  description: ''
+  data_source_name: 'demodb'
+  dimension date {
+    label: 'Date'
+    type: 'text'
+    hidden: false
+    definition: @sql {{ #SOURCE.date }};;
+  }
+  dimension day {
+    label: 'Day'
+    type: 'text'
+    hidden: false
+    definition: @sql {{ #SOURCE.day }};;
+  }
+  dimension month {
+    label: 'Month'
+    type: 'text'
+    hidden: false
+    definition: @sql {{ #SOURCE.month }};;
+  }
+  dimension year {
+    label: 'Year'
+    type: 'text'
+    hidden: false
+    definition: @sql {{ #SOURCE.year }};;
+  }
+  dimension customer_age {
+    label: 'Customer Age'
+    type: 'text'
+    hidden: false
+    definition: @sql {{ #SOURCE.customer_age }};;
+  }
+  dimension age_group {
+    label: 'Age Group'
+    type: 'text'
+    hidden: false
+    definition: @sql {{ #SOURCE.age_group }};;
+  }
+  dimension customer_gender {
+    label: 'Customer Gender'
+    type: 'text'
+    hidden: false
+    definition: @sql {{ #SOURCE.customer_gender }};;
+  }
+  dimension country {
+    label: 'Country'
+    type: 'text'
+    hidden: false
+    definition: @sql {{ #SOURCE.country }};;
+  }
+  dimension state {
+    label: 'State'
+    type: 'text'
+    hidden: false
+    definition: @sql {{ #SOURCE.state }};;
+  }
+  dimension product_category {
+    label: 'Product Category'
+    type: 'text'
+    hidden: false
+    definition: @sql {{ #SOURCE.product_category }};;
+  }
+  dimension sub_category {
+    label: 'Sub Category'
+    type: 'text'
+    hidden: false
+    definition: @sql {{ #SOURCE.sub_category }};;
+  }
+  dimension product {
+    label: 'Product'
+    type: 'text'
+    hidden: false
+    definition: @sql {{ #SOURCE.product }};;
+  }
+  dimension order_quantity {
+    label: 'Order Quantity'
+    type: 'text'
+    hidden: false
+    definition: @sql {{ #SOURCE.order_quantity }};;
+  }
+  dimension unit_cost {
+    label: 'Unit Cost'
+    type: 'text'
+    hidden: false
+    definition: @sql {{ #SOURCE.unit_cost }};;
+  }
+  dimension unit_price {
+    label: 'Unit Price'
+    type: 'text'
+    hidden: false
+    definition: @sql {{ #SOURCE.unit_price }};;
+  }
+  dimension profit {
+    label: 'Profit'
+    type: 'text'
+    hidden: false
+    definition: @sql {{ #SOURCE.profit }};;
+  }
+  dimension cost {
+    label: 'Cost'
+    type: 'text'
+    hidden: false
+    definition: @sql {{ #SOURCE.cost }};;
+  }
+  dimension revenue {
+    label: 'Revenue'
+    type: 'text'
+    hidden: false
+    definition: @sql {{ #SOURCE.revenue }};;
+  }
+
+  owner: 'tien.tt@holistics.io'
+  table_name: '"ecommerce"."persisted_sales_data_csv"'
+}

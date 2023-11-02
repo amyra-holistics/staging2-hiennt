@@ -1,0 +1,27 @@
+Model ecommerce_persisted_pointmap_csv {
+  type: 'table'
+  label: 'Persisted Pointmap Csv'
+  description: ''
+  data_source_name: 'demodb'
+  dimension rounded_latitude {
+    label: 'Rounded Latitude'
+    type: 'number'
+    hidden: false
+    definition: @sql {{ #SOURCE.rounded_latitude }};;
+  }
+  dimension rounded_longitude {
+    label: 'Rounded Longitude'
+    type: 'number'
+    hidden: false
+    definition: @sql {{ #SOURCE.rounded_longitude }};;
+  }
+  dimension total_candidates {
+    label: 'Total Candidates'
+    type: 'number'
+    hidden: false
+    definition: @sql {{ #SOURCE.total_candidates }};;
+  }
+
+  owner: 'tien.tt@holistics.io'
+  table_name: '"ecommerce"."persisted_pointmap_csv"'
+}

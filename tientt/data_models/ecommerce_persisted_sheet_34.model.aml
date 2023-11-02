@@ -1,0 +1,21 @@
+Model ecommerce_persisted_sheet_34 {
+  type: 'table'
+  label: 'Persisted Sheet 34'
+  description: ''
+  data_source_name: 'demodb'
+  dimension test_date_format {
+    label: 'Test Date Format'
+    type: 'text'
+    hidden: false
+    definition: @sql {{ #SOURCE.test_date_format }};;
+  }
+  dimension count_delivered {
+    label: 'Count Delivered'
+    type: 'number'
+    hidden: false
+    definition: @sql {{ #SOURCE.count_delivered }};;
+  }
+
+  owner: 'tien.tt@holistics.io'
+  table_name: '"ecommerce"."persisted_sheet_34"'
+}

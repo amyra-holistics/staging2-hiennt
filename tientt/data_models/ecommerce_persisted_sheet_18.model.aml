@@ -1,0 +1,51 @@
+Model ecommerce_persisted_sheet_18 {
+  type: 'table'
+  label: 'Persisted Sheet 18'
+  description: ''
+  data_source_name: 'demodb'
+  dimension name {
+    label: 'Name'
+    type: 'text'
+    hidden: false
+    definition: @sql {{ #SOURCE.name }};;
+  }
+  dimension ruc_code {
+    label: 'Ruc Code'
+    type: 'number'
+    hidden: false
+    definition: @sql {{ #SOURCE.ruc_code }};;
+  }
+  dimension est_base_040190 {
+    label: 'Est Base 040190'
+    type: 'number'
+    hidden: false
+    definition: @sql {{ #SOURCE.est_base_040190 }};;
+  }
+  dimension apr_00 {
+    label: 'Apr 00'
+    type: 'number'
+    hidden: false
+    definition: @sql {{ #SOURCE.apr_00 }};;
+  }
+  dimension estimatesbase_2010 {
+    label: 'Estimatesbase 2010'
+    type: 'number'
+    hidden: false
+    definition: @sql {{ #SOURCE.estimatesbase_2010 }};;
+  }
+  dimension population {
+    label: 'Population'
+    type: 'number'
+    hidden: false
+    definition: @sql {{ #SOURCE.population }};;
+  }
+  dimension percent_change {
+    label: 'Percent Change'
+    type: 'number'
+    hidden: false
+    definition: @sql {{ #SOURCE.percent_change }};;
+  }
+
+  owner: 'tien.tt@holistics.io'
+  table_name: '"ecommerce"."persisted_sheet_18"'
+}
