@@ -1,0 +1,21 @@
+Dataset test_aql {
+  label: 'Test Aql'
+    __engine__: 'aql'
+  description: ''
+  data_source_name: 'staging2'
+  models: [
+    public_users_1
+  ]
+  relationships: [
+  ]
+  dimension aql_metric {
+    model: public_users
+    label: 'AQL Metric Label'
+    type: 'text'
+    description: 'AQL Metric description'
+    definition: @aql
+      public_users.name
+    ;;
+  }
+  owner: 'tien.tt@holistics.io'
+}
