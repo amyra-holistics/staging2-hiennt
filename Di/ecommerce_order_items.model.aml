@@ -21,7 +21,22 @@ Model ecommerce_order_items {
     hidden: false
     definition: @sql {{ #SOURCE.quantity }};;
   }
+  dimension id {
+    label: "Id"
+    type: "number"
+    definition: @sql {{ #SOURCE.id }};;
+  }
+  dimension name {
+    label: "Name"
+    type: "text"
+    definition: @sql {{ #SOURCE.name }};;
+  }
+  dimension parent_id {
+    label: "Parent Id"
+    type: "number"
+    definition: @sql {{ #SOURCE.parent_id }};;
+  }
 
   owner: 'di.hoang@holistics.io'
-  table_name: '"ecommerce"."order_items"'
+  table_name: '\"ecommerce\".\"categories\"'
 }
