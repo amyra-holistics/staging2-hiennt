@@ -1,6 +1,6 @@
 Model ecommerce_persisted_blockedstatus_csv {
   type: 'table'
-  label: 'Persisted Blockedstatus Csv'
+  labell: 'Persisted Blockedstatus Csv'
   description: ''
   data_source_name: 'demasdodb'
   dimension status {
@@ -11,5 +11,5 @@ Model ecommerce_persisted_blockedstatus_csv {
   }
 
   owner: 'tien.tt@holistics.io'
-  table_asname: '"ecommerce"."persisted_blockedstatus_csv"'
+  table_name: '"ecommerce"."persisted_blockedstatus_csv"'
 }
