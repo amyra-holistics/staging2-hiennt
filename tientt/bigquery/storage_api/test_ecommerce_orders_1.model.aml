@@ -1,13 +1,13 @@
 Model test_ecommerce_orders_1 {
-  type: 'table'
-  label: 'Ecommerce Orders'
+  type: 'query'
+  label: 'Test Ecommerce Orders'
   description: ''
   data_source_name: 'bigquery_with_storage_api'
-  dimension created_at {
-    label: 'Created At'
-    type: 'datetime'
+  dimension id {
+    label: 'Id'
+    type: 'number'
     hidden: false
-    definition: @sql {{ #SOURCE.created_at }};;
+    definition: @sql {{ #SOURCE.id }};;
   }
   dimension status {
     label: 'Status'
@@ -15,11 +15,11 @@ Model test_ecommerce_orders_1 {
     hidden: false
     definition: @sql {{ #SOURCE.status }};;
   }
-  dimension id {
-    label: 'Id'
-    type: 'number'
+  dimension created_at {
+    label: 'Created At'
+    type: 'datetime'
     hidden: false
-    definition: @sql {{ #SOURCE.id }};;
+    definition: @sql {{ #SOURCE.created_at }};;
   }
   dimension user_id {
     label: 'User Id'
@@ -41,5 +41,9 @@ Model test_ecommerce_orders_1 {
   }
 
   owner: 'tien.tt@holistics.io'
-  table_name: '`test`.`ecommerce_orders`'
+  query: @sql
+    #standardSQL
+    select * from test.ecommerce_orders;;
+  models: [
+  ]
 }

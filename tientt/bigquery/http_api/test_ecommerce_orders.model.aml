@@ -1,6 +1,6 @@
 Model test_ecommerce_orders {
-  type: 'table'
-  label: 'Ecommerce Orders'
+  type: 'query'
+  label: 'Test Ecommerce Orders'
   description: ''
   data_source_name: 'bigquery_with_http_api'
   dimension id {
@@ -41,5 +41,9 @@ Model test_ecommerce_orders {
   }
 
   owner: 'tien.tt@holistics.io'
-  table_name: '`test`.`ecommerce_orders`'
+  query: @sql
+    #standardSQL
+    select * from test.ecommerce_orders;;
+  models: [
+  ]
 }
