@@ -25,4 +25,3 @@ Model ecommerce_categories {
   owner: 'duy.phan@holistics.io'
   table_name: '"ecommerce"."categories"'
 }
-==
