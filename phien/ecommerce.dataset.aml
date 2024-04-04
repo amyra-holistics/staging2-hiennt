@@ -1,6 +1,6 @@
 Dataset ecommerce {
   label: 'Ecommerce'
-  description: 'This is a test dataset'
+  description: 'This is a test dataset from staging2'
   data_source_name: 'demodb'
   models: [
     ecommerce_cities,
