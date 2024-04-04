@@ -1,0 +1,12 @@
+Dataset ecommerce {
+  label: 'Ecommerce'
+  description: ''
+  data_source_name: 'demodb'
+  models: [
+    ecommerce_cities,
+    ecommerce_countries
+  ]
+  relationships: [
+  ]
+  owner: 'phien.pham@holistics.io'
+}
