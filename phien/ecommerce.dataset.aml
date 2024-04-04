@@ -1,5 +1,5 @@
 Dataset ecommerce {
-  label: 'Ecommerce Test'
+  label: 'Ecommerce'
   description: ''
   data_source_name: 'demodb'
   models: [
