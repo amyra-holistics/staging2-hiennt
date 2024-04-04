@@ -1,6 +1,6 @@
 Model test_ecommerce_orders_1 {
   type: 'query'
-  label: 'Test Ecommerce Orders'
+  label: 'Test Ecommerce Orders 1'
   description: ''
   data_source_name: 'bigquery_with_storage_api'
   dimension id {
