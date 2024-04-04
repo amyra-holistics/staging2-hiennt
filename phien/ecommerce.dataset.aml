@@ -1,6 +1,6 @@
 Dataset ecommerce {
   label: 'Ecommerce'
-  description: ''
+  description: 'This is a dataset'
   data_source_name: 'demodb'
   models: [
     ecommerce_cities,
