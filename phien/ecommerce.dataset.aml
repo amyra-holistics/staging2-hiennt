@@ -8,5 +8,5 @@ Dataset ecommerce {
   ]
   relationships: [
   ]
-  owner: 'phien.pham@holistics.io'
+  owner: 'phien@holistics.io'
 }
