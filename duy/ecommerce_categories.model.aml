@@ -1,7 +1,7 @@
 Model ecommerce_categories {
   type: 'table'
   label: 'Categories'
-  description: ''
+  description: '123'
   data_source_name: 'demodb'
   dimension id {
     label: 'Id'
