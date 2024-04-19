@@ -11,19 +11,19 @@ Model hotel_logs {
   }
   dimension trace_id {
     label: 'Trace Id'
-    type: 'text'
+    type: 'number'
     hidden: false
     definition: @sql {{ #SOURCE.TraceId }};;
   }
   dimension span_id {
     label: 'Span Id'
-    type: 'text'
+    type: 'number'
     hidden: false
     definition: @sql {{ #SOURCE.SpanId }};;
   }
   dimension trace_flags {
     label: 'Trace Flags'
-    type: 'number'
+    type: 'text'
     hidden: false
     definition: @sql {{ #SOURCE.TraceFlags }};;
   }
@@ -40,13 +40,13 @@ Model hotel_logs {
     definition: @sql {{ #SOURCE.SeverityNumber }};;
   }
   dimension service_name {
-    label: 'Service Name'
+    label: 'Service Name 11'
     type: 'text'
     hidden: false
     definition: @sql {{ #SOURCE.ServiceName }};;
   }
   dimension body {
-    label: 'Body'
+    label: 'Body 11'
     type: 'text'
     hidden: false
     definition: @sql {{ #SOURCE.Body }};;
@@ -65,5 +65,5 @@ Model hotel_logs {
   }
 
   owner: 'vudq56.ftu@gmail.com'
-  table_name: '`hotel_logs`'
+  table_name: 'hotel_logs'
 }
