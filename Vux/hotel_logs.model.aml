@@ -1,7 +1,7 @@
 Model hotel_logs {
   type: 'table'
   label: 'Hotel Logs'
-  description: ''
+  description: 'kkkkkkkkkkkkkkkkkkkkkkkkkk'
   data_source_name: 'hotel'
   dimension timestamp {
     label: 'Timestamp'
