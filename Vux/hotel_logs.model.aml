@@ -29,7 +29,7 @@ Model hotel_logs {
   }
   dimension severity_text {
     label: 'Severity Text'
-    description: 'abcdef'
+    description: 'abcdefgh'
     type: 'text'
     hidden: false
     definition: @sql {{ #SOURCE.SeverityText }};;
