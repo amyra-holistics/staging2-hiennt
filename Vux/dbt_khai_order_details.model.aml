@@ -1,6 +1,5 @@
 Model dbt_khai_order_details {
   type: 'table'
-  label: 'Order Details'
   description: '123'
   data_source_name: 'demodb'
   dimension user_id {
