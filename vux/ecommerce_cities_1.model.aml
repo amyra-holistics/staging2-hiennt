@@ -1,7 +1,7 @@
 Model ecommerce_cities_1 {
   type: 'table'
   label: 'Cities'
-  description: ''
+  description: 'abcdef'
   data_source_name: 'snowflake'
   dimension id {
     label: 'Id'
@@ -11,6 +11,7 @@ Model ecommerce_cities_1 {
   }
   dimension name {
     label: 'Name'
+    description: 'vux1234'
     type: 'text'
     hidden: false
     definition: @sql {{ #SOURCE.NAME }};;
