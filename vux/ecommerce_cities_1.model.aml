@@ -1,7 +1,7 @@
 Model ecommerce_cities_1 {
   type: 'table'
   label: 'Cities'
-  description: '123456788'
+  description: '123456788abcde'
   data_source_name: 'snowflake'
   dimension id {
     label: 'Id'
