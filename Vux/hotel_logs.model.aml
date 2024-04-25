@@ -1,7 +1,7 @@
 Model hotel_logs {
   type: 'table'
   label: 'Hotel Logs Test Vu'
-  description: 'kkkkkkkkkkkkkkkkk test conflict'
+  description: 'kkkkkkkkkkkkkkkkk test commit'
   data_source_name: 'hotel'
   dimension timestamp {
     label: 'Timestamp'
