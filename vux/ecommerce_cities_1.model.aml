@@ -11,7 +11,7 @@ Model ecommerce_cities_1 {
   }
   dimension name {
     label: 'Name'
-    description: 'abcdef'
+    description: 'vux123'
     type: 'text'
     hidden: false
     definition: @sql {{ #SOURCE.NAME }};;
