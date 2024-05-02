@@ -1,7 +1,7 @@
 Model ecommerce_categories_1 {
   type: 'table'
   label: 'Categories'
-  description: 'test description for category abcdef'
+  description: 'test description for category of ecommerce'
   data_source_name: 'snowflake'
   dimension id {
     label: 'Id'
