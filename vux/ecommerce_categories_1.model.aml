@@ -7,7 +7,7 @@ Model ecommerce_categories_1 {
     label: 'Id'
     type: 'number'
     hidden: false
-    description: 'field 123'
+    description: 'field abcdef 123'
     definition: @sql {{ #SOURCE.ID }};;
   }
   dimension name {
