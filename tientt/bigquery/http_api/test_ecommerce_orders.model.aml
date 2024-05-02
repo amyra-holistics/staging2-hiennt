@@ -1,6 +1,5 @@
 Model test_ecommerce_orders {
   type: 'query'
-  label: 'Test Ecommerce Orders'
   description: ''
   data_source_name: 'bigquery_with_http_api'
   dimension id {
