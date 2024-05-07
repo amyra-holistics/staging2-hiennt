@@ -1,7 +1,7 @@
 Model ecommerce_persisted_ecommerce_merchants {
   type: 'table'
   label: 'Persisted Ecommerce Merchants'
-  description: ''
+  description: 'test description'
   data_source_name: 'snowflake'
   dimension id {
     label: 'Id'

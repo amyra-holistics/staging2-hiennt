@@ -1,7 +1,7 @@
 Model ecommerce_merchants_1 {
   type: 'table'
   label: 'Merchants'
-  description: ''
+  description: 'test description'
   data_source_name: 'snowflake'
   dimension id {
     label: 'Id'

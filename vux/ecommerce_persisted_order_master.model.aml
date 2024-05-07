@@ -1,7 +1,7 @@
 Model ecommerce_persisted_order_master {
   type: 'table'
   label: 'Persisted Order Master'
-  description: ''
+  description: 'test description 123'
   data_source_name: 'snowflake'
   dimension user_id {
     label: 'User Id'
