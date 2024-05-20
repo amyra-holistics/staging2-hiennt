@@ -51,7 +51,7 @@ Dashboard new {
     label: 'Canvas Layout'
     height: 400
     block v1 {
-      position: pos(40, 30, 600, 400)
+      position: pos(10, 0, 600, 400)
       layer: 1
     }
   }
