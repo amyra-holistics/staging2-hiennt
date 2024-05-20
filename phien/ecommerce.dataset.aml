@@ -1,6 +1,6 @@
 Dataset ecommerce {
   label: 'Ecommerce Test'
-  description: 'This is a AML dataset for Git Sync test tiep nua nha'
+  description: 'This is a AML dataset for Git Sync test tiep nua'
   data_source_name: 'demodb'
   models: [
     ecommerce_cities,
