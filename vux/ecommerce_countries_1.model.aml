@@ -1,7 +1,7 @@
 Model ecommerce_countries_1 {
   type: 'table'
   label: 'Countries'
-  description: ''
+  description: 'test description def'
   data_source_name: 'snowflake'
   dimension code {
     label: 'Code'
