@@ -1,6 +1,6 @@
 Model ecommerce_merchants_1 {
   type: 'table'
-  label: 'Merchants duplicated a'
+  label: 'Merchants duplicated'
   description: 'this table is a duplicated version abc'
   data_source_name: 'demodb'
   dimension id {
