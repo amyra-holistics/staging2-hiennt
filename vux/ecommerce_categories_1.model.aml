@@ -1,7 +1,7 @@
 Model ecommerce_categories_1 {
   type: 'table'
   label: 'Categories'
-  description: 'test description, for product category of ecommerce vux abc'
+  description: 'test description, for product category of ecommerce vux 123'
   data_source_name: 'snowflake'
   dimension id {
     label: 'Id'
