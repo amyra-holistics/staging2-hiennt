@@ -1,6 +1,6 @@
 Dataset hotel {
   label: 'Hotel'
-  description: 'hotel model 3'
+  description: 'dataset for hotel'
   data_source_name: 'hotel'
   models: [
     hotel_traces
