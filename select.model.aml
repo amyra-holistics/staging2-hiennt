@@ -1,7 +1,7 @@
 Model select {
   type: 'query'
   label: 'Select1'
-  description: ''
+  description: 'select model'
   data_source_name: 'bigquery_demo'
   dimension f0 {
     label: 'F0'
