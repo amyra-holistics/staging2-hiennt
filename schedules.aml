@@ -1,6 +1,1 @@
-Schedule  {
-  models: List {
-    hotel_traces
-  }
-  cron: ''
-}
+123456
