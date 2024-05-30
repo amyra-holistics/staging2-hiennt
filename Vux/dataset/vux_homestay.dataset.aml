@@ -7,6 +7,7 @@ Dataset vux_homestay {
     homestay_listings
   ]
   relationships: [
+    relationship(homestay_listings.host_id > homestay_hosts.id, true)
   ]
   owner: 'vu.dq@holistics.io'
 }
