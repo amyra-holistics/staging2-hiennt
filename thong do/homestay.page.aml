@@ -8,7 +8,7 @@ Dashboard homestay {
       position: pos(60, 20, 550, 620)
     }
     block v2 {
-      position: pos(490, 100, 790, 620)
+      position: pos(530, 20, 410, 480)
     }
   }
   block v1: VizBlock {
