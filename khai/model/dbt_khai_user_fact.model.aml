@@ -1,0 +1,75 @@
+Model dbt_khai_user_fact {
+  type: 'table'
+  label: 'User Fact'
+  description: ''
+  data_source_name: 'demodb'
+  dimension id {
+    label: 'Id'
+    type: 'number'
+    hidden: false
+    definition: @sql {{ #SOURCE.id }};;
+  }
+  dimension first_name {
+    label: 'First Name'
+    type: 'text'
+    hidden: false
+    definition: @sql {{ #SOURCE.first_name }};;
+  }
+  dimension last_name {
+    label: 'Last Name'
+    type: 'text'
+    hidden: false
+    definition: @sql {{ #SOURCE.last_name }};;
+  }
+  dimension full_name {
+    label: 'Full Name'
+    type: 'text'
+    hidden: false
+    definition: @sql {{ #SOURCE.full_name }};;
+  }
+  dimension gender {
+    label: 'Gender'
+    type: 'text'
+    hidden: false
+    definition: @sql {{ #SOURCE.gender }};;
+  }
+  dimension city_id {
+    label: 'City Id'
+    type: 'number'
+    hidden: false
+    definition: @sql {{ #SOURCE.city_id }};;
+  }
+  dimension first_order_date {
+    label: 'First Order Date'
+    type: 'datetime'
+    hidden: false
+    definition: @sql {{ #SOURCE.first_order_date }};;
+  }
+  dimension most_recent_order_date {
+    label: 'Most Recent Order Date'
+    type: 'datetime'
+    hidden: false
+    definition: @sql {{ #SOURCE.most_recent_order_date }};;
+  }
+  dimension user_age {
+    label: 'User Age'
+    type: 'number'
+    hidden: false
+    definition: @sql {{ #SOURCE.user_age }};;
+  }
+  dimension number_of_orders {
+    label: 'Number Of Orders'
+    type: 'number'
+    hidden: false
+    definition: @sql {{ #SOURCE.number_of_orders }};;
+  }
+  dimension age_group {
+    label: 'Age Group'
+    type: 'text'
+    hidden: false
+    definition: @sql {{ #SOURCE.age_group }};;
+  }
+
+  owner: 'vu.dq@holistics.io'
+  table_name: '"dbt_khai"."user_fact"'
+}
