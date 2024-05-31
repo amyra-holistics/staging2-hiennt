@@ -1,6 +1,6 @@
 Model dbt_khai_location {
   type: 'table'
-  label: 'Location'
+  label: 'Locatio1n'
   description: ''
   data_source_name: 'demodb'
   dimension city_id {
