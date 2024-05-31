@@ -1,13 +1,13 @@
-Dataset homestay_dataset {
+Dataset homestay_dataset_thong {
   label: 'Homestay Dataset'
   description: ''
   data_source_name: 'demodb'
   models: [
-    homestay_hosts,
-    homestay_listings
+    homestay_hosts_thong,
+    homestay_listings_thong
   ]
   relationships: [
-    relationship(homestay_listings.host_id > homestay_hosts.id, true)
+    relationship(homestay_listings_thong.host_id > homestay_hosts_thong.id, true)
   ]
   owner: 'thong.do@holistics.io'
 }

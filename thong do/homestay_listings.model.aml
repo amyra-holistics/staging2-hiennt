@@ -1,4 +1,4 @@
-Model homestay_listings {
+Model homestay_listings_thong {
   type: 'table'
   label: 'Listings'
   description: ''

@@ -1,4 +1,4 @@
-Model homestay_hosts {
+Model homestay_hosts_thong {
   type: 'table'
   label: 'Hosts'
   description: ''

@@ -11,18 +11,18 @@ Dashboard homestay {
   block v1: VizBlock {
     label: 'Report'
     viz: DataTable {
-      dataset: homestay_dataset
+      dataset: homestay_dataset_thong
       fields: [
         VizFieldFull {
           label: 'Host'
-          ref: ref('homestay_hosts', 'name')
+          ref: ref('homestay_hosts_thong', 'name')
           format {
             type: 'text'
           }
         },
         VizFieldFull {
           label: 'Listings'
-          ref: ref('homestay_listings', 'name')
+          ref: ref('homestay_listings_thong', 'name')
           format {
             type: 'text'
           }
