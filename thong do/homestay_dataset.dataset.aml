@@ -1,6 +1,6 @@
 Dataset homestay_dataset_thong {
   label: 'Homestay Dataset'
-  description: '123'
+  description: '12345'
   data_source_name: 'demodb'
   models: [
     homestay_hosts_thong,
