@@ -1,6 +1,6 @@
 Model ecommerce_persisted_blockedstatus_csv {
   type: 'table'
-  labell: 'Persisted Blockedstatus Csv'
+  label: 'Persisted Blockedstatus Csv'
   description: ''
   data_source_name: 'demasdodb'
   dimension status {
