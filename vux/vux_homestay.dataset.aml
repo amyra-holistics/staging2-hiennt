@@ -1,0 +1,11 @@
+Dataset vux_homestay_2 {
+  label: 'Vux Homestay'
+  description: ''
+  data_source_name: 'demodb'
+  models: [
+    homestay_hosts
+  ]
+  relationships: [
+  ]
+  owner: 'vu.dq@holistics.io'
+}
