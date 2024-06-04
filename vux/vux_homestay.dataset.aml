@@ -1,6 +1,6 @@
 Dataset vux_homestay_2 {
   label: 'Vux Homestay'
-  description: ''
+  description: '123'
   data_source_name: 'demodb'
   models: [
     homestay_hosts
