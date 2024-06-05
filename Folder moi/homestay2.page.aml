@@ -1,0 +1,67 @@
+Dashboard homestay_2 {
+  title: 'Homestay 2'
+  description: ''''''
+  view: CanvasLayout {
+    label: 'View 1'
+    height: 800
+    block v1 {
+      position: pos(40, 90, 1140, 490)
+    }
+    block t1 {
+      position: pos(40, 20, 250, 60)
+    }
+  }
+  block v1: VizBlock {
+    label: 'Table'
+    viz: DataTable {
+      dataset: homestay_hai
+      fields: [
+        VizFieldFull {
+          ref: ref('homestay_listings', 'id')
+          format {
+            type: 'number'
+            pattern: 'inherited'
+          }
+        },
+        VizFieldFull {
+          ref: ref('homestay_listings', 'name')
+          format {
+            type: 'text'
+          }
+        },
+        VizFieldFull {
+          label: 'Host Name'
+          ref: ref('homestay_hosts_1', 'name')
+          format {
+            type: 'text'
+          }
+        },
+        VizFieldFull {
+          ref: ref('homestay_listings', 'description')
+          format {
+            type: 'html'
+          }
+        },
+        VizFieldFull {
+          ref: ref('homestay_listings', 'property_type')
+          format {
+            type: 'text'
+          }
+        },
+        VizFieldFull {
+          ref: ref('homestay_listings', 'room_type')
+          format {
+            type: 'text'
+          }
+        }
+      ]
+      settings {
+        show_row_number: true
+      }
+    }
+  }
+  block t1: TextBlock {
+    content: @md # Homestay Hai;;
+  }
+
+}

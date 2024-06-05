@@ -1,0 +1,13 @@
+Dataset homestay_hai {
+  label: 'Homestay Hai'
+  description: ''
+  data_source_name: 'demodb'
+  models: [
+    homestay_hosts_1,
+    homestay_listings
+  ]
+  relationships: [
+    relationship(homestay_listings.host_id > homestay_hosts_1.id, true)
+  ]
+  owner: 'thinh.nt@holistics.io'
+}
