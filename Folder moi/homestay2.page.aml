@@ -5,7 +5,7 @@ Dashboard homestay_2 {
     label: 'View 1'
     height: 800
     block v1 {
-      position: pos(40, 90, 1140, 490)
+      position: pos(40, 90, 1120, 490)
     }
     block t1 {
       position: pos(40, 20, 250, 60)
