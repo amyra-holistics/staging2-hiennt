@@ -1,0 +1,11 @@
+Dataset homestay {
+  label: 'Homestay'
+  description: ''
+  data_source_name: 'demodb'
+  models: [
+    homestay_hosts
+  ]
+  relationships: [
+  ]
+  owner: 'thinh.nt@holistics.io'
+}
