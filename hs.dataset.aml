@@ -1,0 +1,13 @@
+Dataset hs {
+  label: 'Hs'
+  description: ''
+  data_source_name: 'demodb'
+  models: [
+    homestay_hosts,
+    homestay_listings
+  ]
+  relationships: [
+    relationship(homestay_listings.host_id > homestay_hosts.id, true)
+  ]
+  owner: 'hoang.do@holistics.io'
+}
