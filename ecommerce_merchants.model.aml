@@ -1,6 +1,6 @@
 Model ecommerce_merchants {
   type: 'table'
-  label: 'Merchants'
+  label: 'Merchantsáds'
   description: ''
   data_source_name: 'demodb'
   dimension id {
