@@ -4,11 +4,14 @@ Dashboard unnamed {
   view: CanvasLayout {
     label: 'View 1'
     height: 800
+    block v1 {
+      position: pos(10, 10, 400, 300)
+    }
   }
   block v1: VizBlock {
     label: 'listings'
     viz: DataTable {
-      dataset: hs
+      dataset: hsds
       fields: [
         VizFieldFull {
           ref: ref('homestay_hosts', 'name')
