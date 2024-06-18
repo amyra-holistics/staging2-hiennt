@@ -1,5 +1,5 @@
 Dashboard unnamed {
-  title: 'Unnamed Dashboard'
+  title: 'Unnamed Dashboard ne'
   description: ''''''
   view: CanvasLayout {
     label: 'View 1'
