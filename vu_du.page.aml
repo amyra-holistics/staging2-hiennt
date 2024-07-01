@@ -26,6 +26,9 @@ Dashboard vu_du {
         show_row_number: true
       }
     }
+    settings {
+      hide_label: true
+    }
   }
 
 }
