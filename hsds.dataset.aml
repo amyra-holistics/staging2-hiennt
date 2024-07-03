@@ -1,5 +1,5 @@
 Dataset hsds {
-  label: 'Tai testtttt'
+  label: 'Tai'
   description: 'abc'
   data_source_name: 'demodb'
   models: [
