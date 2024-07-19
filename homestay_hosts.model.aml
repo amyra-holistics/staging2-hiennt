@@ -9,6 +9,12 @@ Model homestay_hosts {
     hidden: false
     definition: @sql {{ #SOURCE.id }};;
   }
+  dimension id_2 {
+    label: 'Id -->'
+    type: 'text'
+    hidden: false
+    definition: @sql concat({{ #SOURCE.id }},'-->', {{ #SOURCE.id}});;
+  }
   dimension url {
     label: 'Url'
     type: 'text'
