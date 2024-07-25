@@ -6,7 +6,7 @@ Dashboard unnamed {
     width: 1210
     height: 810
     block v1 {
-      position: pos(40, 10, 570, 310)
+      position: pos(60, 20, 570, 310)
     }
   }
   block v1: VizBlock {
