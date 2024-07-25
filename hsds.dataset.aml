@@ -1,6 +1,6 @@
 Dataset hsds {
-  label: 'Hsds'
-  description: ''
+  label: 'Taiiiii'
+  description: 'abc'
   data_source_name: 'demodb'
   models: [
     homestay_hosts,
@@ -9,5 +9,8 @@ Dataset hsds {
   relationships: [
     relationship(homestay_listings.host_id > homestay_hosts.id, true)
   ]
-  owner: 'hoang.do@holistics.io'
+  owner: 'hoang.do+gaa@holistics.io'
+
+
+  
 }

@@ -1,34 +1,33 @@
-Dashboard unnamed {
-  title: 'Unnae'
+Dashboard vu_du {
+  title: 'Vu Du'
   description: ''''''
   view: CanvasLayout {
     label: 'View 1'
     height: 800
     block v1 {
-      position: pos(40, 10, 400, 300)
+      position: pos(400, 40, 400, 300)
     }
   }
   block v1: VizBlock {
-    label: 'listings'
+    label: 'test'
     viz: DataTable {
       dataset: hsds
       fields: [
         VizFieldFull {
-          ref: ref('homestay_hosts', 'name')
+          ref: ref('homestay_hosts', 'id')
+          aggregation: 'count'
           format {
-            type: 'text'
-          }
-        },
-        VizFieldFull {
-          ref: ref('homestay_listings', 'name')
-          format {
-            type: 'text'
+            type: 'number'
+            pattern: 'inherited'
           }
         }
       ]
       settings {
         show_row_number: true
       }
+    }
+    settings {
+      hide_label: true
     }
   }
 
