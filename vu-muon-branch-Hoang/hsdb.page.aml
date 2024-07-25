@@ -3,7 +3,8 @@ Dashboard unnamed {
   description: ''''''
   view: CanvasLayout {
     label: 'View 1'
-    height: 800
+    width: 1210
+    height: 810
     block v1 {
       position: pos(40, 10, 570, 310)
     }
