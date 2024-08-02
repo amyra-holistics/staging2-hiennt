@@ -1,7 +1,10 @@
 Model homestay_listings {
   type: 'table'
   label: 'Listings'
+<<<<<<< HEAD
   description: 'test 123xyz'
+=======
+>>>>>>> origin/master
   data_source_name: 'demodb'
   dimension id {
     label: 'Id'
