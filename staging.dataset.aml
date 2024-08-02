@@ -1,0 +1,10 @@
+Dataset staging {
+  label: 'Staging'
+  data_source_name: 'staging2'
+  models: [
+    public_users
+  ]
+  relationships: [
+  ]
+  owner: 'tien.tt@holistics.io'
+}
