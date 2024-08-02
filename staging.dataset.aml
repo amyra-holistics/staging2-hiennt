@@ -3,7 +3,7 @@ Dataset staging {
   description: 'test'
   data_source_name: 'staging2'
   models: [
-    public_usersx
+    public_users
   ]
   relationships: [
   ]

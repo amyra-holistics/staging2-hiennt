@@ -1,4 +1,4 @@
-Model public_usersx {
+Model public_users {
   type: 'table'
   label: 'Users'
   description: 'abc'
