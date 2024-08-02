@@ -1,6 +1,5 @@
 Dashboard vu_du {
   title: 'Vu Du'
-  description: '''test dashboard vux abc'''
   view: CanvasLayout {
     label: 'View 1'
     height: 800
