@@ -1,9 +1,6 @@
 Dataset staging {
   label: 'Staging'
-<<<<<<< HEAD
   description: 'test 123'
-=======
->>>>>>> origin/master
   data_source_name: 'staging2'
   models: [
     public_users
