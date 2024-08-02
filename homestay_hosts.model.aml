@@ -1,7 +1,6 @@
 Model homestay_hosts {
   type: 'table'
   label: 'Hosts'
-  description: 'Description 222'
   data_source_name: 'demodb'
   dimension id {
     label: 'Id'
