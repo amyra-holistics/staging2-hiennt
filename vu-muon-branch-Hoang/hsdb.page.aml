@@ -1,5 +1,9 @@
 Dashboard unnamed {
+<<<<<<< HEAD
   title: 'Unnamed Dashboard nerrrrwerwerwereeeee'
+=======
+  title: 'Unnae'
+>>>>>>> origin/master
   description: ''''''
   view: CanvasLayout {
     label: 'View 1'
