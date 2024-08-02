@@ -1,9 +1,6 @@
 Dashboard vu_du {
   title: 'Vu Du'
-<<<<<<< HEAD
   description: '''vux test dashboard'''
-=======
->>>>>>> origin/master
   view: CanvasLayout {
     label: 'View 1'
     height: 800
