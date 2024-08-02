@@ -1,4 +1,4 @@
-Model ecommerce_categories_1 {
+Model ecommerce_categories_12 {
   type: 'table'
   label: 'Categories'
   description: 'a random data model of category'
