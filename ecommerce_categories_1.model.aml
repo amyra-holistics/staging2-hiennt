@@ -1,7 +1,7 @@
 Model ecommerce_categories_12 {
   type: 'table'
   label: 'Categories'
-  description: 'a random data model 1'
+  description: 'a random data model'
   data_source_name: 'demodb'
   dimension id {
     label: 'Id'
