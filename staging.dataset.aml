@@ -1,6 +1,6 @@
 Dataset staging {
   label: 'Staging'
-  description: ''
+  description: 'test'
   data_source_name: 'staging2'
   models: [
     public_users

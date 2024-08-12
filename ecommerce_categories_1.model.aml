@@ -1,7 +1,7 @@
-Model ecommerce_categories_1 {
+Model ecommerce_categories_12 {
   type: 'table'
-  label: 'Categoriesss'
-  description: 'Some other fasdfasdf ijhjhjkh'
+  label: 'Categories'
+  description: 'a random data model'
   data_source_name: 'demodb'
   dimension id {
     label: 'Id'
