@@ -1,6 +1,6 @@
 Model homestay_listings {
   type: 'table'
-  label: 'Listings Test'
+  label: 'Listings'
   description: 'test'
   data_source_name: 'demodb'
   dimension id {
