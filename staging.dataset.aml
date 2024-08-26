@@ -8,4 +8,9 @@ Dataset staging {
   relationships: [
   ]
   owner: 'tien.tt@holistics.io'
+  metric total_users {
+    label: "Total Users"
+    type: "number"
+    definition: @aql count(public_users.id);;
+  }
 }
