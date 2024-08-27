@@ -1,6 +1,6 @@
 Dataset hsds {
-  label: 'Taiiiii'
-  description: 'abcdefghi'
+  label: 'Tai test'
+  description: 'abcdef123456'
   data_source_name: 'demodb'
   models: [
     homestay_hosts,
