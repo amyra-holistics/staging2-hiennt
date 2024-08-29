@@ -1,6 +1,7 @@
 Model test_large_table {
   type: 'query'
   label: 'Test Large Table'
+  description: ''
   data_source_name: 'bigquery_with_http_api'
   dimension state {
     label: 'State'
