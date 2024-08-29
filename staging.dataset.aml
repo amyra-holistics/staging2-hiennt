@@ -1,7 +1,7 @@
 Dataset staging {
   __engine__: 'aql'
   label: 'Staging'
-  description: 'test 1'
+  description: 'test'
   data_source_name: 'staging2'
   models: [
     public_users
