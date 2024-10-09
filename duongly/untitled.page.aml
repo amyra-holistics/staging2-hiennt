@@ -1,5 +1,9 @@
 Dashboard untitled {
+<<<<<<< HEAD
   title: '123123123'
+=======
+  title: 'Untitledddd'
+>>>>>>> origin/master
   description: ''''''
 
   block title: TextBlock {
