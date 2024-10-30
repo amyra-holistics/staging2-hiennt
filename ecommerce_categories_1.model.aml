@@ -1,7 +1,7 @@
-Model ecommerce_categories {
+Model ecommerce_categories_12 {
   type: 'table'
-  label: 'Categories vux abc hehehe'
-  description: '123'
+  label: 'Categories'
+  description: 'Categories'
   data_source_name: 'demodb'
   dimension id {
     label: 'Id'
@@ -21,7 +21,7 @@ Model ecommerce_categories {
     hidden: false
     definition: @sql {{ #SOURCE.parent_id }};;
   }
-
-  owner: 'vu.dq@holistics.io'
+// commend sthing
+  owner: 'huy.vu@holistics.io'
   table_name: '"ecommerce"."categories"'
 }
