@@ -6,8 +6,8 @@ Model public_users {
   dimension id {
     label: 'Id'
     type: 'number'
-    hidden: false
     definition: @sql {{ #SOURCE.id }};;
+    description: "pk"
   }
   dimension allow_authentication_token {
     label: 'Allow Authentication Token'
