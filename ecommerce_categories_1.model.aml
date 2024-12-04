@@ -7,7 +7,7 @@ Model ecommerce_categories_12 {
     label: 'Id'
     type: 'number'
     definition: @sql {{ #SOURCE.id }};;
-    description: "primary key"
+    description: "primary ha"
   }
   dimension name {
     label: 'Name'

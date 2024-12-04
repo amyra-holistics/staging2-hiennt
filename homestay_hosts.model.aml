@@ -7,7 +7,7 @@ Model homestay_hosts {
     label: 'Iddddd'
     type: 'number'
     definition: @sql {{ #SOURCE.id }};;
-    description: "hehe"
+    description: "qqqqqq"
   }
   dimension id_2 {
     label: 'Id -->'
