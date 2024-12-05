@@ -1,5 +1,6 @@
 Dataset sdsd {
   label: 'Tai test'
+  description: 'hihi hehe'
   data_source_name: 'demodb'
   models: [
     homestay_hosts,
