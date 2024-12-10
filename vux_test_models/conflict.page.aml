@@ -1,5 +1,5 @@
-Dashboard untitled_2 {
-  title: 'Untitled 2'
+Dashboard conflict {
+  title: 'Conflict'
   description: ''''''
   block guide: TextBlock {
     content: @md <a href="https://cdn.holistics.io/product/modeling-merge-conflict-diagram-20241210-467.png" target="_blank">
