@@ -10,7 +10,11 @@ Dataset hsds {
     relationship(homestay_listings.host_id > homestay_hosts.id, true)
   ]
   owner: 'hoang.do+gaa@holistics.io'
-
-
-  
+  metric count_room_type {
+    label: "Count Room Type"
+    type: "number"
+    hidden: false
+    description: ""
+    definition: @aql count(homestay_listings.room_type);;
+  }
 }
