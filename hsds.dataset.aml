@@ -15,6 +15,6 @@ Dataset hsds {
     type: "number"
     hidden: false
     description: ""
-    definition: @aql count(homestay_listings.id);;
+    definition: @aql count_distinct(homestay_listings.id);;
   }
 }
