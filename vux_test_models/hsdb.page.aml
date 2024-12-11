@@ -25,12 +25,21 @@ Dashboard unnamed {
           format {
             type: 'text'
           }
+        },
+        VizFieldFull {
+          ref: ref('homestay_hosts', 'registered_date')
+          format {
+            type: 'date'
+          }
         }
       ]
       settings {
         show_row_number: true
+        aggregate_awareness {
+          enabled: true
+          debug_comments: true
+        }
       }
     }
   }
-
 }
