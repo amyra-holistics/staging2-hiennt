@@ -140,12 +140,6 @@ Model homestay_listings {
     hidden: false
     definition: @sql {{ #SOURCE.host_id }};;
   }
-  dimension name_and_type {
-    label: "Name And Type"
-    type: "text"
-    description: ""
-    definition: @sql concat({{ name }}, '_', {{ room_type }});;
-  }
 
   owner: 'vu.dq@holistics.io'
   table_name: '"homestay"."listings"'
