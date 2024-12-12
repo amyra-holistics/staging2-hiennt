@@ -2,7 +2,7 @@ Dashboard merge_conflict {
   title: 'Merge Conflict'
   description: 'Demo dashboard'
   block guide: TextBlock {
-    content: @md <img alt="a"  src="https://cdn.holistics.io/product/modeling-merge-conflict-diagram-20241210-467.png"/>;;
+    content: @md <img alt="a"  src="https://cdn.holistics.io/product/modeling-merge-conflict-diagram1-20241212-494.png"/>;;
   }
   block t1: TextBlock {
     content: @md <img alt="b"  src="https://cdn.holistics.io/docs/git/merge-conflict.png"/>;;
@@ -13,10 +13,10 @@ Dashboard merge_conflict {
     height: 1080
     grid_size: 20
     block guide {
-      position: pos(0, 0, 1200, 500)
+      position: pos(0, 0, 1200, 460)
     }
     block t1 {
-      position: pos(0, 500, 1200, 580)
+      position: pos(0, 460, 1200, 580)
     }
   }
 
