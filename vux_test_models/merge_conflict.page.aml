@@ -1,6 +1,6 @@
 Dashboard merge_conflict {
   title: 'Merge Conflict'
-  description: ''''''
+  description: 'Demo dashboard'
   block guide: TextBlock {
     content: @md <img alt="a"  src="https://cdn.holistics.io/product/modeling-merge-conflict-diagram-20241210-467.png"/>;;
   }
