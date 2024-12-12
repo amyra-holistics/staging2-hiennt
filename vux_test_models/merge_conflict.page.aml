@@ -10,13 +10,13 @@ Dashboard merge_conflict {
 
   view: CanvasLayout {
     label: 'View 1'
-    height: 1080
+    height: 1020
     grid_size: 20
     block guide {
       position: pos(0, 0, 1200, 460)
     }
     block t1 {
-      position: pos(0, 460, 1200, 580)
+      position: pos(0, 460, 1200, 560)
     }
   }
 
