@@ -1,6 +1,7 @@
 Model public_users {
   type: 'table'
   label: 'Users'
+  description: 'abc'
   data_source_name: 'staging2'
   dimension id {
     label: 'Id'
