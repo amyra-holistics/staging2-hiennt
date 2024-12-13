@@ -140,11 +140,11 @@ Model homestay_listings {
     hidden: false
     definition: @sql {{ #SOURCE.host_id }};;
   }
-  measure count_room_type {
-    label: 'Count Room Type'
-    type: 'number'
-    hidden: false
-    definition: @aql count_distinct({{#SOURCE.room_type}});;
+  dimension name_and_type {
+    label: "Name And Type"
+    type: "text"
+    description: ""
+    definition: @sql concat({{ name }}, '_', {{ room_type }});;
   }
 
   owner: 'vu.dq@holistics.io'
