@@ -6,7 +6,7 @@ Dashboard unnamed {
     width: 1210
     height: 810
     block v1 {
-      position: pos(60, 20, 570, 310)
+      position: pos(30, 20, 570, 310)
     }
   }
   block v1: VizBlock {
@@ -25,12 +25,21 @@ Dashboard unnamed {
           format {
             type: 'text'
           }
+        },
+        VizFieldFull {
+          ref: ref('homestay_hosts', 'registered_date')
+          format {
+            type: 'date'
+          }
         }
       ]
       settings {
         show_row_number: true
+        aggregate_awareness {
+          enabled: true
+          debug_comments: true
+        }
       }
     }
   }
-
 }
