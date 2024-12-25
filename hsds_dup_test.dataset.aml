@@ -1,6 +1,6 @@
 Dataset hsds_dub_test {
   label: 'Homestay Dataset'
-  description: 'Explore homestay listings with this dataset'
+  description: 'Explore homestay listings with this dataset 123'
   data_source_name: 'demodb'
   models: [
     homestay_hosts,
