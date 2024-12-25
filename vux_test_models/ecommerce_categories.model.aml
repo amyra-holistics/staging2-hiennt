@@ -11,7 +11,7 @@ Model ecommerce_categories {
   }
   dimension name {
     label: 'Name'
-    description: 'name?'
+    description: 'names?'
     type: 'text'
     hidden: false
     definition: @sql {{ #SOURCE.name }};;
