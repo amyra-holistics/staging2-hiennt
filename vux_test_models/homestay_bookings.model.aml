@@ -1,7 +1,7 @@
 Model homestay_bookings {
   type: 'table'
   label: 'Bookings'
-  description: 'anh Huy ngoi canh anh Thong 1'
+  description: 'anh Huy ngoi canh anh Hoang'
   data_source_name: 'demodb'
   dimension id {
     label: 'Id'
