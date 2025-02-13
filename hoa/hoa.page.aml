@@ -162,30 +162,42 @@ Dashboard untitled_2 {
       }
     }
   }
+  block f1: FilterBlock {
+    label: 'a'
+    type: 'text'
+    default {
+      operator: 'is'
+      value: "'Default Filter'"
+    }
+  }
 
   view: CanvasLayout {
     label: 'View 1'
     height: 840
     grid_size: 20
     block v1 {
-      position: pos(20, 20, 420, 280)
+      position: pos(20, 160, 420, 280)
       layer: 1
     }
     block v2 {
-      position: pos(20, 320, 420, 300)
+      position: pos(20, 460, 420, 300)
       layer: 1
     }
     block v3 {
-      position: pos(460, 20, 260, 220)
+      position: pos(460, 160, 260, 220)
     }
     block v4 {
-      position: pos(740, 20, 320, 220)
+      position: pos(740, 160, 320, 220)
     }
     block v5 {
-      position: pos(460, 260, 260, 200)
+      position: pos(460, 400, 260, 200)
     }
     block v6 {
-      position: pos(740, 260, 320, 220)
+      position: pos(740, 400, 320, 220)
+    }
+    block f1 {
+      position: pos(20, 20, 300, 100)
+      layer: 2
     }
   }
 
