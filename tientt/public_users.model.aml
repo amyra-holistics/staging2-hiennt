@@ -48,4 +48,11 @@ Model public_users_123 {
 
   owner: 'tien.tt@holistics.io'
   table_name: '"public"."users"'
+  measure count_user {
+    label: "Count User"
+    type: "number"
+    description: ""
+    definition: @sql {{ #SOURCE.id }};;
+    aggregation_type: "count"
+  }
 }
