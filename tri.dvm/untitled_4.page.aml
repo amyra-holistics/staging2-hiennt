@@ -1,0 +1,47 @@
+Dashboard untitled_4 {
+  title: 'Untitled 4'
+  description: ''''''
+
+  view: CanvasLayout {
+    label: 'View 1'
+    height: 840
+    grid_size: 20
+    mobile {
+      mode: 'auto'
+    }
+    block f1 {
+      position: pos(20, 20, 300, 100)
+      layer: 1
+    }
+    block f2 {
+      position: pos(340, 20, 260, 80)
+      layer: 2
+    }
+  }
+
+  theme: H.themes.vanilla
+  block f1: FilterBlock {
+    label: 'A'
+    type: 'field'
+    source: FieldFilterSource {
+      dataset: staging
+      field: ref('public_users', 'name')
+    }
+    default {
+      operator: 'is'
+      value: []
+    }
+  }
+  block f2: FilterBlock {
+    label: 'ACs'
+    type: 'field'
+    source: FieldFilterSource {
+      dataset: public_ecommerce
+      field: ref('public_persisted_orders', 'avg_discount')
+    }
+    default {
+      operator: 'is'
+      value: []
+    }
+  }
+}
