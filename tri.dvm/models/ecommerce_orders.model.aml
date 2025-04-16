@@ -62,10 +62,10 @@ Model public_persisted_orders {
     aggregation_type: "avg"
     format: "#,###0.00"
   }
-  measure order_value {
-    label: "Order value"
-    type: "number"
-    definition: @aql sum(public_persisted_order_items.order_item_value);;
-    format: "#,###0.00"
-  }
+  // measure order_value {
+  //   label: "Order value"
+  //   type: "number"
+  //   definition: @aql sum(public_persisted_order_items.order_item_value);;
+  //   format: "#,###0.00"
+  // }
 }

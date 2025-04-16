@@ -21,12 +21,12 @@ Model public_persisted_order_items {
     hidden: false
     definition: @sql {{ #SOURCE.quantity }};;
   }
-  dimension order_item_value {
-    label: 'Order Item Value'
-    type: 'number'
-    hidden: false
-    definition: @aql public_persisted_order_items.quantity * public_persisted_products.price ;;
-  }
+  // dimension order_item_value {
+  //   label: 'Order Item Value'
+  //   type: 'number'
+  //   hidden: false
+  //   definition: @aql public_persisted_order_items.quantity * public_persisted_products.price ;;
+  // }
 
   owner: 'tri.dvm@holistics.io'
   table_name: '"ecommerce"."order_items"'
