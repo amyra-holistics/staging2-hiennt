@@ -49,10 +49,10 @@ Dataset public_ecommerce {
   }
 }
 
-// Dataset extended_ecommerce = public_ecommerce.extend({
-//   metric total_orders {
-//     label: "Total Orders"
-//     type: 'number'
-//     definition: @aql count(public_persisted_order_item.order_id) | where(public_persisted_countries.name == 'Vietnam') ;;
-//   }
-// })
+Dataset extended_ecommerce = public_ecommerce.extend({
+  // metric total_orders {
+  //   label: "Total Orders"
+  //   type: 'number'
+  //   definition: @aql count(public_persisted_order_item.order_id) | where(public_persisted_countries.name == 'Vietnam') ;;
+  // }
+})
