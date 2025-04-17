@@ -3,11 +3,11 @@ Dataset public_ecommerce {
   label: 'Ecommerce'
   description: ''
   data_source_name: 'demodb'
-  metric total_orders {
-    label: "Total Orders"
-    type: 'number'
-    definition: @aql count(public_persisted_orders.id) ;;
-  }
+  // metric total_orders {
+  //   label: "Total Orders"
+  //   type: 'number'
+  //   definition: @aql count(public_persisted_orders.id) ;;
+  // }
   models: [
     public_persisted_order_items,
     public_persisted_categories,
@@ -32,21 +32,21 @@ Dataset public_ecommerce {
     // relationship(public_persisted_orders.received_date > public_persisted_dates.date_actual, false),
   ]
   owner: 'tri.dvm@holistics.io'
-  metric below_target {
-    label: "below - target"
-    type: "number"
-    definition: @aql count(public_persisted_orders.id) - 0.4 * count(public_persisted_orders.id);;
-  }
-  metric above_target {
-    label: "above - target"
-    type: "number"
-    definition: @aql count(public_persisted_orders.id) + 0.6 * count(public_persisted_orders.id);;
-  }
-  metric equal_target {
-    label: "equal - target"
-    type: "number"
-    definition: @aql count(public_persisted_orders.id);;
-  }
+  // metric below_target {
+  //   label: "below - target"
+  //   type: "number"
+  //   definition: @aql count(public_persisted_orders.id) - 0.4 * count(public_persisted_orders.id);;
+  // }
+  // metric above_target {
+  //   label: "above - target"
+  //   type: "number"
+  //   definition: @aql count(public_persisted_orders.id) + 0.6 * count(public_persisted_orders.id);;
+  // }
+  // metric equal_target {
+  //   label: "equal - target"
+  //   type: "number"
+  //   definition: @aql count(public_persisted_orders.id);;
+  // }
 }
 
 Dataset extended_ecommerce = public_ecommerce.extend({
