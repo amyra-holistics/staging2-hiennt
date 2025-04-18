@@ -21,6 +21,16 @@ Model public_persisted_products {
     definition: @sql {{ #SOURCE.price }};;
     description: "Price of Original Model"
   }
+  dimension rating {
+    label: 'Product Rating'
+    type: 'text'
+    definition: @aql case(
+      when: public_persisted_products.price < 100
+      , then: 'N/A'
+      , else: cast(mod(cast(public_persisted_products.price, 'int'), 10), 'text')
+    ) ;;
+    description: "Product Rating"
+  }
   dimension created_at {
     label: 'Created At'
     type: 'datetime'
