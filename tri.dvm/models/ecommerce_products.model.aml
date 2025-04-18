@@ -21,8 +21,8 @@ Model public_persisted_products {
     definition: @sql {{ #SOURCE.price }};;
     description: "Price of Original Model"
   }
-  dimension rating {
-    label: 'Product Rating'
+  dimension product_all_rating {
+    label: 'Rating'
     type: 'text'
     definition: @aql case(
       when: public_persisted_products.price < 100
@@ -32,6 +32,13 @@ Model public_persisted_products {
         mod(cast(public_persisted_products.price, 'int'), 8) * 0.1
         , 'text')
     ) ;;
+    hidden: true
+  }
+  dimension rating {
+    label: 'Product Rating'
+    type: 'text'
+    hidden: false
+    definition: @aql public_persisted_products.product_all_rating ;;
     description: "Product Rating"
   }
   dimension created_at {
