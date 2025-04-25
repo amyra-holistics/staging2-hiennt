@@ -151,6 +151,9 @@ Dashboard untitled_3 {
     label: 'Order Details'
     viz: DataTable {
       dataset: ecommerce
+      theme {
+
+      }
       fields: [
         VizFieldFull {
           ref: ref('ecommerce_orders', 'id')
@@ -161,8 +164,10 @@ Dashboard untitled_3 {
         },
         VizFieldFull {
           ref: ref('ecommerce_orders', 'created_at')
+          transformation: 'datetrunc year'
           format {
-            type: 'datetime'
+            type: 'date'
+            pattern: 'yyyy'
           }
         },
         VizFieldFull {
