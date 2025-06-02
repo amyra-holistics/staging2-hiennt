@@ -1,6 +1,6 @@
 Dataset tenant_user {
   label: 'Tenant User'
-  description: ''
+  description: '123123123123213'
   data_source_name: 'staging2'
   models: [
     public_users_123,
