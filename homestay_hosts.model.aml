@@ -27,7 +27,7 @@ Model homestay_hosts {
     hidden: false
     definition: @sql {{ #SOURCE.name }};;
   }
-  dimension registered_datse {
+  dimension registered_date {
     label: ''
     type: 'date'
     hidden: false
