@@ -62,6 +62,25 @@ Model public_persisted_orders {
     aggregation_type: "avg"
     format: "#,###0.00"
   }
+
+  param date_param {
+    label: 'Date Param'     // How it appears in the UI
+    type: 'date'                             // Data type (text, number, datetime)
+    description: 'Date Param'   // Helps other users understand the purpose
+  }
+
+  dimension date_param_field {
+    label: 'Date Param Field'
+    type: 'date'
+    definition: @aql public_persisted_orders.date_param | first() ;;
+  }
+
+  dimension formatted_created_at {
+    label: 'Formatted Date'
+    type: 'text'
+    definition: @aql date_format(public_persisted_orders.created_at, '%Y-%m') ;;
+  }
+ 
   // measure order_value {
   //   label: "Order value"
   //   type: "number"
