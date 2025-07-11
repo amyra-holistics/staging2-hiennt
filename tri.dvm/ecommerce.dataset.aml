@@ -42,11 +42,11 @@ Dataset public_ecommerce {
   //   type: "number"
   //   definition: @aql count(public_persisted_orders.id) + 0.6 * count(public_persisted_orders.id);;
   // }
-  // metric equal_target {
-  //   label: "equal - target"
-  //   type: "number"
-  //   definition: @aql count(public_persisted_orders.id);;
-  // }
+  metric equal_target {
+    label: "Count Orders"
+    type: "number"
+    definition: @aql count(public_persisted_orders.id);;
+  }
 }
 
 Dataset extended_ecommerce = public_ecommerce.extend({
