@@ -69,13 +69,35 @@ Dashboard untitled_4 {
     label: 'Demo Viz'
     viz: DataTable {
       dataset: public_ecommerce
+      calculation metric_7cc9c50 {
+        label: 'Untitled Metric'
+        formula: @aql @(1970 01 Jan to 2050 01 Jan) + interval(1 month);;
+        calc_type: 'measure'
+        data_type: 'datetime'
+      }
+      calculation metric_e7c2bcb {
+        label: 'Untitled Metric'
+        formula: @aql public_persisted_orders.created_at + interval(1 month);;
+        calc_type: 'measure'
+        data_type: 'datetime'
+      }
       conditions: [
-        '''public_persisted_orders.received_date >= first(public_persisted_orders.date_param) 
-and
-(
-public_persisted_orders.created_at matches first(public_persisted_orders.date_param)
-or
-public_persisted_orders.received_date <= first(public_persisted_orders.date_param)
+        '''(
+  public_persisted_orders.received_date >= first(public_persisted_orders.date_param)
+  and
+  (
+  public_persisted_orders.created_at matches first(public_persisted_orders.date_param)
+  or
+  public_persisted_orders.received_date <= first(public_persisted_orders.date_param)
+  )
+) or (
+   public_persisted_orders.received_date >=  @(2022/05/27)
+  and
+  (
+  public_persisted_orders.created_at matches @(2022/05/27 - 2022/06/02)
+  or
+  public_persisted_orders.received_date <= @(2022/05/27)
+  )
 )'''
       ]
       fields: [
@@ -96,6 +118,12 @@ public_persisted_orders.received_date <= first(public_persisted_orders.date_para
           ref: ref('public_persisted_orders', 'received_date')
           format {
             type: 'date'
+          }
+        },
+        VizFieldFull {
+          ref: 'metric_7cc9c50'
+          format {
+            type: 'datetime'
           }
         }
       ]
@@ -124,7 +152,7 @@ public_persisted_orders.received_date <= first(public_persisted_orders.date_para
     }
     default {
       operator: 'matches'
-      value: '$H_NIL$'
+      value: '2025-07-04 - 2025-07-18'
     }
   }
   block f4: FilterBlock {
