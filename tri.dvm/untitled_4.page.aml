@@ -82,15 +82,7 @@ Dashboard untitled_4 {
         data_type: 'datetime'
       }
       conditions: [
-        '''(
-  public_persisted_orders.received_date >= first(public_persisted_orders.date_param)
-  and
-  (
-  public_persisted_orders.created_at matches first(public_persisted_orders.date_param)
-  or
-  public_persisted_orders.received_date <= first(public_persisted_orders.date_param)
-  )
-) or (
+        ''' (
    public_persisted_orders.received_date >=  @(2022/05/27)
   and
   (
