@@ -42,7 +42,7 @@ Dataset public_ecommerce {
   //   type: "number"
   //   definition: @aql count(public_persisted_orders.id) + 0.6 * count(public_persisted_orders.id);;
   // }
-  metric equal_target {
+  metric count_orders {
     label: "Count Orders"
     type: "number"
     definition: @aql count(public_persisted_orders.id);;
