@@ -15,12 +15,6 @@ Dashboard unnamed {
       dataset: hsds
       fields: [
         VizFieldFull {
-          ref: ref('homestay_hosts', 'name')
-          format {
-            type: 'text'
-          }
-        },
-        VizFieldFull {
           ref: ref('homestay_listings', 'name')
           format {
             type: 'text'

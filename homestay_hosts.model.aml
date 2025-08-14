@@ -21,12 +21,12 @@ Model homestay_hosts {
     hidden: false
     definition: @sql {{ #SOURCE.url }};;
   }
-  dimension name {
-    label: 'Name'
-    type: 'text'
-    hidden: false
-    definition: @sql {{ #SOURCE.name }};;
-  }
+  // dimension name {
+  //   label: 'Name'
+  //   type: 'text'
+  //   hidden: false
+  //   definition: @sql {{ #SOURCE.name }};;
+  // }
   dimension registered_date {
     label: ''
     type: 'date'
