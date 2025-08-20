@@ -2,35 +2,48 @@ Dashboard untitled_3 {
   title: 'Ecommerce Dashboard'
   description: ''''''
 
-  view: CanvasLayout {
+  view: TabLayout {
     label: 'View 1'
-    height: 890
-    block v1 {
-      position: pos(30, 35, 260, 145)
-      layer: 1
+    tab tab1: CanvasLayout {
+      label: 'Tab 1'
+      width: 1245
+      height: 890
+      grid_size: 5
+      block v1 {
+        position: pos(30, 40, 260, 140)
+        layer: 1
+      }
+      block v2 {
+        position: pos(30, 185, 260, 145)
+        layer: 2
+      }
+      block v3 {
+        position: pos(295, 40, 510, 290)
+        layer: 3
+      }
+      block v4 {
+        position: pos(815, 40, 400, 290)
+        layer: 4
+      }
+      block v5 {
+        position: pos(25, 335, 780, 520)
+        layer: 5
+      }
+      block v6 {
+        position: pos(810, 335, 400, 520)
+        layer: 6
+      }
     }
-    block v2 {
-      position: pos(30, 185, 260, 145)
-      layer: 2
+    tab tab2: CanvasLayout {
+      label: 'Tab 2'
+      width: 1300
+      height: 800
+      grid_size: 20
+      auto_expand_vertically: true
+      mobile {
+        mode: 'auto'
+      }
     }
-    block v3 {
-      position: pos(295, 40, 510, 290)
-      layer: 3
-    }
-    block v4 {
-      position: pos(815, 35, 400, 295)
-      layer: 4
-    }
-    block v5 {
-      position: pos(25, 335, 780, 520)
-      layer: 5
-    }
-    block v6 {
-      position: pos(810, 335, 400, 520)
-      layer: 6
-    }
-    grid_size: 5
-    width: 1245
   }
   theme: H.themes.oasis
   block v1: VizBlock {
