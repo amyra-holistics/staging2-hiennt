@@ -411,7 +411,7 @@ Dashboard ecommerce_dashboard_test_ai {
     }
   }
   block v_zuv9: VizBlock {
-    label: 'Revenue this year'
+    label: ' '
     viz: MetricKpi {
       dataset: ecommerce
       calculation value_per_order {
