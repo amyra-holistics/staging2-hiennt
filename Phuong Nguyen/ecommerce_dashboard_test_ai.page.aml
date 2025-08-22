@@ -6,30 +6,30 @@ Dashboard ecommerce_dashboard_test_ai {
     label: 'View 1'
     height: 890
     block v1 {
-      position: pos(30, 35, 260, 145)
+      position: pos(25, 25, 250, 150)
       layer: 1
     }
     block v2 {
-      position: pos(30, 185, 260, 145)
+      position: pos(25, 175, 250, 150)
       layer: 2
     }
     block v3 {
-      position: pos(295, 40, 510, 290)
+      position: pos(300, 25, 500, 300)
       layer: 3
     }
     block v4 {
-      position: pos(815, 35, 400, 295)
+      position: pos(825, 25, 400, 300)
       layer: 4
     }
     block v5 {
-      position: pos(25, 335, 780, 520)
+      position: pos(25, 350, 775, 525)
       layer: 5
     }
     block v6 {
-      position: pos(810, 335, 400, 520)
+      position: pos(825, 350, 400, 525)
       layer: 6
     }
-    grid_size: 5
+    grid_size: 25
     width: 1245
   }
   theme: H.themes.classic
