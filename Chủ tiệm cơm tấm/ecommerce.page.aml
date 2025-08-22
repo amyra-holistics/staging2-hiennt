@@ -34,16 +34,6 @@ Dashboard untitled_3 {
         layer: 6
       }
     }
-    tab tab2: CanvasLayout {
-      label: 'Tab 2'
-      width: 1300
-      height: 800
-      grid_size: 20
-      auto_expand_vertically: true
-      mobile {
-        mode: 'auto'
-      }
-    }
   }
   theme: H.themes.oasis
   block v1: VizBlock {
