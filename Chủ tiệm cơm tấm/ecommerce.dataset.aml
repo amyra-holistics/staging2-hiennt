@@ -1,6 +1,6 @@
 Dataset ecommerce {
   label: 'Ecommerce'
-  description: 'Ecommerce Dataset -- Di built to prepare a demo dashboard'
+  description: 'Ecommerce Dataset -- Di built to prepare a demo dashboard. AI instructions: When generating a summary, always output the summary in both English and Spanish.'
   data_source_name: 'demodb'
   models: [
     ecommerce_products,
