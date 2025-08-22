@@ -2,35 +2,68 @@ Dashboard ecommerce_dashboard_test_ai {
   title: 'Ecommerce Dashboard - Test AI'
   description: ''''''
 
-  view: CanvasLayout {
+  view: TabLayout {
     label: 'View 1'
-    height: 890
-    block v1 {
-      position: pos(25, 25, 250, 150)
-      layer: 1
+    tab tab1: CanvasLayout {
+      label: 'Business overview'
+      width: 1245
+      height: 890
+      grid_size: 25
+      block v1 {
+        position: pos(25, 25, 250, 150)
+        layer: 1
+      }
+      block v2 {
+        position: pos(25, 175, 250, 150)
+        layer: 2
+      }
+      block v3 {
+        position: pos(300, 25, 500, 300)
+        layer: 3
+      }
+      block v4 {
+        position: pos(825, 25, 400, 300)
+        layer: 4
+      }
+      block v5 {
+        position: pos(25, 350, 775, 525)
+        layer: 5
+      }
+      block v6 {
+        position: pos(825, 350, 400, 525)
+        layer: 6
+      }
     }
-    block v2 {
-      position: pos(25, 175, 250, 150)
-      layer: 2
+    tab tab2: CanvasLayout {
+      label: 'Internal testing'
+      width: 1340
+      height: 800
+      grid_size: 20
+      auto_expand_vertically: true
+      mobile {
+        mode: 'auto'
+      }
+      block t_7s4c {
+        position: pos(20, 40, 420, 60)
+        layer: 1
+      }
+      block t_0cuh {
+        position: pos(460, 40, 420, 60)
+        layer: 1
+      }
+      block t_kxcy {
+        position: pos(20, 380, 420, 60)
+        layer: 1
+      }
+      block t_vb19 {
+        position: pos(900, 40, 420, 60)
+        layer: 1
+      }
+      block t_1x42 {
+        position: pos(460, 380, 420, 60)
+        layer: 1
+      }
     }
-    block v3 {
-      position: pos(300, 25, 500, 300)
-      layer: 3
-    }
-    block v4 {
-      position: pos(825, 25, 400, 300)
-      layer: 4
-    }
-    block v5 {
-      position: pos(25, 350, 775, 525)
-      layer: 5
-    }
-    block v6 {
-      position: pos(825, 350, 400, 525)
-      layer: 6
-    }
-    grid_size: 25
-    width: 1245
   }
   theme: H.themes.classic
   block v1: VizBlock {
@@ -240,5 +273,20 @@ Dashboard ecommerce_dashboard_test_ai {
         }
       }
     }
+  }
+  block t_7s4c: TextBlock {
+    content: @md Two metrics;;
+  }
+  block t_0cuh: TextBlock {
+    content: @md Dataset metric;;
+  }
+  block t_kxcy: TextBlock {
+    content: @md Metric with empty label;;
+  }
+  block t_vb19: TextBlock {
+    content: @md Viz metric;;
+  }
+  block t_1x42: TextBlock {
+    content: @md Viz with hidden title;;
   }
 }
