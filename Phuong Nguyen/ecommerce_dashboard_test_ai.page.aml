@@ -326,11 +326,6 @@ Dashboard ecommerce_dashboard_test_ai {
     label: 'Revenue and total orders'
     viz: CombinationChart {
       dataset: ecommerce
-      filter {
-        field: r(ecommerce_users.sign_up_at)
-        operator: 'matches'
-        value: 'last 3 years'
-      }
       x_axis: VizFieldFull {
         ref: r(ecommerce_users.sign_up_at)
         transformation: 'datetrunc month'
@@ -384,13 +379,8 @@ Dashboard ecommerce_dashboard_test_ai {
         calc_type: 'measure'
         data_type: 'number'
       }
-      filter {
-        field: r(ecommerce_users.sign_up_at)
-        operator: 'matches'
-        value: 'last 3 years'
-      }
       x_axis: VizFieldFull {
-        ref: r(ecommerce_users.sign_up_at)
+        ref: r(ecommerce_orders.created_at)
         transformation: 'datetrunc month'
         format {
           type: 'date'
@@ -421,7 +411,7 @@ Dashboard ecommerce_dashboard_test_ai {
     }
   }
   block v_zuv9: VizBlock {
-    label: 'Revenue'
+    label: 'Revenue this year'
     viz: MetricKpi {
       dataset: ecommerce
       calculation value_per_order {
@@ -431,9 +421,9 @@ Dashboard ecommerce_dashboard_test_ai {
         data_type: 'number'
       }
       filter {
-        field: r(ecommerce_users.sign_up_at)
+        field: r(ecommerce_orders.created_at)
         operator: 'matches'
-        value: 'last 3 years'
+        value: 'this year'
       }
       value: VizFieldFull {
         label: ' '
@@ -462,11 +452,6 @@ Dashboard ecommerce_dashboard_test_ai {
         calc_type: 'measure'
         data_type: 'number'
       }
-      filter {
-        field: r(ecommerce_users.sign_up_at)
-        operator: 'matches'
-        value: 'last 3 years'
-      }
       x_axis: VizFieldFull {
         label: 'Country'
         ref: r(ecommerce_countries.name)
@@ -494,6 +479,7 @@ Dashboard ecommerce_dashboard_test_ai {
           direction: 'desc'
           type: 'series'
         }
+        x_axis_label: 'Country'
         x_axis_show_null_datetime: true
         aggregate_awareness {
           enabled: true
@@ -512,11 +498,6 @@ Dashboard ecommerce_dashboard_test_ai {
     label: 'Revenue and total orders'
     viz: CombinationChart {
       dataset: ecommerce
-      filter {
-        field: r(ecommerce_users.sign_up_at)
-        operator: 'matches'
-        value: 'last 3 years'
-      }
       x_axis: VizFieldFull {
         ref: r(ecommerce_users.sign_up_at)
         transformation: 'datetrunc month'
