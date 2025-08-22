@@ -327,7 +327,7 @@ Dashboard ecommerce_dashboard_test_ai {
     viz: CombinationChart {
       dataset: ecommerce
       x_axis: VizFieldFull {
-        ref: r(ecommerce_users.sign_up_at)
+        ref: r(ecommerce_orders.created_at)
         transformation: 'datetrunc month'
         format {
           type: 'date'
