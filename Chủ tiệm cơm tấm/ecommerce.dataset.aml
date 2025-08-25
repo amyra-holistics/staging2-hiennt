@@ -27,7 +27,7 @@ Dataset ecommerce {
     label: "Total Order Value"
     type: "number"
     hidden: false
-    description: "Total order value regardless of order status. Synonyms: Gross Merchandise Value (GMV), purchase value, transaction value. Analysis context: This metric is influenced by number of orders, quantity per order, or product price."
+    description: "Total order value is the total transaction value when users place the orders. It is the gross value before any discount, cancellation or return. Synonyms: Gross Merchandise Value (GMV), purchase value, transaction value. For time series analysis, it always goes with Order Created At. Relevant breakdowns include order status, users' demographics, users' locations, and products, etc."
     definition: @aql sum(ecommerce_order_items.quantity * ecommerce_products.price);;
   }
 
