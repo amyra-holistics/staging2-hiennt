@@ -23,11 +23,11 @@ Dataset ecommerce {
   ]
   owner: 'di.hoang@holistics.io'
 
-  metric revenue {
-    label: "Revenue"
+  metric order_value {
+    label: "Total Order Value"
     type: "number"
     hidden: false
-    description: "Revenue is total order value regardless of status"
+    description: "Total order value regardless of order status"
     definition: @aql sum(ecommerce_order_items.quantity * ecommerce_products.price);;
   }
 
