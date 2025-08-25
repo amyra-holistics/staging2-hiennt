@@ -23,7 +23,7 @@ Dataset ecommerce {
   ]
   owner: 'di.hoang@holistics.io'
 
-  metric order_value {
+  metric total_order_value {
     label: "Total Order Value"
     type: "number"
     hidden: false

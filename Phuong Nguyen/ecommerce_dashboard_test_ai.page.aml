@@ -337,7 +337,7 @@ Dashboard ecommerce_dashboard_test_ai {
       y_axis {
         series {
           field: VizFieldFull {
-            ref: r(ecommerce.revenue)
+            ref: r(ecommerce.total_order_value)
             format {
               type: 'number'
               pattern: 'inherited'
@@ -427,7 +427,7 @@ Dashboard ecommerce_dashboard_test_ai {
       }
       value: VizFieldFull {
         label: ' '
-        ref: r(ecommerce.revenue)
+        ref: r(ecommerce.total_order_value)
         format {
           type: 'number'
           pattern: 'inherited'
@@ -465,7 +465,7 @@ Dashboard ecommerce_dashboard_test_ai {
         }
         series {
           field: VizFieldFull {
-            ref: r(ecommerce.revenue)
+            ref: r(ecommerce.total_order_value)
             format {
               type: 'number'
               pattern: '#,###'
@@ -509,7 +509,7 @@ Dashboard ecommerce_dashboard_test_ai {
       y_axis {
         series {
           field: VizFieldFull {
-            ref: r(ecommerce.revenue)
+            ref: r(ecommerce.total_order_value)
             format {
               type: 'number'
               pattern: 'inherited'
