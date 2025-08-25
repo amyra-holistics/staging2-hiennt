@@ -1,6 +1,6 @@
 Dataset ecommerce {
   label: 'Ecommerce (AI)'
-  description: 'This dataset contains business operations in our ecommerce platform: list of users who signed up, list of products being sold, and list of orders being placed.'
+  description: 'This dataset is about food'
   data_source_name: 'demodb'
   models: [
     ecommerce_products,
