@@ -1,6 +1,6 @@
 Dataset ecommerce {
-  label: 'Typical Ecommerce'
-  description: 'This Ecommerce dataset contains information about customers, products and transaction data.'
+  label: 'Ecommerce - Key Business Performances'
+  description: 'Business context: Our Ecommerce business spans across different countries and offer a wide range of products. This dataset contains information about high-level key business performances such as user growth and revenue growth.'
   data_source_name: 'demodb'
   models: [
     ecommerce_products,
