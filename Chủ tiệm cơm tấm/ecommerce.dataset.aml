@@ -27,7 +27,7 @@ Dataset ecommerce {
     label: "Total Order Value"
     type: "number"
     hidden: false
-    description: "Total order value regardless of order status. Synonyms: Gross Merchandise Value (GMV), purchase value, transaction value."
+    description: "Total order value regardless of order status. Synonyms: Gross Merchandise Value (GMV), purchase value, transaction value. Contributing factors: This metric can be improved by improving number of orders, number of quantity per order, or product price."
     definition: @aql sum(ecommerce_order_items.quantity * ecommerce_products.price);;
   }
 
