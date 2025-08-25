@@ -23,11 +23,11 @@ Dataset ecommerce {
   ]
   owner: 'di.hoang@holistics.io'
 
-  metric total_order_value {
-    label: "Total Order Value"
+  metric gmv {
+    label: "GMV"
     type: "number"
     hidden: false
-    description: "Total order value is the total transaction value when users place the orders. It is the gross value before any discount, cancellation or return. Synonyms: Gross Merchandise Value (GMV), purchase value, transaction value. For time series analysis, it always goes with Order Created At. Relevant breakdowns include order status, users' demographics, users' locations, and products, etc."
+    description: "Gross Merchandise Value (GMV) is the total value when user places an order, before applying any discounts or promotions, and isn't affected if the order gets cancelled or returned later. For time series analysis, it always goes with Order Created At. Relevant breakdowns include order status, users' demographics, users' locations, and products, etc."
     definition: @aql sum(ecommerce_order_items.quantity * ecommerce_products.price);;
   }
 
