@@ -18,7 +18,7 @@ Model ecommerce_products {
   dimension name {
     label: 'Name'
     type: 'text'
-    description: "Low quality product is the one that has at least 50% refunded orders."
+    description: ""
     hidden: false
     definition: @sql {{ #SOURCE.name }};;
     primary_key: false
