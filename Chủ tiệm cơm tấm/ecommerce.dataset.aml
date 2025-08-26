@@ -32,10 +32,10 @@ Dataset ecommerce {
   }
 
   metric count_distinct_user {
-    label: "CountD User"
+    label: "Count of Users"
     type: "number"
     hidden: false
-    description: "Number of users by distinct user_id"
+    description: "This is user count by distinct user IDs. Active user is defined as having at least one order in the last month."
     definition: @aql order_master.count_distinct_users ;;
   }
 
