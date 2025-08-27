@@ -3,7 +3,7 @@ Dataset ecommerce {
   description: 
     '''Business context: Our Ecommerce business spans across different countries and offer a wide range of products. 
     This dataset contains information about high-level key business performances such as user growth and revenue growth.
-    Active user is defined as having placed at least one order in the past month.'''
+    Active user is defined as having placed at least one order last month.'''
   data_source_name: 'demodb'
   models: [
     ecommerce_products,
