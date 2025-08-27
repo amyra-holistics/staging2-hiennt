@@ -41,8 +41,8 @@ Dataset ecommerce {
     hidden: false
     description: 
       '''This is user count by distinct user IDs. 
-      Active user is defined as having at least one order in the last month. 
-      Red-flag user is defined as having cancelled order more than 50% of their total order.'''
+      Active user (aka active customer) is defined as having at least one order in the last month. 
+      Wardrober (aka serial returner, frequent returner, return abuser) is defined as having returned/refunded order more than 50% of their total order.'''
     definition: @aql count_distinct(ecommerce_users.id) ;;
   }
 
