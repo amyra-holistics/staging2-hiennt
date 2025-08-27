@@ -40,9 +40,7 @@ Dataset ecommerce {
     type: "number"
     hidden: false
     description: 
-      '''This is user count by distinct user IDs. 
-      Active user is defined as having at least one order in the last month. 
-      Return abuser is defined as having refunded order more than 50% of their total order.'''
+      "This is user count by distinct user IDs. Active user is defined as having at least one order in the last month. Return abuser is defined as having refunded order more than 50% of their total order."
     definition: @aql count_distinct(ecommerce_users.id) ;;
   }
 
