@@ -42,9 +42,7 @@ Dataset ecommerce {
     type: "number"
     hidden: false
     description: 
-      '''This is user count by distinct user IDs.
-      Active user is defined as having placed at least one order this month.
-      Red-flag user is defined as having cancelled order more than 50% of their total order'''
+      '''This is user count by distinct user IDs.'''
     definition: @aql count_distinct(ecommerce_users.id) ;;
   }
 
