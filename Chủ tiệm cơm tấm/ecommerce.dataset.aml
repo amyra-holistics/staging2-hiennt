@@ -2,7 +2,8 @@ Dataset ecommerce {
   label: 'Ecommerce - Key Business Performances'
   description: 
     '''Business context: Our Ecommerce business spans across different countries and offer a wide range of products. 
-    This dataset contains information about high-level key business performances such as user growth and revenue growth.'''
+    This dataset contains information about high-level key business performances such as user growth and revenue growth.
+    Type of user definitions: Active user is defined as having placed at least one order this month. Red-flag user is defined as having cancelled order more than 50% of their total order'''
   data_source_name: 'demodb'
   models: [
     ecommerce_products,
