@@ -27,7 +27,11 @@ Dataset ecommerce {
     label: "GMV"
     type: "number"
     hidden: false
-    description: "Gross Merchandise Value (GMV) is the total value when user places an order, before applying any discounts or promotions. For time series analysis, it always goes with Order Created At. Relevant breakdowns include users' demographics, users' locations, and products, etc. When examining why there is an increase or a decrease in GMV, calculate the changes in order count, user count, and in each breakdown."
+    description: 
+      '''Gross Merchandise Value (GMV) is the total value when user places an order, before applying any discounts or promotions. 
+      For time series analysis, it always goes with Order Created At.
+      Relevant breakdowns include users' demographics, users' locations, and products, etc. 
+      When examining why there is an increase or a decrease in GMV, calculate the changes in order count, user count, and in each breakdown.'''
     definition: @aql sum(ecommerce_order_items.quantity * ecommerce_products.price);;
   }
 
@@ -35,7 +39,10 @@ Dataset ecommerce {
     label: "Count of Users"
     type: "number"
     hidden: false
-    description: "This is user count by distinct user IDs. Active user is defined as having at least one order in the last month. Red-flag user is defined as having cancelled order more than 50% of their total order."
+    description: 
+      '''This is user count by distinct user IDs. 
+      Active user is defined as having at least one order in the last month. 
+      Red-flag user is defined as having cancelled order more than 50% of their total order.'''
     definition: @aql count_distinct(ecommerce_users.id) ;;
   }
 
