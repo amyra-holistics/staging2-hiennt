@@ -2,8 +2,7 @@ Dataset ecommerce {
   label: 'Ecommerce - Key Business Performances'
   description: 
     '''Business context: Our Ecommerce business spans across different countries and offer a wide range of products. 
-    This dataset contains information about high-level key business performances such as user growth and revenue growth.
-    Active user is defined as having placed at least one order this month.'''
+    This dataset contains information about high-level key business performances such as user growth and revenue growth.'''
   data_source_name: 'demodb'
   models: [
     ecommerce_products,
@@ -43,7 +42,8 @@ Dataset ecommerce {
     type: "number"
     hidden: false
     description: 
-      '''This is user count by distinct user IDs.'''
+      '''This is user count by distinct user IDs.
+      Active user is defined as having placed at least one order this month.'''
     definition: @aql count_distinct(ecommerce_users.id) ;;
   }
 
