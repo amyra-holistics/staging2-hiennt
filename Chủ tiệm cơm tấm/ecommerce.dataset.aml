@@ -25,15 +25,11 @@ Dataset ecommerce {
   ]
   owner: 'di.hoang@holistics.io'
 
-  metric gmv {
-    label: "GMV"
+  metric sales {
+    label: "Sales"
     type: "number"
     hidden: false
-    description: 
-      '''Gross Merchandise Value (GMV) is the total value when user places an order, before applying any discounts or promotions. 
-      For time series analysis, it always goes with Order Created At.
-      Relevant breakdowns include users' demographics, users' locations, and products, etc. 
-      When examining why there is an increase or a decrease in GMV, calculate the changes in order count, user count, and in each breakdown.'''
+    description: ''
     definition: @aql sum(ecommerce_order_items.quantity * ecommerce_products.price);;
   }
 
