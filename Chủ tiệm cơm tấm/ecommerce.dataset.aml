@@ -30,7 +30,7 @@ Dataset ecommerce {
     type: "number"
     hidden: false
     description: ''
-    definition: @aql sum(ecommerce_order_items.quantity * ecommerce_products.price);;
+    definition: @aql sum(ecommerce_order_items.quantity * ecommerce_products.price) | where(ecommerce_orders.status == 'delivered');;
   }
 
   metric count_distinct_user {
