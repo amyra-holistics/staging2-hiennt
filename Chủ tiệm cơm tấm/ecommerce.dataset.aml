@@ -54,4 +54,26 @@ Dataset ecommerce {
     description: "Total number of orders"
     definition: @aql count(ecommerce_orders.id);;
   }
+
+  metric discount_driven_buyer {
+    label: "Discount driven buyer"
+    type: "number"
+    hidden: false
+    description:""
+    definition: @aql   
+      ecommerce_users
+      | group(ecommerce_users.id)
+      | select(
+          total_orders: ecommerce_orders | count(ecommerce_orders.id),
+          discounted_orders: ecommerce_orders | count_if(ecommerce_orders.discount > 0)
+        )
+      | filter(
+          case(
+            when: total_orders > 0,
+            then: discounted_orders * 1.0 / total_orders >= 0.8,
+            else: false
+          )
+        )
+      | count(ecommerce_users.id) ;;
+  }
 }
