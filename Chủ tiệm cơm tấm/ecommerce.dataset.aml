@@ -32,7 +32,8 @@ Dataset ecommerce {
     description: '''
       Definition: Total value from completed orders only, no cancellations or returns, and before any discounts.
       Synonyms: GMV, gross revenue.
-      When being asked about performance: Show overtime sales. Compare to same period in previous year because there can be seasonality.
+      When being asked about performance: Show overtime sales. 
+      Period comparison: Compare to same period in previous year because there can be seasonality.
       Common breakdown: User's demographics, user's locations, product name.
     '''
     definition: @aql sum(ecommerce_order_items.quantity * ecommerce_products.price) | where(ecommerce_orders.status == 'delivered');;
