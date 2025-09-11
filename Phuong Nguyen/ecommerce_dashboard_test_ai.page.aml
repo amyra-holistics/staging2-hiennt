@@ -101,7 +101,7 @@ Dashboard ecommerce_dashboard_test_ai {
       }
     }
     tab tab_187m: CanvasLayout {
-      label: 'Untitled'
+      label: 'Testing 1'
       width: 1300
       height: 800
       grid_size: 20
@@ -111,6 +111,20 @@ Dashboard ecommerce_dashboard_test_ai {
       }
       block v_cc6w {
         position: pos(420, 120, 500, 300)
+        layer: 1
+      }
+    }
+    tab tab_ove4: CanvasLayout {
+      label: 'Testing 2'
+      width: 1300
+      height: 800
+      grid_size: 20
+      auto_expand_vertically: true
+      mobile {
+        mode: 'auto'
+      }
+      block v_cc6w {
+        position: pos(420, 140, 500, 300)
         layer: 1
       }
     }
