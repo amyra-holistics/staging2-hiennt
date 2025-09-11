@@ -113,6 +113,10 @@ Dashboard ecommerce_dashboard_test_ai {
         position: pos(420, 120, 500, 300)
         layer: 1
       }
+      block v_mtr1 {
+        position: pos(420, 440, 500, 300)
+        layer: 1
+      }
     }
     tab tab_ove4: CanvasLayout {
       label: 'Testing 2'
@@ -125,6 +129,10 @@ Dashboard ecommerce_dashboard_test_ai {
       }
       block v_cc6w {
         position: pos(420, 140, 500, 300)
+        layer: 1
+      }
+      block v_pqbi {
+        position: pos(420, 460, 500, 300)
         layer: 1
       }
     }
@@ -677,6 +685,64 @@ Dashboard ecommerce_dashboard_test_ai {
       }
     }
   }
+  block v_mtr1: VizBlock {
+    label: 'Total Orders by Gender'
+    viz: PieChart {
+      dataset: ecommerce
+      legend: VizFieldFull {
+        ref: r(ecommerce_users.gender)
+        format {
+          type: 'text'
+        }
+      }
+      series {
+        field: VizFieldFull {
+          label: 'orders'
+          ref: r(ecommerce_orders.id)
+          aggregation: 'count'
+          format {
+            type: 'number'
+            pattern: 'inherited'
+          }
+        }
+      }
+      settings {
+        aggregate_awareness {
+          enabled: true
+          debug_comments: true
+        }
+      }
+    }
+  }
+  block v_pqbi: VizBlock {
+    label: 'Total Orders by Gender'
+    viz: PieChart {
+      dataset: ecommerce
+      legend: VizFieldFull {
+        ref: r(ecommerce_users.gender)
+        format {
+          type: 'text'
+        }
+      }
+      series {
+        field: VizFieldFull {
+          label: 'orders'
+          ref: r(ecommerce_orders.id)
+          aggregation: 'count'
+          format {
+            type: 'number'
+            pattern: 'inherited'
+          }
+        }
+      }
+      settings {
+        aggregate_awareness {
+          enabled: true
+          debug_comments: true
+        }
+      }
+    }
+  }
   interactions: [
     FilterInteraction {
       from: 'v1'
@@ -688,7 +754,9 @@ Dashboard ecommerce_dashboard_test_ai {
             'v_zuv9',
             'v_zv4n',
             'v_0jd3',
-            'v_cc6w'
+            'v_cc6w',
+            'v_mtr1',
+            'v_pqbi'
           ]
           disabled: true
         }
@@ -704,7 +772,9 @@ Dashboard ecommerce_dashboard_test_ai {
             'v_zuv9',
             'v_zv4n',
             'v_0jd3',
-            'v_cc6w'
+            'v_cc6w',
+            'v_mtr1',
+            'v_pqbi'
           ]
           disabled: true
         }
@@ -720,7 +790,9 @@ Dashboard ecommerce_dashboard_test_ai {
             'v_zuv9',
             'v_zv4n',
             'v_0jd3',
-            'v_cc6w'
+            'v_cc6w',
+            'v_mtr1',
+            'v_pqbi'
           ]
           disabled: true
         }
@@ -736,7 +808,9 @@ Dashboard ecommerce_dashboard_test_ai {
             'v_zuv9',
             'v_zv4n',
             'v_0jd3',
-            'v_cc6w'
+            'v_cc6w',
+            'v_mtr1',
+            'v_pqbi'
           ]
           disabled: true
         }
@@ -752,7 +826,9 @@ Dashboard ecommerce_dashboard_test_ai {
             'v_zuv9',
             'v_zv4n',
             'v_0jd3',
-            'v_cc6w'
+            'v_cc6w',
+            'v_mtr1',
+            'v_pqbi'
           ]
           disabled: true
         }
@@ -768,7 +844,9 @@ Dashboard ecommerce_dashboard_test_ai {
             'v_zuv9',
             'v_zv4n',
             'v_0jd3',
-            'v_cc6w'
+            'v_cc6w',
+            'v_mtr1',
+            'v_pqbi'
           ]
           disabled: true
         }
@@ -785,7 +863,9 @@ Dashboard ecommerce_dashboard_test_ai {
             'v4',
             'v5',
             'v6',
-            'v_cc6w'
+            'v_cc6w',
+            'v_mtr1',
+            'v_pqbi'
           ]
           disabled: true
         }
@@ -802,7 +882,9 @@ Dashboard ecommerce_dashboard_test_ai {
             'v4',
             'v5',
             'v6',
-            'v_cc6w'
+            'v_cc6w',
+            'v_mtr1',
+            'v_pqbi'
           ]
           disabled: true
         }
@@ -819,7 +901,9 @@ Dashboard ecommerce_dashboard_test_ai {
             'v4',
             'v5',
             'v6',
-            'v_cc6w'
+            'v_cc6w',
+            'v_mtr1',
+            'v_pqbi'
           ]
           disabled: true
         }
@@ -836,7 +920,9 @@ Dashboard ecommerce_dashboard_test_ai {
             'v4',
             'v5',
             'v6',
-            'v_cc6w'
+            'v_cc6w',
+            'v_mtr1',
+            'v_pqbi'
           ]
           disabled: true
         }
@@ -853,7 +939,9 @@ Dashboard ecommerce_dashboard_test_ai {
             'v4',
             'v5',
             'v6',
-            'v_cc6w'
+            'v_cc6w',
+            'v_mtr1',
+            'v_pqbi'
           ]
           disabled: true
         }
@@ -863,7 +951,11 @@ Dashboard ecommerce_dashboard_test_ai {
       from: 'f_n3j8'
       to: [
         CustomMapping {
-          block: 'v_cc6w'
+          block: [
+            'v_cc6w',
+            'v_mtr1',
+            'v_pqbi'
+          ]
           disabled: true
         }
       ]
@@ -881,7 +973,11 @@ Dashboard ecommerce_dashboard_test_ai {
       from: 'f_1le1'
       to: [
         CustomMapping {
-          block: 'v_cc6w'
+          block: [
+            'v_cc6w',
+            'v_mtr1',
+            'v_pqbi'
+          ]
           disabled: true
         }
       ]
@@ -911,6 +1007,50 @@ Dashboard ecommerce_dashboard_test_ai {
             'v_zuv9',
             'v_zv4n',
             'v_0jd3'
+          ]
+          disabled: true
+        }
+      ]
+    },
+    FilterInteraction {
+      from: 'v_mtr1'
+      to: [
+        CustomMapping {
+          block: [
+            'v1',
+            'v2',
+            'v3',
+            'v4',
+            'v5',
+            'v6',
+            'v_osyw',
+            'v_5hne',
+            'v_zuv9',
+            'v_zv4n',
+            'v_0jd3',
+            'v_pqbi'
+          ]
+          disabled: true
+        }
+      ]
+    },
+    FilterInteraction {
+      from: 'v_pqbi'
+      to: [
+        CustomMapping {
+          block: [
+            'v1',
+            'v2',
+            'v3',
+            'v4',
+            'v5',
+            'v6',
+            'v_osyw',
+            'v_5hne',
+            'v_zuv9',
+            'v_zv4n',
+            'v_0jd3',
+            'v_mtr1'
           ]
           disabled: true
         }
