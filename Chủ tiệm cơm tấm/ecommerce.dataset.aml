@@ -1,8 +1,10 @@
 Dataset ecommerce {
   label: 'Ecommerce - Key Business Performances'
-  description: 
-    '''Business context: Our Ecommerce business spans across different countries and offer a wide range of products. 
-    This dataset contains information about high-level key business performances such as user growth and revenue growth.'''
+  // description: '''
+  //   This dataset contains information about high-level key business performances such as user growth and revenue growth.
+  //   You can explore how number of users and revenue have grown compared to last month or last year.
+  //   You can also explore which countries or products contribute the most to the revenue.
+  // '''
   data_source_name: 'demodb'
   models: [
     ecommerce_products,
@@ -29,12 +31,12 @@ Dataset ecommerce {
     label: "Sales"
     type: "number"
     hidden: false
-    description: '''
-      Definition: Total value from completed orders only, no cancellations or returns, and before any discounts.
-      Synonyms: GMV, gross revenue.
-      When being asked about performance: Show overtime sales. 
-      Common breakdown: User's demographics, user's locations, product name.
-    '''
+    // description: '''
+    //   Definition: Total value from completed orders only, no cancellations or returns, and before any discounts.
+    //   Synonyms: GMV, gross revenue.
+    //   When being asked about performance: Show overtime sales. 
+    //   Common breakdown: User's demographics, user's locations, product name.
+    // '''
     definition: @aql sum(ecommerce_order_items.quantity * ecommerce_products.price) | where(ecommerce_orders.status == 'delivered');;
   }
 
