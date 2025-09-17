@@ -1,0 +1,72 @@
+Dataset ecommerce_sales {
+  label: 'Ecommerce - Sales'
+  description: '''
+  '''
+  data_source_name: 'demodb'
+  models: [
+    ecommerce_products,
+    ecommerce_users,
+    ecommerce_countries,
+    ecommerce_orders,
+    ecommerce_cities,
+    ecommerce_order_items
+  ]
+  relationships: [
+    relationship(ecommerce_orders.user_id > ecommerce_users.id, true)
+    ,
+    relationship(ecommerce_users.city_id > ecommerce_cities.id, true)
+    ,
+    relationship(ecommerce_cities.country_code > ecommerce_countries.code, true)
+    ,
+    relationship(ecommerce_order_items.product_id > ecommerce_products.id, true)
+    ,
+    relationship(ecommerce_order_items.order_id > ecommerce_orders.id, true)
+  ]
+  owner: 'di.hoang@holistics.io'
+
+  metric gross_sales {
+    label: "Gross sales"
+    type: "number"
+    hidden: false
+    description: '''
+    '''
+    definition: @aql sum(ecommerce_order_items.quantity * ecommerce_products.price);;
+  }
+
+  metric refunded_amount {
+    label: "Returned amount"
+    type: "number"
+    hidden: false
+    description: '''
+    '''
+    definition: @aql sum(ecommerce_order_items.quantity * ecommerce_products.price) | where(ecommerce_orders.status == 'refunded');;
+  }
+
+  metric cancelled_amount {
+    label: "Cancelled amount"
+    type: "number"
+    hidden: false
+    description: '''
+    '''
+    definition: @aql sum(ecommerce_order_items.quantity * ecommerce_products.price) | where(ecommerce_orders.status == 'cancelled');;
+  }
+
+  metric discount_amount {
+    label: "Discount amount"
+    type: "number"
+    hidden: false
+    description: '''
+    '''
+    definition: @aql sum(ecommerce_orders.discount);;
+  }
+
+  metric net_sales {
+    label: "Net sales"
+    type: "number"
+    hidden: false
+    description: '''
+    '''
+    definition: @aql gross_sales - refunded_amount - cancelled_amount - discount_amount;;
+  }
+  
+}
