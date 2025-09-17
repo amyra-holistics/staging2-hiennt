@@ -373,7 +373,7 @@ Dashboard ecommerce_dashboard_test_ai {
       y_axis {
         series {
           field: VizFieldFull {
-            ref: r(ecommerce.sales)
+            ref: r(ecommerce.gross_sales)
             format {
               type: 'number'
               pattern: 'inherited'
@@ -388,7 +388,7 @@ Dashboard ecommerce_dashboard_test_ai {
         series {
           mark_type: 'line'
           field: VizFieldFull {
-            ref: r(ecommerce.total_orders)
+            ref: r(ecommerce.gross_sales)
             format {
               type: 'number'
               pattern: 'inherited'
@@ -463,7 +463,7 @@ Dashboard ecommerce_dashboard_test_ai {
       }
       value: VizFieldFull {
         label: ' '
-        ref: r(ecommerce.sales)
+        ref: r(ecommerce.gross_sales)
         format {
           type: 'number'
           pattern: 'inherited'
@@ -501,7 +501,7 @@ Dashboard ecommerce_dashboard_test_ai {
         }
         series {
           field: VizFieldFull {
-            ref: r(ecommerce.sales)
+            ref: r(ecommerce.gross_sales)
             format {
               type: 'number'
               pattern: '#,###'
@@ -545,7 +545,7 @@ Dashboard ecommerce_dashboard_test_ai {
       y_axis {
         series {
           field: VizFieldFull {
-            ref: r(ecommerce.sales)
+            ref: r(ecommerce.gross_sales)
             format {
               type: 'number'
               pattern: 'inherited'
@@ -560,7 +560,7 @@ Dashboard ecommerce_dashboard_test_ai {
         series {
           mark_type: 'line'
           field: VizFieldFull {
-            ref: r(ecommerce.total_orders)
+            ref: r(ecommerce.gross_sales)
             format {
               type: 'number'
               pattern: 'inherited'
