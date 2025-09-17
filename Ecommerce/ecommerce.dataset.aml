@@ -1,4 +1,4 @@
-Dataset ecommerce_sales {
+Dataset ecommerce {
   label: 'Ecommerce - Sales'
   description: '''
   '''
