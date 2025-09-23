@@ -1,7 +1,7 @@
 Dataset ecommerce {
   label: 'Ecommerce - Sales'
   description: '''
-    AI LANGUAGE: Always respond in the language used in the user's question
+    AI LANGUAGE: ALWAYS RESPOND IN THE LANGUAGE USED IN THE USER'S QUESTION
   '''
   data_source_name: 'demodb'
   models: [
