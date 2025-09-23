@@ -1,9 +1,6 @@
 Dataset ecommerce {
   label: 'Ecommerce - Sales'
   description: '''
-    This dataset focuses on sales performance.
-	  Net Sales is the north-star metric. Our goal is to reach $5 million in monthly average Net Sales this year.
-	  Net Sales = Gross Sales - Returned Amount - Cancelled Amount - Discount
   '''
   data_source_name: 'demodb'
   models: [
