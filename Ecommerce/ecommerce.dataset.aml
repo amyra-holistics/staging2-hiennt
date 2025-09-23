@@ -1,6 +1,8 @@
 Dataset ecommerce {
   label: 'Ecommerce - Sales'
   description: '''
+    This dataset focuses on sales performance, in which Net Sales is our north-star metric. 
+	  Net Sales = Gross Sales - Returned Amount - Cancelled Amount - Discount Amount
   '''
   data_source_name: 'demodb'
   models: [
