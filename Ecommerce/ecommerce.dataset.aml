@@ -1,6 +1,7 @@
 Dataset ecommerce {
   label: 'Ecommerce - Sales'
   description: '''
+    Common breakdowns: Locations (continent, country, city), Category (category name, product name), Demographics (gender, age group)
   '''
   data_source_name: 'demodb'
   models: [
