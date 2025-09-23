@@ -1,8 +1,7 @@
 Dataset ecommerce {
   label: 'Ecommerce - Sales'
   description: '''
-    This dataset focuses on sales performance, in which Net Sales is our north-star metric. 
-	  Net Sales = Gross Sales - Returned Amount - Cancelled Amount - Discount Amount
+    Use these common breakdowns for further analyses: Locations (continent, country, city), Category (category name, product name), Demographics (gender, age group)
   '''
   data_source_name: 'demodb'
   models: [
