@@ -23,51 +23,52 @@ Dataset ecommerce {
     relationship(ecommerce_order_items.order_id > ecommerce_orders.id, true)
   ]
   owner: 'di.hoang@holistics.io'
-
   metric gross_sales {
     label: "Gross sales"
     type: "number"
     hidden: false
-    description: '''
-    '''
+    description: ''
     definition: @aql sum(ecommerce_order_items.quantity * ecommerce_products.price);;
+    format: "#,###"
   }
-
-  metric refunded_amount {
+  metric returned_amount {
     label: "Returned amount"
     type: "number"
     hidden: false
-    description: '''
-    '''
+    description: ''
     definition: @aql sum(ecommerce_order_items.quantity * ecommerce_products.price) | where(ecommerce_orders.status == 'refunded');;
+    format: "#,###"
   }
-
   metric cancelled_amount {
     label: "Cancelled amount"
     type: "number"
     hidden: false
-    description: '''
-    '''
+    description: ''
     definition: @aql sum(ecommerce_order_items.quantity * ecommerce_products.price) | where(ecommerce_orders.status == 'cancelled');;
+    format: "#,###"
   }
-
   metric discount_amount {
     label: "Discount amount"
     type: "number"
     hidden: false
-    description: '''
-    '''
+    description: ''
     definition: @aql sum(ecommerce_orders.discount);;
+    format: "#,###"
   }
-
   metric net_sales {
     label: "Net sales"
     type: "number"
     hidden: false
-    description: '''
-      Business Goal: Average monthly Net Sales of this year should be at least 20% more than that of last year
-    '''
-    definition: @aql gross_sales - refunded_amount - cancelled_amount - discount_amount;;
+    description: 'Business Goal: Average monthly Net Sales of this year should be at least 20% more than that of last year'
+    definition: @aql gross_sales - returned_amount - cancelled_amount - discount_amount;;
+    format: "#,###"
   }
-  
+  metric return_ratio {
+    label: "Return ratio"
+    type: "number"
+    hidden: false
+    description: ''
+    definition: @aql safe_divide(returned_amount,gross_sales) ;;
+    format: "#,###0.0%"
+  }
 }
