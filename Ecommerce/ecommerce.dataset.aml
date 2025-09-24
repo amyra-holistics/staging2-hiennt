@@ -65,7 +65,7 @@ Dataset ecommerce {
     type: "number"
     hidden: false
     description: '''
-      Business Goal: Average monthly Net Sales of this year should be at least 10% more than that of last year
+      Business Goal: Average monthly Net Sales of this year should be at least 20% more than that of last year
     '''
     definition: @aql gross_sales - refunded_amount - cancelled_amount - discount_amount;;
   }
