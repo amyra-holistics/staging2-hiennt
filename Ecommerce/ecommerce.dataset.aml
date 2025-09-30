@@ -70,7 +70,6 @@ Dataset ecommerce {
     description: '''
       Potential Insights: 
         - Product quality issue: If the return ratio of a particular product_id is higher than 30%, it means the product has quality issues, or the product description is not accurate. 
-        - Return policy abuse: If a user_id has ordered at least 3 times, and their return ratio is at least 60%, it means the user is abusing our return policies.
     '''
     definition: @aql safe_divide(returned_amount,gross_sales) ;;
     format: "#,###0.0%"
