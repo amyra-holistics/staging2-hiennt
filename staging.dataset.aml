@@ -1,3 +1,4 @@
+@tag('Trust/Endorsed')
 Dataset staging {
   __engine__: 'aql'
   label: 'Staging'
