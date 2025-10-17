@@ -7,7 +7,7 @@ Dashboard ecommerce_dashboard_test_ai {
     tab tab1: CanvasLayout {
       label: 'Business overview'
       width: 1245
-      height: 1325
+      height: 1750
       grid_size: 25
       block v1 {
         position: pos(25, 25, 250, 150)
@@ -36,6 +36,10 @@ Dashboard ecommerce_dashboard_test_ai {
       block v_spga {
         position: pos(25, 900, 600, 400)
         layer: 7
+      }
+      block v_3eor {
+        position: pos(25, 1325, 600, 400)
+        layer: 8
       }
     }
     tab tab2: CanvasLayout {
@@ -799,6 +803,48 @@ Dashboard ecommerce_dashboard_test_ai {
       }
     }
   }
+  block v_3eor: VizBlock {
+    label: "Show the price of the product named 'kitkat 1'"
+    viz: DataTable {
+      dataset: ecommerce
+      filter {
+        field: r(ecommerce_products.name)
+        operator: 'is'
+        value: 'kitkat 1'
+      }
+      fields: [
+        VizFieldFull {
+          label: 'Product Name'
+          ref: r(ecommerce_products.name)
+          format {
+            type: 'text'
+          }
+        },
+        VizFieldFull {
+          label: 'Product Price'
+          ref: r(ecommerce_products.price)
+          format {
+            type: 'number'
+            pattern: '#,###0.00'
+          }
+        }
+      ]
+      settings {
+        show_row_number: true
+        sorts: [
+          SortSetting {
+            field_index: 1
+            direction: 'desc'
+          }
+        ]
+        row_limit: 5000
+        aggregate_awareness {
+          enabled: true
+          debug_comments: true
+        }
+      }
+    }
+  }
   interactions: [
     FilterInteraction {
       from: 'v1'
@@ -922,7 +968,8 @@ Dashboard ecommerce_dashboard_test_ai {
             'v_cc6w',
             'v_mtr1',
             'v_pqbi',
-            'v_spga'
+            'v_spga',
+            'v_3eor'
           ]
           disabled: true
         }
@@ -942,7 +989,8 @@ Dashboard ecommerce_dashboard_test_ai {
             'v_cc6w',
             'v_mtr1',
             'v_pqbi',
-            'v_spga'
+            'v_spga',
+            'v_3eor'
           ]
           disabled: true
         }
@@ -962,7 +1010,8 @@ Dashboard ecommerce_dashboard_test_ai {
             'v_cc6w',
             'v_mtr1',
             'v_pqbi',
-            'v_spga'
+            'v_spga',
+            'v_3eor'
           ]
           disabled: true
         }
@@ -982,7 +1031,8 @@ Dashboard ecommerce_dashboard_test_ai {
             'v_cc6w',
             'v_mtr1',
             'v_pqbi',
-            'v_spga'
+            'v_spga',
+            'v_3eor'
           ]
           disabled: true
         }
@@ -1002,7 +1052,8 @@ Dashboard ecommerce_dashboard_test_ai {
             'v_cc6w',
             'v_mtr1',
             'v_pqbi',
-            'v_spga'
+            'v_spga',
+            'v_3eor'
           ]
           disabled: true
         }
@@ -1017,6 +1068,7 @@ Dashboard ecommerce_dashboard_test_ai {
             'v_mtr1',
             'v_pqbi',
             'v_spga',
+            'v_3eor',
             'f_1le1'
           ]
           disabled: true
@@ -1032,6 +1084,7 @@ Dashboard ecommerce_dashboard_test_ai {
             'v_mtr1',
             'v_pqbi',
             'v_spga',
+            'v_3eor',
             'f_n3j8'
           ]
           disabled: true
@@ -1054,7 +1107,8 @@ Dashboard ecommerce_dashboard_test_ai {
             'v_zuv9',
             'v_zv4n',
             'v_0jd3',
-            'v_spga'
+            'v_spga',
+            'v_3eor'
           ]
           disabled: true
         }
@@ -1077,7 +1131,8 @@ Dashboard ecommerce_dashboard_test_ai {
             'v_zv4n',
             'v_0jd3',
             'v_pqbi',
-            'v_spga'
+            'v_spga',
+            'v_3eor'
           ]
           disabled: true
         }
@@ -1100,7 +1155,8 @@ Dashboard ecommerce_dashboard_test_ai {
             'v_zv4n',
             'v_0jd3',
             'v_mtr1',
-            'v_spga'
+            'v_spga',
+            'v_3eor'
           ]
           disabled: true
         }
@@ -1108,6 +1164,24 @@ Dashboard ecommerce_dashboard_test_ai {
     },
     FilterInteraction {
       from: 'v_spga'
+      to: [
+        CustomMapping {
+          block: [
+            'v_osyw',
+            'v_5hne',
+            'v_zuv9',
+            'v_zv4n',
+            'v_0jd3',
+            'v_cc6w',
+            'v_mtr1',
+            'v_pqbi'
+          ]
+          disabled: true
+        }
+      ]
+    },
+    FilterInteraction {
+      from: 'v_3eor'
       to: [
         CustomMapping {
           block: [
