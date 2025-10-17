@@ -7,7 +7,7 @@ Dashboard ecommerce_dashboard_test_ai {
     tab tab1: CanvasLayout {
       label: 'Business overview'
       width: 1245
-      height: 890
+      height: 1325
       grid_size: 25
       block v1 {
         position: pos(25, 25, 250, 150)
@@ -32,6 +32,10 @@ Dashboard ecommerce_dashboard_test_ai {
       block v6 {
         position: pos(825, 350, 400, 525)
         layer: 6
+      }
+      block v_spga {
+        position: pos(25, 900, 600, 400)
+        layer: 7
       }
     }
     tab tab2: CanvasLayout {
@@ -743,6 +747,58 @@ Dashboard ecommerce_dashboard_test_ai {
       }
     }
   }
+  block v_spga: VizBlock {
+    label: 'Compare the count of new orders created yesterday vs. the day before yesterday'
+    viz: CombinationChart {
+      dataset: ecommerce
+      calculation order_count_yesterday {
+        label: 'Order Count Yesterday'
+        formula: @aql ecommerce_orders | count(ecommerce_orders.id) | where(ecommerce_orders.created_at matches @(yesterday));;
+        calc_type: 'measure'
+        data_type: 'number'
+      }
+      calculation order_count_day_before_yesterday {
+        label: 'Order Count Day Before Yesterday'
+        formula: @aql ecommerce_orders | count(ecommerce_orders.id) | where(ecommerce_orders.created_at matches @(2 days ago));;
+        calc_type: 'measure'
+        data_type: 'number'
+      }
+      y_axis {
+        settings {
+          group_values_into: 10
+          show_data_label_by: 'value'
+        }
+        series {
+          field: VizFieldFull {
+            label: 'Order Count Yesterday'
+            ref: 'order_count_yesterday'
+            format {
+              type: 'number'
+              pattern: '#,###'
+            }
+          }
+        }
+        series {
+          field: VizFieldFull {
+            label: 'Order Count Day Before Yesterday'
+            ref: 'order_count_day_before_yesterday'
+            format {
+              type: 'number'
+              pattern: '#,###'
+            }
+          }
+        }
+      }
+      settings {
+        row_limit: 100
+        x_axis_show_null_datetime: false
+        aggregate_awareness {
+          enabled: true
+          debug_comments: true
+        }
+      }
+    }
+  }
   interactions: [
     FilterInteraction {
       from: 'v1'
@@ -865,7 +921,8 @@ Dashboard ecommerce_dashboard_test_ai {
             'v6',
             'v_cc6w',
             'v_mtr1',
-            'v_pqbi'
+            'v_pqbi',
+            'v_spga'
           ]
           disabled: true
         }
@@ -884,7 +941,8 @@ Dashboard ecommerce_dashboard_test_ai {
             'v6',
             'v_cc6w',
             'v_mtr1',
-            'v_pqbi'
+            'v_pqbi',
+            'v_spga'
           ]
           disabled: true
         }
@@ -903,7 +961,8 @@ Dashboard ecommerce_dashboard_test_ai {
             'v6',
             'v_cc6w',
             'v_mtr1',
-            'v_pqbi'
+            'v_pqbi',
+            'v_spga'
           ]
           disabled: true
         }
@@ -922,7 +981,8 @@ Dashboard ecommerce_dashboard_test_ai {
             'v6',
             'v_cc6w',
             'v_mtr1',
-            'v_pqbi'
+            'v_pqbi',
+            'v_spga'
           ]
           disabled: true
         }
@@ -941,7 +1001,8 @@ Dashboard ecommerce_dashboard_test_ai {
             'v6',
             'v_cc6w',
             'v_mtr1',
-            'v_pqbi'
+            'v_pqbi',
+            'v_spga'
           ]
           disabled: true
         }
@@ -954,17 +1015,10 @@ Dashboard ecommerce_dashboard_test_ai {
           block: [
             'v_cc6w',
             'v_mtr1',
-            'v_pqbi'
+            'v_pqbi',
+            'v_spga',
+            'f_1le1'
           ]
-          disabled: true
-        }
-      ]
-    },
-    FilterInteraction {
-      from: 'f_n3j8'
-      to: [
-        CustomMapping {
-          block: 'f_1le1'
           disabled: true
         }
       ]
@@ -976,17 +1030,10 @@ Dashboard ecommerce_dashboard_test_ai {
           block: [
             'v_cc6w',
             'v_mtr1',
-            'v_pqbi'
+            'v_pqbi',
+            'v_spga',
+            'f_n3j8'
           ]
-          disabled: true
-        }
-      ]
-    },
-    FilterInteraction {
-      from: 'f_1le1'
-      to: [
-        CustomMapping {
-          block: 'f_n3j8'
           disabled: true
         }
       ]
@@ -1006,7 +1053,8 @@ Dashboard ecommerce_dashboard_test_ai {
             'v_5hne',
             'v_zuv9',
             'v_zv4n',
-            'v_0jd3'
+            'v_0jd3',
+            'v_spga'
           ]
           disabled: true
         }
@@ -1028,7 +1076,8 @@ Dashboard ecommerce_dashboard_test_ai {
             'v_zuv9',
             'v_zv4n',
             'v_0jd3',
-            'v_pqbi'
+            'v_pqbi',
+            'v_spga'
           ]
           disabled: true
         }
@@ -1050,7 +1099,26 @@ Dashboard ecommerce_dashboard_test_ai {
             'v_zuv9',
             'v_zv4n',
             'v_0jd3',
-            'v_mtr1'
+            'v_mtr1',
+            'v_spga'
+          ]
+          disabled: true
+        }
+      ]
+    },
+    FilterInteraction {
+      from: 'v_spga'
+      to: [
+        CustomMapping {
+          block: [
+            'v_osyw',
+            'v_5hne',
+            'v_zuv9',
+            'v_zv4n',
+            'v_0jd3',
+            'v_cc6w',
+            'v_mtr1',
+            'v_pqbi'
           ]
           disabled: true
         }
