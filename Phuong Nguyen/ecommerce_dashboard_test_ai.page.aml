@@ -7,7 +7,7 @@ Dashboard ecommerce_dashboard_test_ai {
     tab tab1: CanvasLayout {
       label: 'Business overview'
       width: 1245
-      height: 1750
+      height: 2175
       grid_size: 25
       block v1 {
         position: pos(25, 25, 250, 150)
@@ -40,6 +40,10 @@ Dashboard ecommerce_dashboard_test_ai {
       block v_3eor {
         position: pos(25, 1325, 600, 400)
         layer: 8
+      }
+      block v_ts11 {
+        position: pos(25, 1750, 600, 400)
+        layer: 9
       }
     }
     tab tab2: CanvasLayout {
@@ -845,6 +849,63 @@ Dashboard ecommerce_dashboard_test_ai {
       }
     }
   }
+  block v_ts11: VizBlock {
+    label: 'Average order value by country for September 2025'
+    viz: CombinationChart {
+      dataset: ecommerce
+      calculation order_value {
+        label: 'Order Value'
+        formula: @aql ecommerce_order_items | sum(ecommerce_order_items.quantity * ecommerce_products.price);;
+        calc_type: 'measure'
+        data_type: 'number'
+      }
+      calculation avg_order_value {
+        label: 'Avg Order Value'
+        formula: @aql unique(ecommerce_orders.id)
+  | select(order_value: order_value)
+  | avg(order_value);;
+        calc_type: 'measure'
+        data_type: 'number'
+      }
+      filter {
+        field: r(ecommerce_orders.created_at)
+        operator: 'matches'
+        value: '2025-09'
+      }
+      x_axis: VizFieldFull {
+        label: 'Country'
+        ref: r(ecommerce_countries.name)
+        format {
+          type: 'text'
+        }
+      }
+      y_axis {
+        settings {
+          group_values_into: 10
+          show_data_label_by: 'value'
+        }
+        series {
+          field: VizFieldFull {
+            label: 'Avg Order Value'
+            ref: 'avg_order_value'
+            format {
+              type: 'number'
+              pattern: '#,###0.00'
+            }
+          }
+        }
+      }
+      settings {
+        row_limit: 100
+        x_axis_label: 'Country'
+        x_axis_show_null_datetime: false
+        aggregate_awareness {
+          enabled: true
+          debug_comments: true
+        }
+      }
+    }
+  }
   interactions: [
     FilterInteraction {
       from: 'v1'
@@ -969,7 +1030,8 @@ Dashboard ecommerce_dashboard_test_ai {
             'v_mtr1',
             'v_pqbi',
             'v_spga',
-            'v_3eor'
+            'v_3eor',
+            'v_ts11'
           ]
           disabled: true
         }
@@ -990,7 +1052,8 @@ Dashboard ecommerce_dashboard_test_ai {
             'v_mtr1',
             'v_pqbi',
             'v_spga',
-            'v_3eor'
+            'v_3eor',
+            'v_ts11'
           ]
           disabled: true
         }
@@ -1011,7 +1074,8 @@ Dashboard ecommerce_dashboard_test_ai {
             'v_mtr1',
             'v_pqbi',
             'v_spga',
-            'v_3eor'
+            'v_3eor',
+            'v_ts11'
           ]
           disabled: true
         }
@@ -1032,7 +1096,8 @@ Dashboard ecommerce_dashboard_test_ai {
             'v_mtr1',
             'v_pqbi',
             'v_spga',
-            'v_3eor'
+            'v_3eor',
+            'v_ts11'
           ]
           disabled: true
         }
@@ -1053,7 +1118,8 @@ Dashboard ecommerce_dashboard_test_ai {
             'v_mtr1',
             'v_pqbi',
             'v_spga',
-            'v_3eor'
+            'v_3eor',
+            'v_ts11'
           ]
           disabled: true
         }
@@ -1069,6 +1135,7 @@ Dashboard ecommerce_dashboard_test_ai {
             'v_pqbi',
             'v_spga',
             'v_3eor',
+            'v_ts11',
             'f_1le1'
           ]
           disabled: true
@@ -1085,6 +1152,7 @@ Dashboard ecommerce_dashboard_test_ai {
             'v_pqbi',
             'v_spga',
             'v_3eor',
+            'v_ts11',
             'f_n3j8'
           ]
           disabled: true
@@ -1108,7 +1176,8 @@ Dashboard ecommerce_dashboard_test_ai {
             'v_zv4n',
             'v_0jd3',
             'v_spga',
-            'v_3eor'
+            'v_3eor',
+            'v_ts11'
           ]
           disabled: true
         }
@@ -1132,7 +1201,8 @@ Dashboard ecommerce_dashboard_test_ai {
             'v_0jd3',
             'v_pqbi',
             'v_spga',
-            'v_3eor'
+            'v_3eor',
+            'v_ts11'
           ]
           disabled: true
         }
@@ -1156,7 +1226,8 @@ Dashboard ecommerce_dashboard_test_ai {
             'v_0jd3',
             'v_mtr1',
             'v_spga',
-            'v_3eor'
+            'v_3eor',
+            'v_ts11'
           ]
           disabled: true
         }
@@ -1182,6 +1253,24 @@ Dashboard ecommerce_dashboard_test_ai {
     },
     FilterInteraction {
       from: 'v_3eor'
+      to: [
+        CustomMapping {
+          block: [
+            'v_osyw',
+            'v_5hne',
+            'v_zuv9',
+            'v_zv4n',
+            'v_0jd3',
+            'v_cc6w',
+            'v_mtr1',
+            'v_pqbi'
+          ]
+          disabled: true
+        }
+      ]
+    },
+    FilterInteraction {
+      from: 'v_ts11'
       to: [
         CustomMapping {
           block: [
