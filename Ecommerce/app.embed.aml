@@ -1,0 +1,10 @@
+EmbedPortal app {
+  description: '',
+  objects: [
+    untitled_3,
+    ecommerce
+  ]
+  required_permissions: [
+    
+  ],
+}
