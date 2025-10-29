@@ -1,0 +1,49 @@
+Dashboard _pmqbo {
+  title: 'Dashboard User Count'
+  owner: 'embed_caa087a9ee92a9e079@holistics.io'
+  block v_iahk: VizBlock {
+    label: 'User Count'
+    viz: MetricKpi {
+      dataset: ecommerce
+      calculation user_count {
+        label: 'User Count'
+        formula: @aql ecommerce_users | count(ecommerce_users.id);;
+        calc_type: 'measure'
+        data_type: 'number'
+      }
+      value: VizFieldFull {
+        label: 'User Count'
+        ref: 'user_count'
+        format {
+          type: 'number'
+          pattern: '#,###'
+        }
+      }
+      settings {
+        aggregate_awareness {
+          enabled: true
+          debug_comments: true
+        }
+        alignment: 'left'
+      }
+    }
+    settings {
+      hide_label: true
+    }
+  }
+  interactions: []
+  view: CanvasLayout {
+    label: 'View 1'
+    width: 1300
+    height: 800
+    grid_size: 20
+    auto_expand_vertically: true
+    block v_iahk {
+      position: pos(20, 20, 260, 180)
+    }
+    mobile {
+      mode: 'auto'
+    }
+  }
+  theme: H.themes.vanilla
+}
