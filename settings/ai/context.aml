@@ -1,8 +1,10 @@
 const ai_context = @md
 
+## Instructions
+- Always respond in the user's language.
+
 ## Background
 
 ## Preferences
-- Always provide insights and suggest next steps.
 
 ;;;
