@@ -1,0 +1,56 @@
+Dashboard untitled_dashboard_of_return_ratio_by_product_id_geody {
+  title: 'Untitled Dashboard of Return Ratio by Product Id'
+  owner: 'nhi.ty@holistics.io'
+  block v_0dsj: VizBlock {
+    label: 'Return Ratio by Product Id'
+    viz: ColumnChart {
+      dataset: ecommerce
+      x_axis: VizFieldFull {
+        label: 'Product Id'
+        ref: r(ecommerce_products.id)
+        format {
+          type: 'number'
+          pattern: 'inherited'
+        }
+      }
+      y_axis {
+        series {
+          field: VizFieldFull {
+            label: 'Return Ratio'
+            ref: r(ecommerce.return_ratio)
+            format {
+              type: 'number'
+              pattern: '#,###0.00'
+            }
+          }
+          settings {
+            color_palette: 0
+          }
+        }
+      }
+      settings {
+        row_limit: 5000
+        x_axis_show_null_datetime: false
+        aggregate_awareness {
+          enabled: true
+          debug_comments: true
+        }
+      }
+    }
+  }
+  interactions: []
+  view: CanvasLayout {
+    label: 'View 1'
+    width: 1300
+    height: 800
+    grid_size: 20
+    auto_expand_vertically: true
+    block v_0dsj {
+      position: pos(20, 20, 620, 420)
+    }
+    mobile {
+      mode: 'auto'
+    }
+  }
+  theme: H.themes.vanilla
+}
