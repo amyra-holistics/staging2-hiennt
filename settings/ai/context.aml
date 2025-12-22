@@ -1,7 +1,7 @@
 
 const product_context = ''' 
 Adventure Works sells a wide variety of products, primarily focused on the cycling industry. 
-Here are the main types of products offered: 
+Our main products:
 - Bikes: Includes Mountain Bikes and Road Bikes, with various models and sizes
 - Accessories: Covers a broad range of cycling accessories, such as bike racks, bike stands, tires and tubes, etc.
 
