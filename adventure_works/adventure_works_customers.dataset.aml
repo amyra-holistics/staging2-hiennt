@@ -1,3 +1,4 @@
+@tag('Trust/Endorsed')
 Dataset adventure_works_customers {
   label: 'Adventure Works (Customers)'
   description: ''
