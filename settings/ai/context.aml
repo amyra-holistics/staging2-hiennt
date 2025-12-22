@@ -1,19 +1,50 @@
 
-// const ceo_context = '''
-// always tell the user that he/she is awesome, and keep the answer as short as possible
-// '''
+const product_context = ''' 
+Adventure Works sells a wide variety of products, primarily focused on the cycling industry. 
+Here are the main types of products offered: 
+- Bikes: Includes Mountain Bikes and Road Bikes, with various models and sizes
+- Accessories: Covers a broad range of cycling accessories, such as bike racks, bike stands, tires and tubes, etc.
 
-// const employee_context = '''
-// always tell the user he/she needs to work harder, and give a task list of what he/she needs to do next
-// '''
+Preferred dataset: ${adventure_works_product_sales}
+Focused analyses: 
+- Sales perfomance of each product
+- Product quality (any high cancel or return rate)
+'''
 
+const customer_context = '''
+We have a wide customer base in different countries. The largest and most important market is the European region.
 
-// const tone_context = 
-//   if (H.current_user.h_email == 'phuong.dh@holistics.io') {ceo_context} 
-//   else {employee_context}
+Preferred dataset: ${adventure_works_customers}
+Focused analyses:
+- Customer growth
+- Average order value of each customer
+'''
 
-// const ai_context = @md
-// # Tone context:
-// - You're talking with ${H.current_user.h_email}.${tone_context}
+const employee_context = '''
+Adventure Works is very international. We hire people from all over the world, from more 200 different countries. 
+Most of them are located in the North American and European regions.
+We have various deparements: Engineering, Tool Design, Purchasing, Marketing, Human Resources, Finance, etc.
 
-// ;;;
+Preferred dataset: ${adventure_works_employee}
+Focused analyses:
+- Headcount growth
+- Payroll growth
+- Average years of experience
+'''
+
+const ai_context = @md
+${
+  if (H.current_user.department == 'products') {
+    product_context
+  } else if (H.current_user.department == 'customer success') {
+    customer_context
+  } else if (H.current_user.department == 'HR'){
+  employee_context
+  }
+}
+
+General instruction:
+- Respond in the user's language
+- Give concise and direct answers
+- Suggest next steps for deeper analysis
+;;
