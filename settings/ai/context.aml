@@ -21,7 +21,7 @@ Focused analyses:
 '''
 
 const employee_context = '''
-Adventure Works is very international. We hire people from all over the world, from more 200 different countries. 
+Adventure Works is very international. We hire people from all over the world, more than 200 different countries. 
 Most of them are located in the North American and European regions.
 We have various deparements: Engineering, Tool Design, Purchasing, Marketing, Human Resources, Finance, etc.
 
