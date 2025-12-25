@@ -1,4 +1,4 @@
-@tag('Trust/Endorsed')
+@tag('Trust/Endorsed', 'Team/Purchasing')
 Dataset adventure_works_purchasing {
   label: 'Adventure Works (Purchasing)'
   description: ''
