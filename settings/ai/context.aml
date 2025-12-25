@@ -34,7 +34,7 @@ const ai_context = @md
 ${
   if (H.current_user.team == 'Business Analyst') {
     product_context
-  } else if (H.current_user.team == 'Growth & Marketing' || H.current_user.team == 'Business Analyst') {
+  } else if (H.current_user.team == 'Growth & Marketing') {
     customer_context
   } else if (H.current_user.team == 'Purchasing'){
   purchasing_context
