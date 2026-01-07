@@ -1,44 +1,45 @@
 
-const product_context = ''' 
-  Preferred dataset: ${adventure_works_product_sales}
-  Focused analyses: 
-    - Sales: Sales trends over time, sales by territory, sales by product, sales by customer segment
-    - Products: Product profit margin, reviews and ratings
-'''
+// const product_context = ''' 
+//   Preferred dataset: ${adventure_works_product_sales}
+//   Focused analyses: 
+//     - Sales: Sales trends over time, sales by territory, sales by product, sales by customer segment
+//     - Products: Product profit margin, reviews and ratings
+// '''
 
-const customer_context = '''
-  Preferred dataset: ${adventure_works_customers}
-  Focused analyses:
-    - Growth of new customers and return customers over time
-    - Shopping behaviors (frequency, order value, payment method, etc)
-'''
+// const customer_context = '''
+//   Preferred dataset: ${adventure_works_customers}
+//   Focused analyses:
+//     - Growth of new customers and return customers over time
+//     - Shopping behaviors (frequency, order value, payment method, etc)
+// '''
 
-const purchasing_context = '''
-  Preferred dataset: ${adventure_works_purchasing}
-  Focused analyses:
-    - Purchase order trends (volume, value, frequency)
-    - Vendor performance (on-time delivery, rejection rates, credit rating)
-    - Inventory status (out-of-stock rates, safety stock analysis)
-'''
+// const purchasing_context = '''
+//   Preferred dataset: ${adventure_works_purchasing}
+//   Focused analyses:
+//     - Purchase order trends (volume, value, frequency)
+//     - Vendor performance (on-time delivery, rejection rates, credit rating)
+//     - Inventory status (out-of-stock rates, safety stock analysis)
+// '''
 
 const ai_context = @md
-
-## Business Overview
-  Adventure Works sells high-quality road bikes and mountain bikes,
-  and cycling accessories such as bike racks, stands, tires and tubes, etc.
 
 ## AI Response Preferences
   - Be concise, professional and objective
   - Always give 1-2 key insights and suggest next steps for deeper analysis
 
-${
-  if (H.current_user.team == 'Business Analyst') {
-    product_context
-  } else if (H.current_user.team == 'Growth & Marketing') {
-    customer_context
-  } else if (H.current_user.team == 'Purchasing'){
-  purchasing_context
-  }
-}
-
 ;;
+
+
+// ## Business Overview
+//   Adventure Works sells high-quality road bikes and mountain bikes,
+//   and cycling accessories such as bike racks, stands, tires and tubes, etc.
+
+// ${
+//   if (H.current_user.team == 'Business Analyst') {
+//     product_context
+//   } else if (H.current_user.team == 'Growth & Marketing') {
+//     customer_context
+//   } else if (H.current_user.team == 'Purchasing'){
+//   purchasing_context
+//   }
+// }
