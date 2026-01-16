@@ -1,4 +1,4 @@
-@tag('Trust/Endorsed', 'Team/Growth & Marketing', 'Team/BA')
+@tag('Team/Growth & Marketing', 'Team/BA')
 Dataset adventure_works_customers {
   label: 'Adventure Works (Customers)'
   description: ''
