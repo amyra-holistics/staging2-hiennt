@@ -630,6 +630,7 @@ Dashboard ecommerce_dashboard_test_ai {
     }
   }
   block f_n3j8: FilterBlock {
+    theme: transparentBlock
     label: 'Countries Name'
     type: 'field'
     source: FieldFilterSource {
