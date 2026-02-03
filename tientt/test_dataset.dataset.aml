@@ -1,0 +1,10 @@
+Dataset test_dataset {
+  label: 'Should appear',
+  description: ''
+  data_source_name: 'staging2'
+  models: [
+    public_tenants,
+    public_users_123
+  ]
+  relationships: []
+}
