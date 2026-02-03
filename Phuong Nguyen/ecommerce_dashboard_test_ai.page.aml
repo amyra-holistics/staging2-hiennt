@@ -1,7 +1,6 @@
 Dashboard ecommerce_dashboard_test_ai {
   title: 'Ecommerce Dashboard - Test AI'
   description: ''''''
-
   view: TabLayout {
     label: 'View 1'
     tab tab1: CanvasLayout {
@@ -270,7 +269,6 @@ Dashboard ecommerce_dashboard_test_ai {
     viz: DataTable {
       dataset: ecommerce
       theme {
-
       }
       fields: [
         VizFieldFull {
@@ -543,11 +541,19 @@ Dashboard ecommerce_dashboard_test_ai {
     content: @md Viz with hidden action bar (floating bar);;
   }
   block v_0jd3: VizBlock {
-    label: 'Revenue and total orders'
+    label: 'Gross sales and net sales'
     viz: CombinationChart {
       dataset: ecommerce
+      filter {
+        field: r(ecommerce_orders.created_at)
+        operator: 'matches'
+        value: '2025'
+      }
+      theme {
+
+      }
       x_axis: VizFieldFull {
-        ref: r(ecommerce_users.sign_up_at)
+        ref: r(ecommerce_orders.created_at)
         transformation: 'datetrunc month'
         format {
           type: 'date'
@@ -555,24 +561,23 @@ Dashboard ecommerce_dashboard_test_ai {
         }
       }
       y_axis {
-        series {
-          field: VizFieldFull {
-            ref: r(ecommerce.gross_sales)
-            format {
-              type: 'number'
-              pattern: 'inherited'
-            }
-          }
-        }
-      }
-      y_axis {
         settings {
-          alignment: 'right'
+          show_data_label_by: 'value'
         }
         series {
           mark_type: 'line'
           field: VizFieldFull {
             ref: r(ecommerce.gross_sales)
+            format {
+              type: 'number'
+              pattern: '#,###'
+            }
+          }
+        }
+        series {
+          mark_type: 'line'
+          field: VizFieldFull {
+            ref: r(ecommerce.net_sales)
             format {
               type: 'number'
               pattern: 'inherited'
