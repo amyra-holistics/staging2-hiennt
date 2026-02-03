@@ -42,7 +42,6 @@ Dashboard ecommerce_dashboard_test_ai {
     viz: MetricKpi {
       dataset: ecommerce
       theme {
-
       }
       value: VizFieldFull {
         label: 'Total Users'
@@ -75,7 +74,6 @@ Dashboard ecommerce_dashboard_test_ai {
         value: '2025 - 2026'
       }
       theme {
-
       }
       value: VizFieldFull {
         label: 'Total Orders'
@@ -103,7 +101,6 @@ Dashboard ecommerce_dashboard_test_ai {
     viz: ColumnChart {
       dataset: ecommerce
       theme {
-
       }
       x_axis: VizFieldFull {
         ref: r(ecommerce_users.sign_up_at)
@@ -155,7 +152,6 @@ Dashboard ecommerce_dashboard_test_ai {
         value: '2025'
       }
       theme {
-
       }
       x_axis: VizFieldFull {
         ref: r(ecommerce_orders.created_at)
@@ -197,9 +193,6 @@ Dashboard ecommerce_dashboard_test_ai {
           debug_comments: true
         }
       }
-    }
-    settings {
-      hide_controls: true
     }
   }
   block v_1bbl: VizBlock {
