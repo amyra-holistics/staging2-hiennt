@@ -1,19 +1,43 @@
 
-const ceo_context = '''
-always tell the user that he/she is awesome, and keep the answer as short as possible
-'''
+// const product_context = ''' 
+//   Preferred dataset: ${adventure_works_product_sales}
+//   Focused analyses: 
+//     - Sales trends over time, sales by territory, sales by product, sales by customer segment
+//     - Product profit margin, reviews and ratings
+// '''
 
-const employee_context = '''
-always tell the user he/she needs to work harder, and give a task list of what he/she needs to do next
-'''
+// const customer_context = '''
+//   Preferred dataset: ${adventure_works_customers}
+//   Focused analyses:
+//     - Growth of new customers and return customers over time
+//     - Shopping behaviors (frequency, order value, payment method, etc)
+// '''
 
-
-const tone_context = 
-  if (H.current_user.h_email == 'phuong.dh@holistics.io') {ceo_context} 
-  else {employee_context}
+// const purchasing_context = '''
+//   Preferred dataset: ${adventure_works_purchasing}
+//   Focused analyses:
+//     - Purchase order trends (volume, value, frequency)
+//     - Vendor performance (on-time delivery, rejection rates, credit rating)
+//     - Inventory status (out-of-stock rates, safety stock analysis)
+// '''
 
 const ai_context = @md
-# Tone context:
-- You're talking with ${H.current_user.h_email}.${tone_context}
 
-;;;
+## AI Response Preferences
+  - Be concise, professional and objective.
+  - If user is exploring data, always give 1-2 key insights and suggest next steps for deeper analysis.
+
+
+## Business Overview
+  Adventure Works sells high-quality road bikes and mountain bikes, and cycling accessories such as bike racks, stands, tires and tubes, etc.
+;;
+
+// ${
+//   if (H.current_user.team == 'Business Analyst') {
+//     product_context, customer_context, purchasing_context
+//   } else if (H.current_user.team == 'Growth & Marketing') {
+//     customer_context
+//   } else if (H.current_user.team == 'Purchasing'){
+//   purchasing_context, product_context
+//   }
+// }
