@@ -1,3 +1,4 @@
+@tag('Trust/Endorsed')
 Dataset ecommerce {
   label: 'Ecommerce - Sales'
   description: '''
@@ -27,7 +28,7 @@ Dataset ecommerce {
     label: "Gross sales"
     type: "number"
     hidden: false
-    description: ''
+    description: 'The total value of all products sold before any returns, cancellations, or discounts.'
     definition: @aql sum(ecommerce_order_items.quantity * ecommerce_products.price);;
     format: "#,###"
   }
@@ -35,7 +36,7 @@ Dataset ecommerce {
     label: "Returned amount"
     type: "number"
     hidden: false
-    description: ''
+    description: 'The total value of products that customers sent back.'
     definition: @aql sum(ecommerce_order_items.quantity * ecommerce_products.price) | where(ecommerce_orders.status == 'refunded');;
     format: "#,###"
   }
@@ -43,7 +44,7 @@ Dataset ecommerce {
     label: "Cancelled amount"
     type: "number"
     hidden: false
-    description: ''
+    description: 'The total value of orders that were cancelled before they could be delivered.'
     definition: @aql sum(ecommerce_order_items.quantity * ecommerce_products.price) | where(ecommerce_orders.status == 'cancelled');;
     format: "#,###"
   }
@@ -51,7 +52,7 @@ Dataset ecommerce {
     label: "Discount amount"
     type: "number"
     hidden: false
-    description: ''
+    description: 'The total value of discounts given to customers. '
     definition: @aql sum(ecommerce_orders.discount);;
     format: "#,###"
   }

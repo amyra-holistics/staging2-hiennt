@@ -172,6 +172,8 @@ Dataset adventure_works {
   metric scrapped_rate_all {
     label: "Scrapped Rate All"
     type: "number"
+    hidden: false
+    description: "The overall percentage of scrapped quantity out of total work order quantity, giving you a quick peek at how much production was wasted."
     definition: @aql sum(production_work_order.scrapped_qty) * 1.0 / sum(production_work_order.order_qty);;
   }
 }
