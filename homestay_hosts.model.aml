@@ -105,6 +105,17 @@ Model homestay_hosts {
     hidden: false
     definition: @sql {{ #SOURCE.identity_verified }};;
   }
+  dimension identity_verified_pii {
+    label: 'Identity Verified (PII)'
+    type: 'text'
+    definition: @aql case(
+  when:
+    in(1, H.current_user.pii_access),
+  then: homestay_hosts.verifications,
+  else: '(redacted)'
+)}
+    ;;
+  }
 
   owner: 'vu.dq@holistics.io'
   table_name: '"homestay"."hosts"'
