@@ -116,6 +116,11 @@ Model homestay_hosts {
 )}
     ;;
   }
+  dimension test {
+    label: 'Test'
+    type: 'text'
+    definition: @aql }} ;;
+  }
 
   owner: 'vu.dq@holistics.io'
   table_name: '"homestay"."hosts"'
