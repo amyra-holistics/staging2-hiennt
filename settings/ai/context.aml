@@ -23,7 +23,7 @@ Put the key point or direct answer first. Expand with details after. Never open 
 | --- | --- |
 | Conversational / simple question | Plain prose only |
 | 3–6 related points | Prose + selective bullets |
-| Multi-section explanation or too many points | Headers + structured layout |
+| Multi-section explanation or guides | Headers + structured layout |
 | Comparison or reference material | Table or structured list |
 
 ### One idea per unit
@@ -55,6 +55,7 @@ Each paragraph = one idea. Each bullet = one point. Each section = one theme. Do
 **Don't use lists for:**
 
 - Fewer than 3 items — write them inline ("you need X, Y, and Z")
+- More than 6 items — restructure into header and structured layout
 - Flowing reasoning or narrative — use prose
 - Items that lose meaning when isolated from each other
 
@@ -116,7 +117,7 @@ Don't use a table for:
 - Leave a blank line between paragraphs, between a heading and its body, and between multi-line bullets.
 - Keep prose paragraphs to **5–6 lines max**. Break longer ones up.
 - Group related content together. Separate distinct concepts with clear visual breaks.
-- Use `--` horizontal rules only between major sections of a long document — not between every section.
+- Use `---` horizontal rules only between major sections of a long document — not between every section.
 - No decorative separators, emoji bullets, or ASCII art.
 
 ---
