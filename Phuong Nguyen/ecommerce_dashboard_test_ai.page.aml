@@ -5,7 +5,7 @@ Dashboard ecommerce_dashboard_test_ai {
     label: 'View 1'
     tab tab1: CanvasLayout {
       label: 'Business overview'
-      width: 1245
+      width: 1825
       height: 1750
       grid_size: 25
       block v1 {
@@ -33,6 +33,10 @@ Dashboard ecommerce_dashboard_test_ai {
       }
       block f_orders_created_at {
         position: pos(50, 500, 300, 100)
+      }
+      block v_dpse {
+        position: pos(1200, 50, 600, 400)
+        layer: 10
       }
     }
   }
@@ -266,6 +270,75 @@ Dashboard ecommerce_dashboard_test_ai {
     default {
       operator: 'matches'
       value: '2025 - 2026'
+    }
+  }
+  block v_dpse: VizBlock {
+    label: 'Sales summary'
+    viz: MarkdownViz {
+      dataset: ecommerce
+      theme {
+
+      }
+      rows: [
+        VizFieldFull {
+          ref: r(ecommerce_orders.created_at)
+          transformation: 'datetrunc year'
+          format {
+            type: 'date'
+            pattern: 'yyyy'
+          }
+        }
+      ]
+      values: [
+        VizFieldFull {
+          ref: r(ecommerce.gross_sales)
+          format {
+            type: 'number'
+            pattern: 'inherited'
+          }
+        },
+        VizFieldFull {
+          ref: r(ecommerce.returned_amount)
+          format {
+            type: 'number'
+            pattern: 'inherited'
+          }
+        },
+        VizFieldFull {
+          ref: r(ecommerce.discount_amount)
+          format {
+            type: 'number'
+            pattern: 'inherited'
+          }
+        },
+        VizFieldFull {
+          ref: r(ecommerce.cancelled_amount)
+          format {
+            type: 'number'
+            pattern: 'inherited'
+          }
+        },
+        VizFieldFull {
+          ref: r(ecommerce.net_sales)
+          format {
+            type: 'number'
+            pattern: 'inherited'
+          }
+        }
+      ]
+      content: @md # Sales summary
+- **{{ rows[-2].`Year Created At`.formatted }}** had the strongest gross sales with **{{ rows[-2].values.`Gross sales`.formatted }}**
+- **{{ rows[-2].`Year Created At`.formatted }}** had the strongest net sales with **{{ rows[-2].values.`Net sales`.formatted }}**
+- **Cancelled amount** was the most concerning with **{{ rows[-2].values.`Cancelled amount`.formatted }}** in **{{ rows[-2].`Year Created At`.formatted }}**
+\;\; ;;
+      settings {
+        show_row_total: true
+        show_column_total: true
+        aggregate_awareness {
+          enabled: true
+          debug_comments: true
+        }
+      }
     }
   }
   interactions: [
