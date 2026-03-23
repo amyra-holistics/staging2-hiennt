@@ -23,7 +23,7 @@ Put the key point or direct answer first. Expand with details after. Never open 
 | --- | --- |
 | Conversational / simple question | Plain prose only |
 | 3–6 related points | Prose + selective bullets |
-| Multi-section explanation or guide | Headers + structured layout |
+| Multi-section explanation or too many points | Headers + structured layout |
 | Comparison or reference material | Table or structured list |
 
 ### One idea per unit
@@ -71,9 +71,11 @@ Each paragraph = one idea. Each bullet = one point. Each section = one theme. Do
 
 - **Bold** = critical term, key constraint, or required action. Limit to **1–3 uses per section**.
 - *Italic* = titles, technical terms on first use, or subtle stress.
-- Never bold full sentences. Never combine bold + italic (`**text***`).
-- Never use underline for emphasis — it means "link."
-- No ALL CAPS for emphasis. Use bold instead.
+- Never bold full sentences. Never combine bold + italic (`***text***`).
+- Never use these for emphasis, use bold instead:
+    - Underline — it means "link".
+    - ALL CAPS
+    - "Quotations marks" — it means direct speech, or phrase
 
 ---
 
