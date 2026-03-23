@@ -5,7 +5,7 @@ Dashboard ecommerce_dashboard_test_ai {
     label: 'View 1'
     tab tab1: CanvasLayout {
       label: 'Business overview'
-      width: 1245
+      width: 1575
       height: 1750
       grid_size: 25
       block v1 {
@@ -33,6 +33,10 @@ Dashboard ecommerce_dashboard_test_ai {
       }
       block f_orders_created_at {
         position: pos(50, 500, 300, 100)
+      }
+      block v_oray {
+        position: pos(1225, 500, 300, 200)
+        layer: 10
       }
     }
   }
@@ -268,6 +272,30 @@ Dashboard ecommerce_dashboard_test_ai {
       value: '2025 - 2026'
     }
   }
+  block v_oray: VizBlock {
+    label: 'Net sales description'
+    viz: MarkdownViz {
+      dataset: ecommerce
+      values: [
+        VizFieldFull {
+          ref: r(ecommerce.net_sales)
+          format {
+            type: 'number'
+            pattern: 'inherited'
+          }
+        }
+      ]
+      content: @md ${ecommerce.metric.net_sales.description}  ;;
+      settings {
+        show_row_total: true
+        show_column_total: true
+        aggregate_awareness {
+          enabled: true
+          debug_comments: true
+        }
+      }
+    }
+  }
   interactions: [
     FilterInteraction {
       from: 'f_users_sign_up_at'
@@ -277,6 +305,7 @@ Dashboard ecommerce_dashboard_test_ai {
             'v2',
             'v_785l',
             'v_1bbl',
+            'v_oray',
             'f_orders_created_at'
           ]
           disabled: true
@@ -290,6 +319,7 @@ Dashboard ecommerce_dashboard_test_ai {
           block: [
             'v1',
             'v3',
+            'v_oray',
             'f_users_sign_up_at'
           ]
           disabled: true
