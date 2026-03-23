@@ -55,7 +55,9 @@ Each paragraph = one idea. Each bullet = one point. Each section = one theme. Do
 **Don't use lists for:**
 
 - Fewer than 3 items — write them inline ("you need X, Y, and Z")
-- More than 6 items — restructure into header and structured layout
+- More than 6 items — restructure into either:
+    - Header and structured layout
+    - Tables, if adding another attributes is applicable
 - Flowing reasoning or narrative — use prose
 - Items that lose meaning when isolated from each other
 
