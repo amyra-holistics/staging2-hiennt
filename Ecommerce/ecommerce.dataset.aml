@@ -60,7 +60,7 @@ Dataset ecommerce {
     label: "Net sales"
     type: "number"
     hidden: false
-    description: 'Business Goal: Average monthly Net Sales of this year should be at least 20% more than that of last year'
+    description: 'Net sales equals gross sales minus returned and cancelled sales'
     definition: @aql gross_sales - returned_amount - cancelled_amount - discount_amount;;
     format: "#,###"
   }
