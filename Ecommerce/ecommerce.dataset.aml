@@ -60,7 +60,7 @@ Dataset ecommerce {
     label: "Net sales"
     type: "number"
     hidden: false
-    description: 'helloooo updated description'
+    description: 'Net sales = Gross sales minus all returned, cancelled and discount sales value'
     definition: @aql gross_sales - returned_amount - cancelled_amount - discount_amount;;
     format: "#,###"
   }
