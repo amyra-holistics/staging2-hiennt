@@ -38,6 +38,10 @@ Dashboard ecommerce_dashboard_test_ai {
         position: pos(1225, 500, 300, 200)
         layer: 10
       }
+      block t_3fu4 {
+        position: pos(50, 800, 300, 125)
+        layer: 10
+      }
     }
   }
   theme: H.themes.classic
@@ -272,30 +276,13 @@ Dashboard ecommerce_dashboard_test_ai {
       value: '2025 - 2026'
     }
   }
-  block v_oray: VizBlock {
-    label: 'Net sales description'
-    viz: MarkdownViz {
-      dataset: ecommerce
-      values: [
-        VizFieldFull {
-          ref: r(ecommerce.net_sales)
-          format {
-            type: 'number'
-            pattern: 'inherited'
-          }
-        }
-      ]
-      content: @md ${ecommerce.metric.net_sales.description}  ;;
-      settings {
-        show_row_total: true
-        show_column_total: true
-        aggregate_awareness {
-          enabled: true
-          debug_comments: true
-        }
-      }
-    }
+  block t_3fu4: TextBlock {
+    content: @md 
+    <h1>Net sales description</h1>
+
+    ${ecommerce.metric.net_sales.description};;
   }
+
   interactions: [
     FilterInteraction {
       from: 'f_users_sign_up_at'
