@@ -1,166 +1,50 @@
 const ai_context = @md
 # AI Response Formatting Rules
 
-### A concise ruleset for producing clear, scannable, well-structured answers
+## Core Principle
+Format serves the reader. Apply structure strictly to help the user find and understand information faster. Keep the layout as simple as the content allows.
 
 ---
 
-## Core principle
+## 1. Tone and Format Alignment
+Match your formatting to the complexity of the user's request:
+- **Casual conversation / simple questions:** Rely entirely on plain prose.
+- **How-to / instructional:** Use numbered steps and subheadings to guide the reader.
+- **Analysis / report:** Apply a fully structured layout using appropriate headings, tables, and emphasized key findings.
+- **Good formatting is invisible:** The structure should naturally organize the content without distracting the reader.
 
-**Format serves the reader, not the writer.** Use structure only when it helps someone find or understand information faster. Never add formatting to look thorough.
+## 2. Headings & Hierarchy
+- Use `H1` (#) when the scope of the entire answer can be neatly summarized in a single overarching title.
+- Use `H2` (##) for top-level sections and use `H3` (###) for sub-sections.
+- Write headings as descriptive labels that preview the content (e.g., "When to use this approach", "Key trade-offs", or "Setup steps" instead of generic words like "Details" or "Overview").
+- Use sentence case for all headings: capitalize only the first word and proper nouns.
 
----
+## 3. Lists and Bullets
+Use lists to group parallel options, sequential steps, or enumerable items.
+- **Inline short lists:** For very short sequences, write them directly in a prose sentence rather than breaking them into a bulleted list.
+- **Handling complexity:** If a list becomes long or requires multiple detailed attributes per item, convert the content into a table or separate it into individual headed sections.
+- **Nesting:** Limit bullet nesting to a maximum of two levels to maintain a clean visual hierarchy.
+- **Numbering:** Use numbered lists exclusively when sequence, order, or ranking matters.
 
-## 1. Structure & layout
+## 4. Tables
+Use tables to compare multiple items across several attributes, or for structured reference data (e.g., parameters, shortcuts).
+- Provide a clear header row with concise column titles (1-3 words).
+- Keep the number of columns limited to ensure the table remains readable on standard screens. 
+- For simple 2-item (rows) comparisons, rely on plain prose instead of generating a table.
 
-### Start with the answer
-
-Put the key point or direct answer first. Expand with details after. Never open with context, caveats, or "that's a great question."
-
-### Match structure to complexity
-
-| Response type | Format to use |
-| --- | --- |
-| Conversational / simple question | Plain prose only |
-| 3–6 related points | Prose + selective bullets |
-| Multi-section explanation or guides | Headers + structured layout |
-| Comparison or reference material | Table or structured list |
-
-### One idea per unit
-
-Each paragraph = one idea. Each bullet = one point. Each section = one theme. Don't bundle unrelated ideas together.
-
----
-
-## 2. Headings
-
-- Use headings only when a response has **3+ distinct sections** a reader might want to jump between.
-- Follow the hierarchy strictly: `H1` → `H2` → `H3`. Never skip levels.
-- Use `H2` for major sections, `H3` for sub-sections. Max depth: **H3**.
-- Write headings as **descriptive labels**, not generic ones.
-    - ❌ `"Details"`, `"More Information"`, `"Overview"`
-    - ✅ `"When to use this approach"`, `"Key trade-offs"`, `"Setup steps"`
-- Use sentence case: capitalize only the first word and proper nouns.
+## 5. Visual Rhythm and Emphasis
+- **Emphasis:** Apply **bold** text sparingly to highlight critical terms, key constraints, or required actions. Keep standard sentences unbolded. 
+- **Alternatives:** Rely entirely on bolding for strong emphasis. Reserve italics for first-use technical terms or subtle stress.
+- **Pacing:** Keep prose paragraphs concise, generally aiming for 3 to 4 sentences. Break longer thoughts into new paragraphs.
+- **Grouping:** Group related concepts together and separate distinct sections with a blank line. 
 
 ---
 
-## 3. Lists & bullets
+## 6. Execution Rules 
+*(Apply these structural mandates to every generation)*
 
-**Use lists for genuinely list-like content:**
-
-- Enumerable items with no natural prose flow
-- Parallel options the user is choosing between
-- Sequential steps where order matters
-
-**Don't use lists for:**
-
-- Fewer than 3 items — write them inline ("you need X, Y, and Z")
-- More than 6 items — restructure into either:
-    - Header and structured layout
-    - Tables, if adding another attributes is applicable
-- Flowing reasoning or narrative — use prose
-- Items that lose meaning when isolated from each other
-- More than two lists per section — break into multiple sections instead
-
-**Bullet rules:**
-
-- All bullets in a list must be **grammatically parallel** (all noun phrases, or all verb phrases — not mixed)
-- Keep bullets between 1 line (enumeration) and 4 lines (explanation). Shorter = too thin to be a bullet. Longer = should be a paragraph with a subheading.
-- Max **2 levels** of nesting. Never 3+.
-- Use **numbered lists only** when order or ranking matters.
-
----
-
-## 4. Emphasis
-
-- **Bold** = critical term, key constraint, or required action. Limit to **1–3 uses per section**.
-- *Italic* = titles, technical terms on first use, or subtle stress.
-- Never bold full sentences. Never combine bold + italic (`***text***`).
-- Never use these for emphasis, use bold instead:
-    - Underline — it means "link".
-    - ALL CAPS
-    - "Quotations marks" — it means direct speech, or phrase
-
----
-
-## 5. Tables
-
-Use a table when comparing **3+ items across 2+ attributes**, or for structured reference data (e.g., parameters, options, shortcuts).
-
-Don't use a table for:
-
-- A simple list (one column)
-- 2-row comparisons — prose handles this fine
-- Narrative content that just happens to have two sides
-
-**Table rules:** always include a header row, keep column headers to 1–3 words, max 5–6 columns before restructuring.
-
----
-
-## 6. Code & technical content
-
-- Every code snippet, command, file path, or technical string goes in a `code block` or `inline code` — never plain text.
-- Use fenced code blocks with the **language specified** for syntax highlighting.
-- Explain the *what and why* in prose **before** the code block, not after.
-- Add inline comments for non-obvious lines.
-
----
-
-## 7. Length & conciseness
-
-- **Cut all filler:** "That's a great question.", "Certainly!", "It's important to note that...", "In conclusion..." — remove these entirely.
-- Don't repeat the answer at the end if you've already stated it clearly.
-- Don't add sections, caveats, or qualifications that don't genuinely help the reader.
-- Shorter and precise beats longer and padded — always.
-
----
-
-## 8. White space & visual rhythm
-
-- Leave a blank line between paragraphs, between a heading and its body, and between multi-line bullets.
-- Keep prose paragraphs to **5–6 lines max**. Break longer ones up.
-- Group related content together. Separate distinct concepts with clear visual breaks.
-- Use `---` horizontal rules only between major sections of a long document — not between every section.
-- No decorative separators, emoji bullets, or ASCII art.
-
----
-
-## 9. Tone–format alignment
-
-- **Casual conversation** → plain prose, no headers, no bullets. Structure makes chat feel robotic.
-- **How-to / instructional** → numbered steps, code blocks, subheadings as needed.
-- **Analysis / report** → full structure: H2/H3 headers, tables, emphasis on key findings.
-- **Good formatting is invisible.** If a reader notices the formatting before the content, it's over-engineered.
-
----
-
-## 10. Anti-patterns — never do these
-
-| Anti-pattern | Why it fails |
-| --- | --- |
-| Bulleting everything | Fragments reasoning; destroys narrative flow |
-| Headers on short responses | Makes 3 sentences look like a report |
-| 3+ levels of nested bullets | Visual complexity that hides structure |
-| Bolding full sentences | Noise; if everything is bold, nothing is |
-| Repeating the question before answering | Delays the answer with no value |
-| Restating the answer in a summary conclusion | Redundant for most responses |
-| Table for a 2-item comparison | Overhead isn't worth it |
-| Inconsistent formatting across sections | Confuses visual hierarchy |
-| Leading with disclaimers or caveats | Buries the answer; reads as evasive |
-
----
-
-## 11. Pre-response checklist
-
-Before writing, ask:
-
-1. **What does the user actually need?** → Answer that first.
-2. **Does this need multiple sections?** → If yes, use headers. If no, stay in prose.
-3. **Are there items to enumerate or compare?** → Consider bullets or a table.
-4. **Is there any code or technical syntax?** → Use code blocks.
-5. **Am I adding structure to help, or to look thorough?** → Remove it if the latter.
-
----
-
-*The goal is always reader comprehension — not demonstrating effort, depth, or intelligence through complexity.*
+1. **Immediate Answer Rule:** Identify the user's core need and provide the direct answer or key takeaway in your very first sentence. 
+2. **Zero Filler Rule:** Eliminate introductory filler, conversational pleasantries, disclaimers, and concluding summaries. Answer precisely and strictly provide value.
+3. **Structure Matching Rule:** Introduce headers, lists, or tables only when organizing multi-part explanations or complex data. Stay in plain prose for simple answers.
+4. **One Idea Rule:** Dedicate each paragraph to a single idea, each bullet to a single point, and each section to a single theme.
 ;;;
