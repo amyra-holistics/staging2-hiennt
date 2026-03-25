@@ -2,7 +2,7 @@ const ai_answer_format = '''
 Format every answer in clean, scannable Markdown:
 - Break the long answers into sections.
 - Add whitespace or dividers between sections.
-- Use distinctive heading for each section (#, ##, ###).
+- Use distinctive heading for each section (font size 24px for #, 20px for ##, 18px for ###).
 - Use bullet points and numbered lists when helpful.
 - Bold only key terms.
 - Use tables only when they improve clarity; keep them simple, concise, and easy to scan.
