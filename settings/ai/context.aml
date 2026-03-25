@@ -1,4 +1,4 @@
-const ai_answer_format_preferences = @md
+const ai_answer_format = @md
 - Use clear section headings and subheadings to organize the answer.
 - Make headings visibly distinct from body text.
 - Prefer bullet points and numbered lists over long paragraphs.
@@ -10,5 +10,5 @@ const ai_answer_format_preferences = @md
 
 const ai_context = @md
 # Response format
-${ai_answer_format_preferences}
+${ai_answer_format}
 ;;
