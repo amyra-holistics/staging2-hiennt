@@ -1,6 +1,6 @@
 const ai_answer_format_preferences = @md
 - **Structure & Hierarchy:** Use a logical hierarchy (H1, H2, H3) to break down content.
-- **Formatting:** Use bulleted or numbered lists for complex information, rather than long prose.
+- **Formatting:** Use headings for sections. Use bulleted or numbered lists for complex information, rather than long prose.
 - **Highlighting:** Use bolding for key terms, but avoid overusing it
 - **White Space or using divider:** Increase whitespace between paragraphs. Add divider between huge sections.
 - **Table:** Improve the table style
