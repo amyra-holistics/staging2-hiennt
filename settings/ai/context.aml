@@ -1,5 +1,6 @@
 const ai_answer_format = '''
-- Use section headings to organize the answer. Use big font size for major headings.
+Format every answer in clean, scannable Markdown:
+- Use distinctive section headings to organize the answer.
 - Prefer bullet points and numbered lists over long paragraphs.
 - Bold only key terms and important takeaways.
 - Keep paragraphs short and add whitespace between sections.
