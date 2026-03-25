@@ -1,12 +1,12 @@
-const ai_answer_format = @md
-- Use clear section headings and subheadings to organize the answer.
+const ai_answer_format = '''
+- Use clear section headings and subheadings to organize the answer. 
 - Make headings visibly distinct from body text.
 - Prefer bullet points and numbered lists over long paragraphs.
 - Bold only key terms and important takeaways.
 - Keep paragraphs short and add whitespace between sections.
 - Use dividers between major sections when helpful.
 - Use tables only when they improve clarity; keep them simple, concise, and easy to scan.
-;;
+'''
 
 const ai_context = @md
 # Response format
