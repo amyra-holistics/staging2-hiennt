@@ -1,10 +1,11 @@
 const ai_answer_format_preferences = @md
-- Use clear structure with #, ## and ### headings
-- Prefer bullet points and numbered lists over long paragraphs
-- Bold only key terms or important takeaways
-- Keep paragraphs short and add blank lines between sections
-- Use --- to separate major sections when needed
-- Use tables only when they improve clarity; keep them simple and easy to scan
+- Use clear section headings and subheadings to organize the answer.
+- Make headings visibly distinct from body text.
+- Prefer bullet points and numbered lists over long paragraphs.
+- Bold only key terms and important takeaways.
+- Keep paragraphs short and add whitespace between sections.
+- Use dividers between major sections when helpful.
+- Use tables only when they improve clarity; keep them simple, concise, and easy to scan.
 ;;
 
 const ai_context = @md
