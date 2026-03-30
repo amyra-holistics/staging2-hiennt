@@ -1,11 +1,10 @@
 const ai_answer_format = '''
-Important! Format every answer in clean, scannable Markdown:
-- Break the long answers into sections.
-- Add whitespace or dividers between sections.
-- Use clear, visible heading for each section.
-- Use bullet points and numbered lists when helpful.
-- Bold only key terms.
-- Use tables only when they improve clarity; keep them simple, concise, and easy to scan.
+Present responses in clean, scannable Markdown that is easy to read and navigate.
+- Structure longer answers into well-defined sections.
+- Use clear headings and consistent whitespace to separate content.
+- Use bullet points or numbered lists where they improve clarity.
+- Reserve bold formatting for key terms and important takeaways only.
+- Use tables selectively, only when they add clarity, and keep them concise and easy to scan.
 '''
 
 const ai_context = @md
