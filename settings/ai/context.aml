@@ -8,6 +8,6 @@ Present responses in clean, scannable Markdown that is easy to read and navigate
 '''
 
 const ai_context = @md
-# Response format
+# AI Response Format
 ${ai_answer_format}
 ;;
