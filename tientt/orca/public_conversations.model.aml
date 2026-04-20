@@ -1,0 +1,65 @@
+Model public_conversations {
+  type: 'table'
+  label: 'Conversations'
+  description: ''
+  owner: 'admin@domain.com'
+  data_source_name: 'orca'
+  table_name: '"public"."conversations"'
+
+  dimension id {
+    label: 'Id'
+    type: 'text'
+    hidden: false
+    primary_key: true
+    definition: @sql {{ #SOURCE.id }};;
+  }
+
+  dimension created_at {
+    label: 'Created At'
+    type: 'datetime'
+    hidden: false
+    definition: @sql {{ #SOURCE.created_at }};;
+  }
+
+  dimension updated_at {
+    label: 'Updated At'
+    type: 'datetime'
+    hidden: false
+    definition: @sql {{ #SOURCE.updated_at }};;
+  }
+
+  dimension agent_name {
+    label: 'Agent Name'
+    type: 'text'
+    hidden: false
+    definition: @sql {{ #SOURCE.agent_name }};;
+  }
+
+  dimension tenant_id {
+    label: 'Tenant Id'
+    type: 'number'
+    hidden: false
+    definition: @sql {{ #SOURCE.tenant_id }};;
+  }
+
+  dimension user_id {
+    label: 'User Id'
+    type: 'number'
+    hidden: false
+    definition: @sql {{ #SOURCE.user_id }};;
+  }
+
+  dimension title {
+    label: 'Title'
+    type: 'text'
+    hidden: false
+    definition: @sql {{ #SOURCE.title }};;
+  }
+
+  dimension aml_env {
+    label: 'Aml Env'
+    type: 'text'
+    hidden: false
+    definition: @sql {{ #SOURCE.aml_env }};;
+  }
+}

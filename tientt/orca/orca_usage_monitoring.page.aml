@@ -1,0 +1,426 @@
+Dashboard orca_usage_monitoring {
+  title: 'AI Monitoring'
+  description: '''AI monitoring dashboard'''
+  block v1: VizBlock {
+    label: 'Daily Chat Conversations'
+    viz: LineChart {
+      dataset: orca
+      calculation conversation_count {
+        label: 'Conversation Count'
+        formula: @aql public_conversations | count(public_conversations.id);;
+        calc_type: 'measure'
+        data_type: 'number'
+      }
+      x_axis: VizFieldFull {
+        label: 'Conversation Date'
+        ref: r(public_conversations.created_at)
+        transformation: 'datetrunc day'
+        format {
+          type: 'date'
+          pattern: 'LLL dd'
+        }
+        uname: 'datetrunc_day_created_at_1'
+      }
+      y_axis {
+        settings {
+          show_data_label_by: 'value'
+        }
+        series {
+          field: VizFieldFull {
+            label: 'Conversation Count'
+            ref: 'conversation_count'
+            format {
+              type: 'number'
+              pattern: '#,###'
+            }
+          }
+          settings {
+            color: '#4F46E5'
+            line_interpolation: 'smooth'
+          }
+        }
+      }
+      settings {
+        show_data_points: true
+        row_limit: 100
+        sort {
+          field_index: 0
+          direction: 'asc'
+          type: 'xaxis'
+        }
+        legend_label: 'hidden'
+        x_axis_label: 'Conversation Date'
+        x_axis_show_null_datetime: true
+        aggregate_awareness {
+          enabled: true
+          debug_comments: true
+        }
+      }
+    }
+  }
+  block v2: VizBlock {
+    label: 'Daily Active Users'
+    viz: LineChart {
+      dataset: orca
+      calculation distinct_users {
+        label: 'Distinct Users'
+        formula: @aql public_conversations | count_distinct(public_conversations.user_id);;
+        calc_type: 'measure'
+        data_type: 'number'
+      }
+      x_axis: VizFieldFull {
+        label: 'Date'
+        ref: r(public_conversations.created_at)
+        transformation: 'datetrunc day'
+        format {
+          type: 'date'
+          pattern: 'LLL dd'
+        }
+        uname: 'datetrunc_day_created_at_2'
+      }
+      y_axis {
+        settings {
+          show_data_label_by: 'value'
+        }
+        series {
+          field: VizFieldFull {
+            label: 'Daily Active Users'
+            ref: 'distinct_users'
+            format {
+              type: 'number'
+              pattern: '#,###0'
+            }
+          }
+          settings {
+            color: '#3B82F6'
+            line_interpolation: 'smooth'
+          }
+        }
+      }
+      settings {
+        show_data_points: true
+        row_limit: 100
+        sort {
+          field_index: 0
+          direction: 'asc'
+          type: 'xaxis'
+        }
+        legend_label: 'hidden'
+        x_axis_label: 'Date'
+        x_axis_show_null_datetime: true
+        aggregate_awareness {
+          enabled: true
+          debug_comments: true
+        }
+      }
+    }
+  }
+  block f_conversations_user_id: FilterBlock {
+    label: 'Conversations User Id'
+    type: 'field'
+    source: FieldFilterSource {
+      dataset: orca
+      field: r(public_conversations.user_id)
+    }
+    default {
+      operator: 'is'
+      value: '$H_NIL$'
+    }
+  }
+  block f_conversations_aml_env: FilterBlock {
+    label: 'Conversations Aml Env'
+    type: 'field'
+    source: FieldFilterSource {
+      dataset: orca
+      field: r(public_conversations.aml_env)
+    }
+    default {
+      operator: 'is'
+      value: '$H_NIL$'
+    }
+  }
+  block f_conversations_updated_at: FilterBlock {
+    label: 'Conversations Updated At'
+    type: 'field'
+    source: FieldFilterSource {
+      dataset: orca
+      field: r(public_conversations.updated_at)
+    }
+    default {
+      operator: 'matches'
+      value: '$H_NIL$'
+    }
+  }
+  block v_fd7u: VizBlock {
+    label: 'Like feedback'
+    viz: MetricKpi {
+      dataset: orca
+      filter {
+        field: r(public_chat_messages.feedback_type)
+        operator: 'is'
+        value: 'like'
+      }
+      value: VizFieldFull {
+        label: 'Like feedback'
+        ref: r(public_chat_messages.feedback_type)
+        aggregation: 'count'
+        format {
+          type: 'number'
+          pattern: 'inherited'
+        }
+      }
+      compare_value: VizPopSettings {
+        field: r(public_conversations.updated_at)
+        value: RelativePopValue {
+          duration: 1
+          granularity: 'week'
+        }
+      }
+      settings {
+        display_mode: 'compare_by_number'
+        aggregate_awareness {
+          enabled: true
+          debug_comments: true
+        }
+        label {
+          font_size: 16
+          font_color: '#1B7CE4FF'
+        }
+        alignment: 'center'
+        metric_value {
+          font_size: 40
+          font_color: '#1B7CE4FF'
+        }
+      }
+    }
+    settings {
+      hide_label: true
+    }
+  }
+  block v_b80n: VizBlock {
+    label: 'Like feedback copy'
+    viz: MetricKpi {
+      dataset: orca
+      filter {
+        field: r(public_chat_messages.feedback_type)
+        operator: 'is'
+        value: 'dislike'
+      }
+      value: VizFieldFull {
+        label: 'Dislike feedback'
+        ref: r(public_chat_messages.feedback_type)
+        aggregation: 'count'
+        format {
+          type: 'number'
+          pattern: 'inherited'
+        }
+      }
+      compare_value: VizPopSettings {
+        field: r(public_conversations.updated_at)
+        value: RelativePopValue {
+          duration: 1
+          granularity: 'week'
+        }
+      }
+      settings {
+        display_mode: 'compare_by_number'
+        aggregate_awareness {
+          enabled: true
+          debug_comments: true
+        }
+        label {
+          font_size: 16
+          font_color: '#E71F18FF'
+        }
+        alignment: 'center'
+        metric_value {
+          font_size: 40
+          font_color: '#E71F18FF'
+        }
+      }
+    }
+    settings {
+      hide_label: true
+    }
+  }
+  block v_slmu: VizBlock {
+    label: 'Average turns per conversation compared with Average turns per conversation (Prev....'
+    viz: MetricKpi {
+      dataset: orca
+      calculation user_message_count {
+        label: 'User Message Count'
+        formula: @aql public_chat_messages | count(public_chat_messages.id) | where(public_chat_messages.role == 'user');;
+        calc_type: 'measure'
+        data_type: 'number'
+      }
+      calculation avg_user_messages_per_conversation {
+        label: 'Avg User Messages Per Conversation'
+        formula: @aql unique(public_conversations.id)
+  | select(user_message_count: user_message_count)
+  | avg(user_message_count);;
+        calc_type: 'measure'
+        data_type: 'number'
+      }
+      value: VizFieldFull {
+        label: 'Avg turns per conversation'
+        ref: 'avg_user_messages_per_conversation'
+        format {
+          type: 'number'
+          pattern: '#,###0.00'
+        }
+      }
+      compare_value: VizPopSettings {
+        field: r(public_conversations.updated_at)
+        value: RelativePopValue {
+          duration: 1
+          granularity: 'week'
+        }
+      }
+      settings {
+        display_mode: 'compare_by_number'
+        aggregate_awareness {
+          enabled: true
+          debug_comments: true
+        }
+        label {
+          font_size: 16
+        }
+        alignment: 'center'
+        metric_value {
+          font_size: 40
+        }
+      }
+    }
+    settings {
+      hide_label: true
+    }
+  }
+  block f_chat_messages_feedback_type: FilterBlock {
+    label: 'Chat Messages Feedback Type'
+    type: 'field'
+    source: FieldFilterSource {
+      dataset: orca
+      field: r(public_chat_messages.feedback_type)
+    }
+    default {
+      operator: 'is'
+      value: '$H_NIL$'
+    }
+    settings {
+      input_type: 'multiple'
+    }
+  }
+
+  view: CanvasLayout {
+    width: 1530
+    height: 260
+    block v1 {
+      position: pos(350, 10, 590, 250)
+    }
+    block v2 {
+      position: pos(950, 10, 570, 250)
+    }
+    block f_conversations_user_id {
+      position: pos(-330, 80, 300, 80)
+    }
+    block f_conversations_aml_env {
+      position: pos(-330, 0, 300, 80)
+    }
+    block f_conversations_updated_at {
+      position: pos(-330, 170, 300, 80)
+    }
+    block v_fd7u {
+      position: pos(10, 140, 160, 120)
+    }
+    block v_b80n {
+      position: pos(170, 140, 170, 120)
+    }
+    block v_slmu {
+      position: pos(10, 10, 330, 130)
+    }
+    block f_chat_messages_feedback_type {
+      position: pos(-330, 260, 300, 80)
+    }
+  }
+  interactions: [
+    FilterInteraction {
+      from: 'f_conversations_user_id'
+      to: [
+        CustomMapping {
+          block: [
+            'f_conversations_aml_env',
+            'f_conversations_updated_at',
+            'f_chat_messages_feedback_type'
+          ]
+          disabled: true
+        }
+      ]
+    },
+    FilterInteraction {
+      from: 'f_conversations_aml_env'
+      to: [
+        CustomMapping {
+          block: [
+            'f_conversations_user_id',
+            'f_conversations_updated_at',
+            'f_chat_messages_feedback_type'
+          ]
+          disabled: true
+        }
+      ]
+    },
+    FilterInteraction {
+      from: 'f_conversations_updated_at'
+      to: [
+        CustomMapping {
+          block: [
+            'f_conversations_user_id',
+            'f_conversations_aml_env',
+            'f_chat_messages_feedback_type'
+          ]
+          disabled: true
+        }
+      ]
+    },
+    FilterInteraction {
+      from: 'f_chat_messages_feedback_type'
+      to: [
+        CustomMapping {
+          block: [
+            'f_conversations_user_id',
+            'f_conversations_aml_env',
+            'f_conversations_updated_at'
+          ]
+          disabled: true
+        }
+      ]
+    }
+  ]
+  theme: H.themes.vanilla.extend(
+
+    {
+      custom_css: @css
+        .h-dac-toolbar:where(.embed *):not(:has(.h-tabs-switch)) {
+          border: none !important;
+        }
+        .h-dac-toolbar:where(.embed *):not(:has(.h-tabs-switch)) .dashboard-timezone {
+          display: none;
+        }
+        .hui-dropdown {
+          display:none;
+        }
+      ;;
+      background {
+        bg_color: 'white'
+      }
+      canvas {
+        background {
+          bg_color: 'white'
+        }
+        border {
+          border_color: 'white'
+        }
+      }
+    }
+  )
+}
