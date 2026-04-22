@@ -5,7 +5,7 @@ Dashboard ecommerce_dashboard_test_ai {
     label: 'View 1'
     tab tab1: CanvasLayout {
       label: 'Business overview'
-      width: 1575
+      width: 1850
       height: 1750
       grid_size: 25
       block v1 {
@@ -281,7 +281,7 @@ Dashboard ecommerce_dashboard_test_ai {
     <h1>Net sales description</h1>
 
     ${ecommerce.metric.net_sales.description};;
-  }
+  }  
 
   interactions: [
     FilterInteraction {
