@@ -32,31 +32,32 @@ Skill weekly_business_review {
     
     
     
-    **Step 5: Fill the template** 
+    **Step 5: Display the answer** 
+
+    - Fill in the template below and display it to user. It's the only thing user will see.
+    - Do not display any visualizations you searched or created in the process.
     
     
     
-    # Weekly Business Review
+    # Weekly Business Review (use heading 1)
     
     Week from [date] to [date]
     
     
     
-    ## Highlights
+    ## Highlights (use heading 2)
     
     Pick up to 3 metrics with the largest % change (either direction). Lead with unfavorable moves.
     
     
     
-    ## Metric table
+    ## Metric table (use heading 2)
     
     A table of: 1) key metrics, 2) last week value, 3) this week value, 4) changes, and 5) changes in percentage.
-    
-    Style the changes and percentages in badge format. Color it green if it's in favorable direction, and red if it's in negative direction.
-    
+        
     
     
-    ## Recommended actions
+    ## Recommended actions (use heading 2)
     
     Only include up to 3 actions directly supported by a metric movement in this report. If nothing is clearly actionable thus no recommended actions at all, write "No action recommended this week."
     
