@@ -39,25 +39,25 @@ Skill weekly_business_review {
     
     
     
-    # Weekly Business Review (use heading 1)
+    # 📊 Weekly Business Review (use heading 1)
     
     Week from [date] to [date]
     
     
     
-    ## Highlights (use heading 2)
+    ## 💡 Highlights (use heading 2)
     
     Pick up to 3 metrics with the largest % change (either direction). Lead with unfavorable moves.
     
     
     
-    ## Metric table (use heading 2)
+    ## 🔢 Metric table (use heading 2)
     
     A table of: 1) key metrics, 2) last week value, 3) this week value, 4) changes, and 5) changes in percentage.
         
     
     
-    ## Recommended actions (use heading 2)
+    ## 💪 Recommended actions (use heading 2)
     
     Only include up to 3 actions directly supported by a metric movement in this report. If nothing is clearly actionable thus no recommended actions at all, write "No action recommended this week."
     
@@ -95,9 +95,9 @@ Skill weekly_business_review {
     
     |---|---|---|---|---|
     
-    | Revenue | \$1.20M | \$1.27M | 🟢 +\$70K | 🟢 +6.2% | 
+    | Revenue | \$1.20M | \$1.27M |  +\$70K |  +6.2% | 
     
-    | New signups | 420 | 361 | 🔴 -59 | 🔴 -14.0% |
+    | New signups | 420 | 361 |  -59 |  -14.0% |
     
     | Gross margin | 78% | 78% | ⚪ 0 | ⚪ 0% | 
     
