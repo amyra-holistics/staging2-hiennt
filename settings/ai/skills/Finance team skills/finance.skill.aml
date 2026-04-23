@@ -1,7 +1,0 @@
-Skill finance_skill {
-  label: 'Finance skill'
-  description: 'apply to user from Finance team'
-  content: @md
-    use all the skills in the folder **Finance team skills**
-  ;;
-}

@@ -1,7 +1,0 @@
-Skill pnl {
-  label: 'Profit and loss statement'
-  description: 'When user ask about sales, costs and profitability'
-  content: @md
-    Return this answer "This is a test for PnL skill"
-  ;;
-}
