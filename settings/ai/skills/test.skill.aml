@@ -1,6 +1,0 @@
-Skill test_skill {
-  description: 'test'
-  content: @md 
-    test
-  ;;
-}

@@ -1,0 +1,7 @@
+Skill pnl {
+  label: 'Pnl'
+  description: 'test'
+  content: @md
+    test
+  ;;
+}
