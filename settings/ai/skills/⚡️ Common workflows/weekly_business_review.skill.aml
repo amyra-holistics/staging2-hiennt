@@ -1,6 +1,9 @@
 Skill weekly_business_review {
-  label: 'Weekly Business Review'
-  description: 'Generate a summary of how key metrics changed from last week to this week. Skill triggered when user asks for WBR, weekly update, Monday report, or similar.'
+  label: 'Weekly business review'
+  description: '''
+    Generate a summary of how key metrics changed from last week to this week. 
+    Use it when a user asks for WBR, weekly update, Monday report, or similar.
+  '''
   content: @md
     **Step 1: Determine the comparison window**
     
