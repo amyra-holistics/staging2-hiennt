@@ -1,6 +1,6 @@
 Skill pnl {
-  label: 'Pnl'
-  description: 'test'
+  label: 'Profit and loss statement'
+  description: 'When user ask about sales, costs and profitability'
   content: @md
     test
   ;;
