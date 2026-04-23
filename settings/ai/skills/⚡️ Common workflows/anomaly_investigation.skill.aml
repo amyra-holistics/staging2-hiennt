@@ -1,5 +1,5 @@
 Skill anomaly_investigation {
-  label: 'Anomaly investigation'
+  label: '🕵️‍♀️ Anomaly investigation'
   description: '''
     Walk through segment breakdowns and related metrics to find what drove it an unexpected metric movement.
     Use when a user asks why a metric spiked, dropped, or deviated from expected 

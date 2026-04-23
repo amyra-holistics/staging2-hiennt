@@ -1,5 +1,5 @@
 Skill weekly_business_review {
-  label: 'Weekly business review'
+  label: '📊 Weekly business review'
   description: '''
     Generate a summary of how key metrics changed from last week to this week. 
     Use it when a user asks for WBR, weekly update, Monday report, or similar.
