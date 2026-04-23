@@ -1,4 +1,4 @@
-Skill balance_sheet {
+Skill fin_balance_sheet {
   label: '⚖️ Balance sheet'
   description: '''
     Produces a balance sheet snapshot as of a given date: assets, liabilities, and equity, with comparison to the prior period. 
@@ -8,4 +8,5 @@ Skill balance_sheet {
   content: @md
    This is an empty skill for demo purpose.
   ;;
+  invocation: "manual"
 }

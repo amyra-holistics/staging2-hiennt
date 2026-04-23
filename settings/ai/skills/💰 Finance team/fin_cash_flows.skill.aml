@@ -1,4 +1,4 @@
-Skill cash_flows {
+Skill fin_cash_flows {
   label: '💵 Cash flows'
   description: '''
     Produces a cash flow statement for a given period, 
@@ -9,4 +9,5 @@ Skill cash_flows {
   content: @md
    This is an empty skill for demo purpose.
   ;;
+  invocation: "manual"
 }
