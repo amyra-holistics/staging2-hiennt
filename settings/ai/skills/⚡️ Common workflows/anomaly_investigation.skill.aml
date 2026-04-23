@@ -1,4 +1,4 @@
-Skill anomaly_investigation {
+Skill _anomaly_investigation {
   label: '🕵️‍♀️ Anomaly investigation'
   description: '''
     Walk through segment breakdowns and related metrics to find what drove it an unexpected metric movement.

@@ -1,4 +1,4 @@
-Skill weekly_business_review {
+Skill _weekly_business_review {
   label: '📊 Weekly business review'
   description: '''
     Generate a summary of how key metrics changed from last week to this week. 
