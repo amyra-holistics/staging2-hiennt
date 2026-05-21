@@ -8,14 +8,14 @@ PageTheme my_theme {
 }
 
 Dashboard html_annual_report {
-  title: 'untitled_5'
+  title: 'Annual Report'
   description: ''
   owner: 'thong.do@holistics.io'
   block title: TextBlock {
     content: @md # Your title goes here ;;
   }
   block v_sroh: VizBlock {
-    label: ''
+    label: 'Count of Users Id by Quarter Sign Up Date'
     viz: ColumnChart {
       dataset: ecommerce
       calculation count_of_users_id {
@@ -33,6 +33,9 @@ Dashboard html_annual_report {
         }
       }
       y_axis {
+        settings {
+          hidden: true
+        }
         series {
           field: VizFieldFull {
             ref: 'count_of_users_id'
@@ -48,6 +51,125 @@ Dashboard html_annual_report {
       }
       settings {
         row_limit: 5000
+        legend_label: 'hidden'
+        x_axis_show_null_datetime: false
+        aggregate_awareness {
+          enabled: true
+          debug_comments: true
+        }
+      }
+    }
+    settings {
+      hide_label: true
+    }
+  }
+  block v_gender_donut: VizBlock {
+    label: 'Gender'
+    viz: PieChart {
+      dataset: ecommerce
+      calculation user_count {
+        label: ' '
+        formula: @aql ecommerce_users | count(ecommerce_users.id);;
+        calc_type: 'measure'
+        data_type: 'number'
+      }
+      legend: VizFieldFull {
+        label: 'Gender'
+        ref: r(ecommerce_users.gender)
+        format {
+          type: 'text'
+        }
+      }
+      series {
+        field: VizFieldFull {
+          label: ' '
+          ref: 'user_count'
+          format {
+            type: 'number'
+            pattern: '#,###'
+          }
+        }
+        settings {
+          point {
+            value: 'Female'
+            color: '#64748B'
+          }
+          point {
+            value: 'Male'
+            color: '#94A3B8'
+          }
+          point {
+            value: 'Other'
+            color: '#CBD5E1'
+          }
+          point {
+            value: 'Unknown'
+            color: '#E5E7EB'
+          }
+        }
+      }
+      settings {
+        display_as_donut: true
+        row_limit: 100
+        sort: 'desc'
+        legend_label: 'hidden'
+        show_data_label: true
+        data_label_position: 'outside'
+        aggregate_awareness {
+          enabled: true
+          debug_comments: true
+        }
+      }
+    }
+    settings {
+      hide_label: true
+    }
+  }
+  block v_dd7r: VizBlock {
+    label: 'Returned amount and Cancelled amount by Quarter Created At'
+    viz: AreaChart {
+      dataset: ecommerce
+      x_axis: VizFieldFull {
+        ref: r(ecommerce_orders.created_at)
+        transformation: 'datetrunc quarter'
+        format {
+          type: 'date'
+          pattern: 'yyyy Qq'
+        }
+      }
+      y_axis {
+        settings {
+          stack_series_by: 'percentage'
+        }
+        series {
+          field: VizFieldFull {
+            ref: r(ecommerce.returned_amount)
+            format {
+              type: 'number'
+              pattern: 'inherited'
+            }
+          }
+          settings {
+            color_palette: 0
+          }
+        }
+        series {
+          field: VizFieldFull {
+            ref: r(ecommerce.cancelled_amount)
+            format {
+              type: 'number'
+              pattern: 'inherited'
+            }
+          }
+          settings {
+            color: '#07326C'
+            color_palette: 0
+          }
+        }
+      }
+      settings {
+        row_limit: 5000
+        legend_label: 'hidden'
         x_axis_show_null_datetime: false
         aggregate_awareness {
           enabled: true
@@ -505,9 +627,7 @@ Dashboard html_annual_report {
       <div class="section-title">By Segment</div>
       <!-- CHART PLACEHOLDER -->
       <div class="chart-placeholder h-50" id="chart-segment-donut">
-        <div class="chart-icon">🍩</div>
-        <div class="chart-type">Donut Chart</div>
-        <div class="chart-size">Half width · 50mm</div>
+        <h-block name="v_gender_donut" />
       </div>
       <div class="callout">
         <strong>Key Insight</strong>
@@ -518,10 +638,14 @@ Dashboard html_annual_report {
       <div class="section-label">Acquisition</div>
       <div class="section-title">New vs Returning</div>
       <!-- CHART PLACEHOLDER -->
+      <style>
+      #chart-acq-bar > div > div {
+      width: 100% !important
+      
+      }
+      </style>
       <div class="chart-placeholder h-50" id="chart-acq-bar">
-        <div class="chart-icon">📊</div>
-        <div class="chart-type">Stacked Bar</div>
-        <div class="chart-size">Half width · 50mm</div>
+        <h-block name="v_dd7r" />
       </div>
       <div class="body-text">
         Brief contextual copy here. Keep it to 2–3 sentences max so it doesn't compete with the visuals.
@@ -676,5 +800,3 @@ Dashboard html_annual_report {
 
   theme: my_theme
 }
-
-
