@@ -79,6 +79,53 @@ Dashboard untitled_5_22_copy {
     }
   }
 
+  block v_np_chart: VizBlock {
+    label: 'Users Signup by Quarter'
+    viz: ColumnChart {
+      dataset: ecommerce
+      calculation count_of_users_id {
+        label: 'Count of Users'
+        formula: @aql count(ecommerce_users.id);;
+        calc_type: 'measure'
+        data_type: 'number'
+      }
+      x_axis: VizFieldFull {
+        ref: r(ecommerce_users.sign_up_date)
+        transformation: 'datetrunc quarter'
+        format {
+          type: 'date'
+          pattern: 'yyyy Qq'
+        }
+      }
+      y_axis {
+        series {
+          field: VizFieldFull {
+            ref: 'count_of_users_id'
+            format {
+              type: 'number'
+              pattern: '#,###'
+            }
+          }
+          settings {
+            color: '#1a1510'
+          }
+        }
+      }
+      settings {
+        row_limit: 5000
+        legend_label: 'hidden'
+        x_axis_show_null_datetime: false
+        aggregate_awareness {
+          enabled: true
+          debug_comments: false
+        }
+      }
+    }
+    settings {
+      hide_label: true
+    }
+  }
+
   view: HTMLLayout {
     content: @html 
 
@@ -291,6 +338,19 @@ Dashboard untitled_5_22_copy {
   }
   .np-chart-placeholder-icon { font-size: 28px; color: #c9bfa8; }
 
+  .np-chart-block {
+    background: #ede8dc;
+    border-top: 1px solid #c9bfa8;
+    border-bottom: 1px solid #c9bfa8;
+    min-height: 180px;
+    margin: 12px 0;
+  }
+  .np-chart-block * {
+    font-family: 'Source Serif 4', Georgia, serif !important;
+    color: #1a1510 !important;
+    background: transparent !important;
+  }
+
   .np-brief { padding: 8px 0; border-top: 0.5px solid #d4c9b4; }
   .np-brief:first-child { border-top: none; padding-top: 0; }
 
@@ -419,10 +479,8 @@ Dashboard untitled_5_22_copy {
         Chair Jerome Powell acknowledged that progress on inflation had "stalled somewhat" in the opening months of the year, with core PCE running above 3 percent for the fourth consecutive quarter. The committee would need "greater confidence" before reducing rates, he said.
       </div>
 
-      <div class="np-chart-placeholder">
-        <i class="ti ti-chart-bar np-chart-placeholder-icon" aria-hidden="true"></i>
-        <div class="np-chart-placeholder-label">Chart placeholder — insert your chart here</div>
-        <div style="font-size:10px; color:#c9bfa8; letter-spacing:1px;">Replace this block with your visualization</div>
+      <div class="np-chart-block">
+        <h-block name="v_np_chart" />
       </div>
 
       <hr class="np-rule">

@@ -4,6 +4,9 @@ PageTheme my_theme {
     background {
       bg_color: "transparent"
     }
+    border {
+      border_width: 0;
+    }
   }
 }
 
@@ -91,21 +94,14 @@ Dashboard html_annual_report {
         }
         settings {
           point {
-            value: 'Female'
-            color: '#64748B'
+            value: 'm'
+            color: '#1a3a5c'
           }
           point {
-            value: 'Male'
-            color: '#94A3B8'
+            value: 'f'
+            color: '#4d7498'
           }
-          point {
-            value: 'Other'
-            color: '#CBD5E1'
-          }
-          point {
-            value: 'Unknown'
-            color: '#E5E7EB'
-          }
+
         }
       }
       settings {
@@ -150,6 +146,7 @@ Dashboard html_annual_report {
             }
           }
           settings {
+            color: '#e63222'
             color_palette: 0
           }
         }
@@ -162,7 +159,7 @@ Dashboard html_annual_report {
             }
           }
           settings {
-            color: '#07326C'
+            color: '#1a3a5c'
             color_palette: 0
           }
         }
@@ -176,6 +173,297 @@ Dashboard html_annual_report {
           debug_comments: true
         }
       }
+    }
+  }
+  block v_5eey: VizBlock {
+    label: 'Gross sales'
+    viz: MetricKpi {
+      dataset: ecommerce
+      value: VizFieldFull {
+        label: ' '
+        ref: r(ecommerce.gross_sales)
+        format {
+          type: 'number'
+          pattern: 'inherited'
+        }
+      }
+      settings {
+        aggregate_awareness {
+          enabled: true
+          debug_comments: true
+        }
+        alignment: 'left'
+      }
+    }
+    settings {
+      hide_label: true
+    }
+  }
+  block v_active_clients: VizBlock {
+    label: 'Active Clients'
+    viz: MetricKpi {
+      dataset: ecommerce
+      value: VizFieldFull {
+        label: ' '
+        ref: r(ecommerce_users.id)
+        aggregation: 'count'
+        format {
+          type: 'number'
+          pattern: 'inherited'
+        }
+      }
+      settings {
+        aggregate_awareness {
+          enabled: true
+          debug_comments: false
+        }
+        alignment: 'left'
+      }
+    }
+    settings {
+      hide_label: true
+    }
+  }
+  block v_gross_margin: VizBlock {
+    label: 'Gross Margin'
+    viz: MetricKpi {
+      dataset: ecommerce
+      value: VizFieldFull {
+        label: ' '
+        ref: r(ecommerce.net_sales_margin)
+        format {
+          type: 'number'
+          pattern: 'inherited'
+        }
+      }
+      settings {
+        aggregate_awareness {
+          enabled: true
+          debug_comments: false
+        }
+        alignment: 'left'
+      }
+    }
+    settings {
+      hide_label: true
+    }
+  }
+  block v_nps: VizBlock {
+    label: 'NPS Score'
+    viz: MetricKpi {
+      dataset: ecommerce
+      value: VizFieldFull {
+        label: ' '
+        ref: r(ecommerce.return_ratio)
+        format {
+          type: 'number'
+          pattern: 'inherited'
+        }
+      }
+      settings {
+        aggregate_awareness {
+          enabled: true
+          debug_comments: false
+        }
+        alignment: 'left'
+      }
+    }
+    settings {
+      hide_label: true
+    }
+  }
+  block v_cpu: VizBlock {
+    label: 'Cost Per Unit'
+    viz: AreaChart {
+      dataset: ecommerce
+      calculation avg_discount_per_order {
+        label: 'Cost Per Unit'
+        formula: @aql ecommerce_orders | avg(ecommerce_orders.discount);;
+        calc_type: 'measure'
+        data_type: 'number'
+      }
+      x_axis: VizFieldFull {
+        ref: r(ecommerce_orders.created_at)
+        transformation: 'datetrunc quarter'
+        format {
+          type: 'date'
+          pattern: 'yyyy Qq'
+        }
+      }
+      y_axis {
+        series {
+          field: VizFieldFull {
+            label: 'Cost Per Unit'
+            ref: 'avg_discount_per_order'
+            format {
+              type: 'number'
+              pattern: '#,###0.00'
+            }
+          }
+          settings {
+            color: '#1a3a5c'
+          }
+        }
+        settings {
+          hidden: true
+        }
+      }
+      settings {
+        legend_label: 'hidden'
+        show_data_points: true
+        connect_discontinuous_points: true
+        row_limit: 20
+        aggregate_awareness {
+          enabled: true
+          debug_comments: false
+        }
+      }
+    }
+    settings {
+      hide_label: true
+    }
+  }
+  block v_churn: VizBlock {
+    label: 'Churn Rate'
+    viz: AreaChart {
+      dataset: ecommerce
+      calculation gross_sales_calc {
+        label: 'Gross Sales'
+        formula: @aql ecommerce_orders.total_charge;;
+        calc_type: 'measure'
+        data_type: 'number'
+        model: ecommerce_orders
+      }
+      calculation returned_amount_calc {
+        label: 'Returned Amount'
+        formula: @aql ecommerce_orders | sum(ecommerce_orders.discount);;
+        calc_type: 'measure'
+        data_type: 'number'
+      }
+      calculation churn_rate_calc {
+        label: 'Churn Rate'
+        formula: @aql returned_amount_calc * 1.0 / gross_sales;;
+        calc_type: 'measure'
+        data_type: 'number'
+      }
+      x_axis: VizFieldFull {
+        ref: r(ecommerce_orders.created_at)
+        transformation: 'datetrunc quarter'
+        format {
+          type: 'date'
+          pattern: 'yyyy Qq'
+        }
+      }
+      y_axis {
+        settings {
+          hidden: true
+        }
+        series {
+          field: VizFieldFull {
+            label: 'Churn Rate'
+            ref: 'churn_rate_calc'
+            format {
+              type: 'number'
+              pattern: '#,###0.0%'
+            }
+          }
+          settings {
+            color: '#e63222'
+            line_interpolation: 'smooth'
+          }
+        }
+      }
+      settings {
+        row_limit: 500
+        legend_label: 'hidden'
+        x_axis_show_null_datetime: false
+        aggregate_awareness {
+          enabled: true
+          debug_comments: false
+        }
+      }
+    }
+    settings {
+      hide_label: true
+    }
+  }
+  block v_deal_vel: VizBlock {
+    label: 'Deal Velocity'
+    viz: BarChart {
+      dataset: ecommerce
+      calculation order_count {
+        label: 'Order Count'
+        formula: @aql ecommerce_orders | count(ecommerce_orders.id);;
+        calc_type: 'measure'
+        data_type: 'number'
+      }
+      filter {
+        field: r(ecommerce_orders.status)
+        operator: 'is'
+        value: [
+          'delivered',
+          'cancelled',
+          'refunded'
+        ]
+      }
+      x_axis: VizFieldFull {
+        ref: r(ecommerce_orders.created_at)
+        transformation: 'datetrunc quarter'
+        format {
+          type: 'date'
+          pattern: 'yyyy Qq'
+        }
+      }
+      legend: VizFieldFull {
+        ref: r(ecommerce_orders.status)
+        format {
+          type: 'text'
+        }
+      }
+      y_axis {
+        series {
+          field: VizFieldFull {
+            label: 'Order Count'
+            ref: 'order_count'
+            format {
+              type: 'number'
+              pattern: '#,###'
+            }
+          }
+          settings {
+            point {
+              value: 'delivered'
+              color: '#1a3a5c'
+            }
+            point {
+              value: 'cancelled'
+              color: '#e63222'
+            }
+            point {
+              value: 'refunded'
+              color: '#8a8278'
+            }
+          }
+        }
+        settings {
+          stack_series_by: 'value'
+        }
+      }
+      settings {
+        legend_label: 'hidden'
+        sort: LineFamilySort {
+          type: 'xaxis'
+          direction: 'asc'
+        }
+        row_limit: 500
+        aggregate_awareness {
+          enabled: true
+          debug_comments: false
+        }
+      }
+    }
+    settings {
+      hide_label: true
     }
   }
 
@@ -329,6 +617,24 @@ Dashboard html_annual_report {
   }
 
   .stat-value.accent { color: var(--accent); }
+
+  .stat-value .h-kpi-metric-kpi,
+  .stat-value .h-kpi-metric-kpi * {
+    font-family: 'Bebas Neue', sans-serif !important;
+    font-size: 26pt !important;
+    font-weight: 400 !important;
+    color: var(--ink) !important;
+    line-height: 1 !important;
+    background: transparent !important;
+    border: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  .stat-value.accent .h-kpi-metric-kpi,
+  .stat-value.accent .h-kpi-metric-kpi * {
+    color: var(--accent) !important;
+  }
 
   .stat-label {
     font-size: 6.5pt;
@@ -579,22 +885,30 @@ Dashboard html_annual_report {
   <!-- KPI Strip -->
   <div class="stat-strip">
     <div class="stat-item">
-      <div class="stat-value accent">$4.2M</div>
+      <div class="stat-value accent">
+        <h-block name="v_5eey" />
+      </div>
       <div class="stat-label">Total Revenue</div>
       <div class="stat-delta">▲ +18.4% YoY</div>
     </div>
     <div class="stat-item">
-      <div class="stat-value">1,240</div>
+      <div class="stat-value">
+        <h-block name="v_active_clients" />
+      </div>
       <div class="stat-label">Active Clients</div>
       <div class="stat-delta">▲ +9.1% YoY</div>
     </div>
     <div class="stat-item">
-      <div class="stat-value">68%</div>
+      <div class="stat-value">
+        <h-block name="v_gross_margin" />
+      </div>
       <div class="stat-label">Gross Margin</div>
       <div class="stat-delta neg">▼ −2.3pp YoY</div>
     </div>
     <div class="stat-item">
-      <div class="stat-value">94</div>
+      <div class="stat-value">
+        <h-block name="v_nps" />
+      </div>
       <div class="stat-label">NPS Score</div>
       <div class="stat-delta">▲ +6 pts YoY</div>
     </div>
@@ -685,9 +999,7 @@ Dashboard html_annual_report {
       <div class="section-title" style="font-size:12pt;">Cost per Unit</div>
       <!-- CHART PLACEHOLDER -->
       <div class="chart-placeholder h-40" id="chart-cpu">
-        <div class="chart-icon">🎯</div>
-        <div class="chart-type">Gauge / Bullet</div>
-        <div class="chart-size">1/3 width · 40mm</div>
+        <h-block name="v_cpu" />
       </div>
     </div>
     <div>
@@ -695,9 +1007,7 @@ Dashboard html_annual_report {
       <div class="section-title" style="font-size:12pt;">Churn Rate</div>
       <!-- CHART PLACEHOLDER -->
       <div class="chart-placeholder h-40" id="chart-churn">
-        <div class="chart-icon">🔁</div>
-        <div class="chart-type">Area Sparkline</div>
-        <div class="chart-size">1/3 width · 40mm</div>
+        <h-block name="v_churn" />
       </div>
     </div>
     <div>
@@ -705,9 +1015,7 @@ Dashboard html_annual_report {
       <div class="section-title" style="font-size:12pt;">Deal Velocity</div>
       <!-- CHART PLACEHOLDER -->
       <div class="chart-placeholder h-40" id="chart-pipeline">
-        <div class="chart-icon">⚡</div>
-        <div class="chart-type">Funnel Chart</div>
-        <div class="chart-size">1/3 width · 40mm</div>
+        <h-block name="v_deal_vel" />
       </div>
     </div>
   </div>

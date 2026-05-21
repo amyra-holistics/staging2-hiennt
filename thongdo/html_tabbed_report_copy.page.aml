@@ -3,6 +3,446 @@ Dashboard html_tabbed_report_pro {
   description: ''
   owner: 'thong.do@holistics.io'
 
+  theme: my_theme
+  block v_tab_trend: VizBlock {
+    label: 'User signups by quarter'
+    viz: ColumnChart {
+      dataset: ecommerce
+      calculation count_of_users_id {
+        label: 'Users'
+        formula: @aql count(ecommerce_users.id);;
+        calc_type: 'measure'
+        data_type: 'number'
+      }
+      x_axis: VizFieldFull {
+        ref: r(ecommerce_users.sign_up_date)
+        transformation: 'datetrunc quarter'
+        format {
+          type: 'date'
+          pattern: 'yyyy Qq'
+        }
+      }
+      y_axis {
+        series {
+          field: VizFieldFull {
+            ref: 'count_of_users_id'
+            format {
+              type: 'number'
+              pattern: '#,###'
+            }
+          }
+          settings {
+            color: '#60a5fa'
+          }
+        }
+        settings {
+          hidden: true
+        }
+      }
+      settings {
+        row_limit: 5000
+        legend_label: 'hidden'
+        x_axis_show_null_datetime: false
+        aggregate_awareness {
+          enabled: true
+          debug_comments: false
+        }
+      }
+    }
+    settings {
+      hide_label: true
+    }
+  }
+  block v_tab_donut: VizBlock {
+    label: 'Orders by status'
+    viz: PieChart {
+      dataset: ecommerce
+      calculation order_count {
+        label: ' '
+        formula: @aql ecommerce_orders | count(ecommerce_orders.id);;
+        calc_type: 'measure'
+        data_type: 'number'
+      }
+      legend: VizFieldFull {
+        ref: r(ecommerce_orders.status)
+        format {
+          type: 'text'
+        }
+      }
+      series {
+        field: VizFieldFull {
+          label: ' '
+          ref: 'order_count'
+          format {
+            type: 'number'
+            pattern: '#,###'
+          }
+        }
+        settings {
+          point {
+            value: 'delivered'
+            color: '#60a5fa'
+          }
+          point {
+            value: 'cancelled'
+            color: '#fb7185'
+          }
+          point {
+            value: 'refunded'
+            color: '#c084fc'
+          }
+          point {
+            value: 'processing'
+            color: '#fbbf24'
+          }
+          point {
+            value: 'shipped'
+            color: '#34d399'
+          }
+        }
+      }
+      settings {
+        display_as_donut: true
+        row_limit: 100
+        sort: 'desc'
+        legend_label: 'hidden'
+        show_data_label: true
+        data_label_position: 'none'
+        aggregate_awareness {
+          enabled: true
+          debug_comments: false
+        }
+      }
+    }
+    settings {
+      hide_label: true
+    }
+  }
+  block v_tab_bar: VizBlock {
+    label: 'Orders by status stacked'
+    viz: BarChart {
+      dataset: ecommerce
+      calculation order_count {
+        label: 'Orders'
+        formula: @aql ecommerce_orders | count(ecommerce_orders.id);;
+        calc_type: 'measure'
+        data_type: 'number'
+      }
+      x_axis: VizFieldFull {
+        ref: r(ecommerce_orders.created_at)
+        transformation: 'datetrunc quarter'
+        format {
+          type: 'date'
+          pattern: 'yyyy Qq'
+        }
+      }
+      legend: VizFieldFull {
+        ref: r(ecommerce_orders.status)
+        format {
+          type: 'text'
+        }
+      }
+      y_axis {
+        series {
+          field: VizFieldFull {
+            ref: 'order_count'
+            format {
+              type: 'number'
+              pattern: '#,###'
+            }
+          }
+          settings {
+            point {
+              value: 'delivered'
+              color: '#fbbf24'
+            }
+            point {
+              value: 'cancelled'
+              color: '#fb7185'
+            }
+            point {
+              value: 'refunded'
+              color: '#94a3b8'
+            }
+          }
+        }
+        settings {
+          hidden: true
+          stack_series_by: 'value'
+        }
+      }
+      settings {
+        row_limit: 500
+        legend_label: 'hidden'
+        aggregate_awareness {
+          enabled: true
+          debug_comments: false
+        }
+      }
+    }
+    settings {
+      hide_label: true
+    }
+  }
+  block v_tab_area: VizBlock {
+    label: 'Returned vs Net Sales'
+    viz: AreaChart {
+      dataset: ecommerce
+      x_axis: VizFieldFull {
+        ref: r(ecommerce_orders.created_at)
+        transformation: 'datetrunc quarter'
+        format {
+          type: 'date'
+          pattern: 'yyyy Qq'
+        }
+      }
+      y_axis {
+        series {
+          field: VizFieldFull {
+            ref: r(ecommerce.returned_amount)
+            format {
+              type: 'number'
+              pattern: 'inherited'
+            }
+          }
+          settings {
+            color: '#fb7185'
+          }
+        }
+        series {
+          field: VizFieldFull {
+            ref: r(ecommerce.net_sales)
+            format {
+              type: 'number'
+              pattern: 'inherited'
+            }
+          }
+          settings {
+            color: '#34d399'
+          }
+        }
+        settings {
+          hidden: true
+        }
+      }
+      settings {
+        row_limit: 5000
+        legend_label: 'hidden'
+        x_axis_show_null_datetime: false
+        aggregate_awareness {
+          enabled: true
+          debug_comments: false
+        }
+      }
+    }
+    settings {
+      hide_label: true
+    }
+  }
+  block v_tab_margin: VizBlock {
+    label: 'Net Sales Margin trend'
+    viz: AreaChart {
+      dataset: ecommerce
+      x_axis: VizFieldFull {
+        ref: r(ecommerce_orders.created_at)
+        transformation: 'datetrunc quarter'
+        format {
+          type: 'date'
+          pattern: 'yyyy Qq'
+        }
+      }
+      y_axis {
+        series {
+          field: VizFieldFull {
+            ref: r(ecommerce.net_sales_margin)
+            format {
+              type: 'number'
+              pattern: '#,###0.0%'
+            }
+          }
+          settings {
+            color: '#c084fc'
+            line_interpolation: 'smooth'
+          }
+        }
+        settings {
+          hidden: true
+        }
+      }
+      settings {
+        row_limit: 5000
+        legend_label: 'hidden'
+        show_data_points: false
+        connect_discontinuous_points: true
+        x_axis_show_null_datetime: false
+        aggregate_awareness {
+          enabled: true
+          debug_comments: false
+        }
+      }
+    }
+    settings {
+      hide_label: true
+    }
+  }
+  block v_tab_acquisition: VizBlock {
+    label: 'User acquisition by month'
+    viz: ColumnChart {
+      dataset: ecommerce
+      calculation count_of_users_id {
+        label: 'Users'
+        formula: @aql count(ecommerce_users.id);;
+        calc_type: 'measure'
+        data_type: 'number'
+      }
+      x_axis: VizFieldFull {
+        ref: r(ecommerce_users.sign_up_date)
+        transformation: 'datetrunc month'
+        format {
+          type: 'date'
+          pattern: 'yyyy MMM'
+        }
+      }
+      y_axis {
+        series {
+          field: VizFieldFull {
+            ref: 'count_of_users_id'
+            format {
+              type: 'number'
+              pattern: '#,###'
+            }
+          }
+          settings {
+            color: '#34d399'
+          }
+        }
+        settings {
+          hidden: true
+        }
+      }
+      settings {
+        row_limit: 5000
+        legend_label: 'hidden'
+        x_axis_show_null_datetime: false
+        aggregate_awareness {
+          enabled: true
+          debug_comments: false
+        }
+      }
+    }
+    settings {
+      hide_label: true
+    }
+  }
+  block v_kpi_rev: VizBlock {
+    label: 'Gross Sales'
+    viz: MetricKpi {
+      dataset: ecommerce
+      value: VizFieldFull {
+        label: ' '
+        ref: r(ecommerce.gross_sales)
+        format {
+          type: 'number'
+          pattern: 'inherited'
+        }
+      }
+      settings {
+        aggregate_awareness {
+          enabled: true
+          debug_comments: false
+        }
+        alignment: 'left'
+      }
+    }
+    settings {
+      hide_label: true
+    }
+  }
+  block v_kpi_users: VizBlock {
+    label: 'Total Users'
+    viz: MetricKpi {
+      dataset: ecommerce
+      value: VizFieldFull {
+        label: ' '
+        ref: r(ecommerce_users.id)
+        aggregation: 'count'
+        format {
+          type: 'number'
+          pattern: '#,###'
+        }
+      }
+      settings {
+        aggregate_awareness {
+          enabled: true
+          debug_comments: false
+        }
+        alignment: 'left'
+      }
+    }
+    settings {
+      hide_label: true
+    }
+  }
+  block v_kpi_margin: VizBlock {
+    label: 'Net Sales Margin'
+    viz: MetricKpi {
+      dataset: ecommerce
+      value: VizFieldFull {
+        label: ' '
+        ref: r(ecommerce.net_sales_margin)
+        format {
+          type: 'number'
+          pattern: 'inherited'
+        }
+      }
+      settings {
+        aggregate_awareness {
+          enabled: true
+          debug_comments: false
+        }
+        alignment: 'left'
+      }
+    }
+    settings {
+      hide_label: true
+    }
+  }
+  block v_kpi_return: VizBlock {
+    label: 'Return Ratio'
+    viz: MetricKpi {
+      dataset: ecommerce
+      value: VizFieldFull {
+        label: ' '
+        ref: r(ecommerce.return_ratio)
+        format {
+          type: 'number'
+          pattern: 'inherited'
+        }
+      }
+      settings {
+        aggregate_awareness {
+          enabled: true
+          debug_comments: false
+        }
+        alignment: 'left'
+      }
+    }
+    settings {
+      hide_label: true
+    }
+  }
+  block filter_date: FilterBlock {
+    label: 'Order Date'
+    type: 'field'
+    source: FieldFilterSource {
+      dataset: ecommerce
+      field: r(ecommerce_orders.created_at)
+    }
+    default {
+      operator: 'matches'
+      value: '1/1/2020 - 12/31/2026'
+    }
+  }
 
   view: HTMLLayout {
     content: @html
@@ -36,11 +476,11 @@ Dashboard html_tabbed_report_pro {
       --dh-text-faint: #5a6075;
 
       /* Accents */
-      --dh-blue:   #4d8cff;
-      --dh-red:    #ff5a5f;
-      --dh-green:  #2ecc71;
-      --dh-purple: #a78bfa;
-      --dh-amber:  #f5a524;
+      --dh-blue:   #60a5fa;
+      --dh-red:    #fb7185;
+      --dh-green:  #34d399;
+      --dh-purple: #c084fc;
+      --dh-amber:  #fbbf24;
 
       --dh-radius: 6px;
       --dh-gap: 16px;
@@ -80,10 +520,11 @@ Dashboard html_tabbed_report_pro {
     .dash-hq > * { position: relative; z-index: 1; }
 
     /* Visual order — panels precede tabs in DOM for the sibling selector trick */
-    .dash-hq .dh-topbar { order: 1; }
-    .dash-hq .dh-tabs   { order: 2; }
-    .dash-hq .dh-header { order: 3; }
-    .dash-hq .dh-panel  { order: 4; }
+    .dash-hq .dh-topbar  { order: 1; }
+    .dash-hq .dh-filters { order: 2; }
+    .dash-hq .dh-tabs    { order: 3; }
+    .dash-hq .dh-header  { order: 4; }
+    .dash-hq .dh-panel   { order: 5; }
 
     /* ---------- Top bar ---------- */
     .dash-hq .dh-topbar {
@@ -585,6 +1026,96 @@ Dashboard html_tabbed_report_pro {
     }
     .dash-hq .dh-tag.ready    { background: rgba(46, 204, 113, 0.15); color: var(--dh-green); }
     .dash-hq .dh-tag.archived { background: rgba(139, 145, 163, 0.15); color: var(--dh-text-dim); }
+
+    /* ---------- Live chart overrides ---------- */
+    .dash-hq .dh-chart.dh-chart-live {
+      border: none;
+      background: transparent;
+      background-image: none;
+      align-items: stretch;
+      justify-content: stretch;
+      padding: 0;
+    }
+    .dash-hq .dh-chart.dh-chart-live::after { display: none; }
+    .dash-hq .dh-chart.dh-chart-live * {
+      background: transparent !important;
+      color: var(--dh-text) !important;
+    }
+
+    /* ---------- Filter bar ---------- */
+    .dash-hq .dac-ic-block-label { display: none; }
+    .dash-hq .dh-filters {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      padding-bottom: 18px;
+      margin-bottom: 4px;
+      flex-wrap: wrap;
+    }
+
+    /* Filter dark mode overrides — broad scope in case h-block renders outside .dh-filters */
+    .dash-hq .dac-ic-block { color: var(--dh-text) !important; }
+    .dash-hq .dm-filter-container,
+    .dash-hq .h-theme-dm-filter-container {
+      background: var(--dh-surface) !important;
+      color: var(--dh-text) !important;
+    }
+    .dash-hq .dm-filter-form {
+      background: var(--dh-surface) !important;
+      border: 1px solid var(--dh-border) !important;
+      border-radius: var(--dh-radius) !important;
+      box-shadow: none !important;
+      color: var(--dh-text) !important;
+    }
+    .dash-hq .hui-select-trigger.hui-select.operator-select,
+    .dash-hq .hui-select-trigger.operator-select,
+    .dash-hq .operator-select {
+      background: var(--dh-surface-2) !important;
+      background-color: var(--dh-surface-2) !important;
+      color: var(--dh-text-dim) !important;
+      border-right: 1px solid var(--dh-border) !important;
+    }
+    .dash-hq .hui-select-trigger.hui-select.operator-select:hover,
+    .dash-hq .operator-select:hover {
+      background: var(--dh-border) !important;
+      background-color: var(--dh-border) !important;
+      color: var(--dh-text) !important;
+    }
+    .dash-hq .h-highlightable-input,
+    .dash-hq .h-input {
+      background: var(--dh-surface-2) !important;
+      color: var(--dh-text) !important;
+    }
+    .dash-hq .viz-filter-value-input,
+    .dash-hq .h-theme-viz-filter-value-input {
+      background: var(--dh-surface-2) !important;
+    }
+    .dash-hq .dac-ic-block .h-icon { color: var(--dh-text-faint) !important; }
+    .dash-hq .dac-ic-block * {
+      font-family: var(--dh-font-mono) !important;
+      font-size: 12px !important;
+    }
+    .dash-hq .h-highlightable-input mark {
+      background-color: rgba(96, 165, 250, 0.2) !important;
+      color: var(--dh-text) !important;
+      border-radius: 0.25rem;
+      padding: 0 0.25rem;
+    }
+
+    /* ---------- KPI value inherits display font ---------- */
+    .dash-hq .dh-kpi-value .h-kpi-metric-kpi,
+    .dash-hq .dh-kpi-value .h-kpi-metric-kpi * {
+      font-family: var(--dh-font-display) !important;
+      font-size: 36px !important;
+      font-weight: 900 !important;
+      line-height: 1 !important;
+      letter-spacing: 0.01em !important;
+      color: var(--dh-text) !important;
+      background: transparent !important;
+      border: none !important;
+      padding: 0 !important;
+      margin: 0 !important;
+    }
   </style>
 
   <!-- =================== TOP BAR =================== -->
@@ -599,6 +1130,8 @@ Dashboard html_tabbed_report_pro {
     </div>
   </div>
 
+  <!-- =================== FILTERS =================== -->
+
   <!-- =================== PANELS (DOM first, visually below) =================== -->
 
   <!-- ----- SUMMARY ----- -->
@@ -608,48 +1141,44 @@ Dashboard html_tabbed_report_pro {
         <h1 class="dh-title">OVERVIEW</h1>
         <p class="dh-subtitle">FY 2025 · ALL SEGMENTS</p>
       </div>
-      <div class="dh-date-pill">📅 <b>Jan 1 — May 20, 2026</b></div>
+      <div class="dh-date-pill" style="display: flex">
+       <span style="font-size: 16px; padding-top: 6px; padding-right: 12px">📅</span>
+      <h-block name="filter_date" />
+      </div>
+    
     </div>
 
     <div class="dh-kpis">
       <div class="dh-kpi accent-blue">
-        <div class="dh-kpi-label">Total Revenue</div>
+        <div class="dh-kpi-label">Gross Sales</div>
         <div class="dh-kpi-row">
           <div class="dh-kpi-main">
-            <div class="dh-kpi-value">$4.2M</div>
-            <div class="dh-kpi-delta up">▲ +18.4% <span>vs last period</span></div>
+            <div class="dh-kpi-value"><h-block name="v_kpi_rev" /></div>
           </div>
-          <div class="dh-spark">sparkline</div>
         </div>
       </div>
       <div class="dh-kpi accent-red">
-        <div class="dh-kpi-label">Active Users</div>
+        <div class="dh-kpi-label">Total Users</div>
         <div class="dh-kpi-row">
           <div class="dh-kpi-main">
-            <div class="dh-kpi-value">12,480</div>
-            <div class="dh-kpi-delta down">▼ −3.1% <span>vs last period</span></div>
+            <div class="dh-kpi-value"><h-block name="v_kpi_users" /></div>
           </div>
-          <div class="dh-spark">sparkline</div>
         </div>
       </div>
       <div class="dh-kpi accent-green">
-        <div class="dh-kpi-label">Conversion Rate</div>
+        <div class="dh-kpi-label">Net Sales Margin</div>
         <div class="dh-kpi-row">
           <div class="dh-kpi-main">
-            <div class="dh-kpi-value">3.8%</div>
-            <div class="dh-kpi-delta up">▲ +0.4pp <span>vs last period</span></div>
+            <div class="dh-kpi-value"><h-block name="v_kpi_margin" /></div>
           </div>
-          <div class="dh-spark">sparkline</div>
         </div>
       </div>
       <div class="dh-kpi accent-purple">
-        <div class="dh-kpi-label">Avg. Order Value</div>
+        <div class="dh-kpi-label">Return Ratio</div>
         <div class="dh-kpi-row">
           <div class="dh-kpi-main">
-            <div class="dh-kpi-value">$338</div>
-            <div class="dh-kpi-delta up">▲ +9.2% <span>vs last period</span></div>
+            <div class="dh-kpi-value"><h-block name="v_kpi_return" /></div>
           </div>
-          <div class="dh-spark">sparkline</div>
         </div>
       </div>
     </div>
@@ -668,11 +1197,7 @@ Dashboard html_tabbed_report_pro {
           <span class="dh-legend-item dot-red"><span>Target</span></span>
           <span class="dh-legend-item dot-grey"><span>Prior Year</span></span>
         </div>
-        <div class="dh-chart tall">
-          <div class="dh-chart-icon">📈</div>
-          <div class="dh-chart-label">Line / Bar Combo</div>
-          <div class="dh-chart-id">#chart-monthly-trend · 280px</div>
-        </div>
+        <div class="dh-chart tall dh-chart-live"><h-block name="v_tab_trend" /></div>
       </div>
       <div class="dh-card dh-col-5">
         <div class="dh-card-header">
@@ -682,11 +1207,7 @@ Dashboard html_tabbed_report_pro {
           </div>
           <a class="dh-card-action" href="#">Details →</a>
         </div>
-        <div class="dh-chart">
-          <div class="dh-chart-icon">🍩</div>
-          <div class="dh-chart-label">Donut Chart</div>
-          <div class="dh-chart-id">#chart-segment-donut · 160px</div>
-        </div>
+        <div class="dh-chart dh-chart-live"><h-block name="v_tab_donut" /></div>
         <div class="dh-segments">
           <div class="dh-segment color-blue">
             <span class="dh-segment-name">Enterprise</span>
@@ -713,11 +1234,7 @@ Dashboard html_tabbed_report_pro {
             <h3 class="dh-card-title">PIPELINE</h3>
           </div>
         </div>
-        <div class="dh-chart short">
-          <div class="dh-chart-icon">⚡</div>
-          <div class="dh-chart-label">Funnel</div>
-          <div class="dh-chart-id">#chart-funnel</div>
-        </div>
+        <div class="dh-chart short dh-chart-live"><h-block name="v_tab_bar" /></div>
       </div>
       <div class="dh-card dh-col-4">
         <div class="dh-card-header">
@@ -726,11 +1243,7 @@ Dashboard html_tabbed_report_pro {
             <h3 class="dh-card-title">RETENTION CURVE</h3>
           </div>
         </div>
-        <div class="dh-chart short">
-          <div class="dh-chart-icon">🔁</div>
-          <div class="dh-chart-label">Area Chart</div>
-          <div class="dh-chart-id">#chart-retention</div>
-        </div>
+        <div class="dh-chart short dh-chart-live"><h-block name="v_tab_area" /></div>
       </div>
       <div class="dh-card dh-col-4">
         <div class="dh-card-header">
@@ -739,11 +1252,7 @@ Dashboard html_tabbed_report_pro {
             <h3 class="dh-card-title">NPS TREND</h3>
           </div>
         </div>
-        <div class="dh-chart short">
-          <div class="dh-chart-icon">★</div>
-          <div class="dh-chart-label">Gauge / Bullet</div>
-          <div class="dh-chart-id">#chart-nps</div>
-        </div>
+        <div class="dh-chart short dh-chart-live"><h-block name="v_tab_margin" /></div>
       </div>
     </div>
   </section>
@@ -800,11 +1309,7 @@ Dashboard html_tabbed_report_pro {
           </div>
           <a class="dh-card-action" href="#">Export ↗</a>
         </div>
-        <div class="dh-chart tall">
-          <div class="dh-chart-icon">📊</div>
-          <div class="dh-chart-label">Stacked Area Chart</div>
-          <div class="dh-chart-id">#chart-channels · 340px</div>
-        </div>
+        <div class="dh-chart tall dh-chart-live"><h-block name="v_tab_trend" /></div>
       </div>
       <div class="dh-card dh-col-6">
         <div class="dh-card-header">
@@ -813,11 +1318,7 @@ Dashboard html_tabbed_report_pro {
             <h3 class="dh-card-title">PLAN BREAKDOWN</h3>
           </div>
         </div>
-        <div class="dh-chart">
-          <div class="dh-chart-icon">🥧</div>
-          <div class="dh-chart-label">Pie Chart</div>
-          <div class="dh-chart-id">#chart-plans</div>
-        </div>
+        <div class="dh-chart dh-chart-live"><h-block name="v_tab_donut" /></div>
       </div>
       <div class="dh-card dh-col-6">
         <div class="dh-card-header">
@@ -826,11 +1327,7 @@ Dashboard html_tabbed_report_pro {
             <h3 class="dh-card-title">RETENTION HEATMAP</h3>
           </div>
         </div>
-        <div class="dh-chart">
-          <div class="dh-chart-icon">🔥</div>
-          <div class="dh-chart-label">Heatmap</div>
-          <div class="dh-chart-id">#chart-retention-heatmap</div>
-        </div>
+        <div class="dh-chart dh-chart-live"><h-block name="v_tab_area" /></div>
       </div>
     </div>
   </section>
@@ -897,11 +1394,7 @@ Dashboard html_tabbed_report_pro {
           </div>
           <a class="dh-card-action" href="#">Filter ↗</a>
         </div>
-        <div class="dh-chart tall">
-          <div class="dh-chart-icon">📈</div>
-          <div class="dh-chart-label">Area Chart</div>
-          <div class="dh-chart-id">#chart-acquisition</div>
-        </div>
+        <div class="dh-chart tall dh-chart-live"><h-block name="v_tab_acquisition" /></div>
       </div>
       <div class="dh-card dh-col-4">
         <div class="dh-card-header">
@@ -910,11 +1403,7 @@ Dashboard html_tabbed_report_pro {
             <h3 class="dh-card-title">DEVICE SPLIT</h3>
           </div>
         </div>
-        <div class="dh-chart tall">
-          <div class="dh-chart-icon">📱</div>
-          <div class="dh-chart-label">Donut</div>
-          <div class="dh-chart-id">#chart-device</div>
-        </div>
+        <div class="dh-chart tall dh-chart-live"><h-block name="v_tab_donut" /></div>
       </div>
     </div>
   </section>
@@ -962,11 +1451,7 @@ Dashboard html_tabbed_report_pro {
             <h3 class="dh-card-title">REPORT TIMELINE</h3>
           </div>
         </div>
-        <div class="dh-chart short">
-          <div class="dh-chart-icon">📊</div>
-          <div class="dh-chart-label">Timeline Chart</div>
-          <div class="dh-chart-id">#chart-timeline</div>
-        </div>
+        <div class="dh-chart short dh-chart-live"><h-block name="v_tab_bar" /></div>
       </div>
     </div>
   </section>

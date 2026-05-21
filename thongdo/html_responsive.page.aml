@@ -35,18 +35,22 @@ Dashboard html_responsive {
             }
           }
           settings {
-            color_palette: 0
+            color: '#ea580c'
           }
         }
       }
       settings {
         row_limit: 5000
+        legend_label: 'hidden'
         x_axis_show_null_datetime: false
         aggregate_awareness {
           enabled: true
           debug_comments: true
         }
       }
+    }
+    settings {
+      hide_label: true
     }
   }
   block v_monthly: VizBlock {
@@ -77,18 +81,22 @@ Dashboard html_responsive {
             }
           }
           settings {
-            color_palette: 1
+            color: '#0284c7'
           }
         }
       }
       settings {
         row_limit: 5000
+        legend_label: 'hidden'
         x_axis_show_null_datetime: false
         aggregate_awareness {
           enabled: true
           debug_comments: true
         }
       }
+    }
+    settings {
+      hide_label: true
     }
   }
   block v_yearly: VizBlock {
@@ -119,18 +127,71 @@ Dashboard html_responsive {
             }
           }
           settings {
-            color_palette: 2
+            color: '#7c3aed'
           }
         }
       }
       settings {
         row_limit: 5000
+        legend_label: 'hidden'
         x_axis_show_null_datetime: false
         aggregate_awareness {
           enabled: true
           debug_comments: true
         }
       }
+    }
+    settings {
+      hide_label: true
+    }
+  }
+
+  block v_conversion: VizBlock {
+    label: 'Conversion'
+    viz: MetricKpi {
+      dataset: ecommerce
+      value: VizFieldFull {
+        label: ' '
+        ref: r(ecommerce.net_sales_margin)
+        format {
+          type: 'number'
+          pattern: 'inherited'
+        }
+      }
+      settings {
+        aggregate_awareness {
+          enabled: true
+          debug_comments: false
+        }
+        alignment: 'left'
+      }
+    }
+    settings {
+      hide_label: true
+    }
+  }
+  block v_metric_kpi: VizBlock {
+    label: 'Gross Sales'
+    viz: MetricKpi {
+      dataset: ecommerce
+      value: VizFieldFull {
+        label: ' '
+        ref: r(ecommerce.gross_sales)
+        format {
+          type: 'number'
+          pattern: 'inherited'
+        }
+      }
+      settings {
+        aggregate_awareness {
+          enabled: true
+          debug_comments: false
+        }
+        alignment: 'left'
+      }
+    }
+    settings {
+      hide_label: true
     }
   }
 
@@ -639,6 +700,55 @@ Dashboard html_responsive {
       position: relative;
       z-index: 1;
     }
+
+    /* ----- KPI inherits stat2 tile style (green gradient, ink text) ----- */
+    .bento-root .b-stat-value .h-kpi-metric-kpi,
+    .bento-root .b-stat-value .h-kpi-metric-kpi * {
+      font-family: var(--b-font-display) !important;
+      font-size: clamp(28px, 3.5vw, 40px) !important;
+      font-weight: 700 !important;
+      letter-spacing: -0.03em !important;
+      line-height: 1 !important;
+      color: var(--b-ink) !important;
+      background: transparent !important;
+      border: none !important;
+      padding: 0 !important;
+      margin: 0 !important;
+    }
+
+    /* ----- KPI inherits metric tile style (orange bg, white text) ----- */
+    .bento-root .b-metric-value .h-kpi-metric-kpi,
+    .bento-root .b-metric-value .h-kpi-metric-kpi * {
+      font-family: var(--b-font-display) !important;
+      font-size: clamp(36px, 5vw, 56px) !important;
+      font-weight: 700 !important;
+      letter-spacing: -0.04em !important;
+      line-height: 1 !important;
+      color: white !important;
+      background: transparent !important;
+      border: none !important;
+      padding: 0 !important;
+      margin: 0 !important;
+    }
+
+    /* ----- Live chart overrides ----- */
+    .bento-root .b-chart.b-chart-live {
+      border: none;
+      background: transparent;
+      background-image: none;
+      animation: none;
+      align-items: stretch;
+      justify-content: stretch;
+      padding: 0;
+    }
+    .bento-root .b-chart.b-chart-live::after { display: none; }
+    .bento-root .b-chart.b-chart-live * {
+      background: transparent !important;
+    }
+    .bento-root .b-chart.b-chart-mini {
+      flex: 1;
+      min-height: 80px;
+    }
   </style>
 
   <!-- =================== TOP BAR =================== -->
@@ -670,25 +780,26 @@ Dashboard html_responsive {
 
     <!-- STAT 1 -->
     <div class="b-tile area-stat1">
-      <div class="b-stat-label">New Signups</div>
-      <div class="b-stat-value">1,284</div>
-      <div class="b-stat-delta up">▲ +18.4% this week</div>
+      <div class="b-stat-label">Monthly Signups</div>
+      <div class="b-chart b-chart-live b-chart-mini">
+        <h-block name="v_monthly" />
+      </div>
     </div>
 
     <!-- STAT 2 -->
     <div class="b-tile area-stat2">
-      <div class="b-stat-label">Conversion</div>
-      <div class="b-stat-value">3.8%</div>
-      <div class="b-stat-delta up">▲ +0.4pp this month</div>
+      <div class="b-stat-label">Net Sales Margin</div>
+      <div class="b-stat-value">
+        <h-block name="v_conversion" />
+      </div>
     </div>
 
     <!-- CHART -->
     <div class="b-tile area-chart">
       <div class="b-card-eyebrow">Trend</div>
       <h3 class="b-card-title">Revenue this quarter</h3>
-      <div class="b-chart">
-        <div class="b-chart-icon">📈</div>
-        <div class="b-chart-label">Line Chart</div>
+      <div class="b-chart b-chart-live">
+        <h-block name="v_signup" />
       </div>
     </div>
 
@@ -736,18 +847,19 @@ Dashboard html_responsive {
 
     <!-- METRIC (orange feature) -->
     <div class="b-tile area-metric">
-      <div class="b-metric-eyebrow">NPS Score</div>
-      <div class="b-metric-value">72</div>
-      <div class="b-metric-foot">▲ +6 points vs Q1 · Industry top 10%</div>
+      <div class="b-metric-eyebrow">Gross Sales</div>
+      <div class="b-metric-value">
+        <h-block name="v_metric_kpi" />
+      </div>
+      <div class="b-metric-foot">Total value of all products sold</div>
     </div>
 
     <!-- CHART 2 -->
     <div class="b-tile area-chart2">
       <div class="b-card-eyebrow">Channels</div>
       <h3 class="b-card-title">Acquisition breakdown</h3>
-      <div class="b-chart">
-        <div class="b-chart-icon">📊</div>
-        <div class="b-chart-label">Stacked Bar Chart</div>
+      <div class="b-chart b-chart-live">
+        <h-block name="v_yearly" />
       </div>
     </div>
 

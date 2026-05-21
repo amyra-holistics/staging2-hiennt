@@ -25,6 +25,9 @@ Dashboard html_slides {
         }
       }
       y_axis {
+        settings {
+          hidden: true
+        }
         series {
           field: VizFieldFull {
             ref: 'count_of_users_id'
@@ -34,12 +37,13 @@ Dashboard html_slides {
             }
           }
           settings {
-            color_palette: 0
+            color: '#2ecc71'
           }
         }
       }
       settings {
         row_limit: 5000
+        legend_label: 'hidden'
         x_axis_show_null_datetime: false
         aggregate_awareness {
           enabled: true
@@ -47,36 +51,239 @@ Dashboard html_slides {
         }
       }
     }
+    settings {
+      hide_label: true
+    }
   }
   block v_7dri: VizBlock {
-    label: 'Gross sales and Created At'
-    viz: DataTable {
+    label: 'Orders by Status'
+    viz: PieChart {
       dataset: ecommerce
-      fields: [
-        VizFieldFull {
-          ref: r(ecommerce.gross_sales)
-          format {
-            type: 'number'
-            pattern: 'inherited'
-          }
-        },
-        VizFieldFull {
-          ref: r(ecommerce_orders.created_at)
-          transformation: 'datetrunc month'
-          format {
-            type: 'date'
-            pattern: 'LLL yyyy'
-          }
-        }
-      ]
-      settings {
-        show_row_number: true
-        row_limit: 5000
-        aggregate_awareness {
-          enabled: true
-          debug_comments: true
+      calculation order_count {
+        label: ' '
+        formula: @aql ecommerce_orders | count(ecommerce_orders.id);;
+        calc_type: 'measure'
+        data_type: 'number'
+      }
+      legend: VizFieldFull {
+        ref: r(ecommerce_orders.status)
+        format {
+          type: 'text'
         }
       }
+      series {
+        field: VizFieldFull {
+          label: ' '
+          ref: 'order_count'
+          format {
+            type: 'number'
+            pattern: '#,###'
+          }
+        }
+        settings {
+          point {
+            value: 'delivered'
+            color: '#4d8cff'
+          }
+          point {
+            value: 'cancelled'
+            color: '#ff5a5f'
+          }
+          point {
+            value: 'refunded'
+            color: '#a78bfa'
+          }
+          point {
+            value: 'processing'
+            color: '#f5a524'
+          }
+          point {
+            value: 'shipped'
+            color: '#2ecc71'
+          }
+        }
+      }
+      settings {
+        display_as_donut: true
+        row_limit: 100
+        sort: 'desc'
+        legend_label: 'hidden'
+        show_data_label: true
+        data_label_position: 'outside'
+        aggregate_awareness {
+          enabled: true
+          debug_comments: false
+        }
+      }
+    }
+    settings {
+      hide_label: true
+    }
+  }
+  block v_s3_area: VizBlock {
+    label: 'Returned vs Cancelled'
+    viz: AreaChart {
+      dataset: ecommerce
+      x_axis: VizFieldFull {
+        ref: r(ecommerce_orders.created_at)
+        transformation: 'datetrunc quarter'
+        format {
+          type: 'date'
+          pattern: 'yyyy Qq'
+        }
+      }
+      y_axis {
+        settings {
+          hidden: true
+        }
+        series {
+          field: VizFieldFull {
+            ref: r(ecommerce.returned_amount)
+            format {
+              type: 'number'
+              pattern: 'inherited'
+            }
+          }
+          settings {
+            color: '#ff5a5f'
+          }
+        }
+        series {
+          field: VizFieldFull {
+            ref: r(ecommerce.net_sales)
+            format {
+              type: 'number'
+              pattern: 'inherited'
+            }
+          }
+          settings {
+            color: '#2ecc71'
+          }
+        }
+      }
+      settings {
+        row_limit: 5000
+        legend_label: 'hidden'
+        x_axis_show_null_datetime: false
+        aggregate_awareness {
+          enabled: true
+          debug_comments: false
+        }
+      }
+    }
+    settings {
+      hide_label: true
+    }
+  }
+  block v_s4_bar: VizBlock {
+    label: 'Orders by Status'
+    viz: BarChart {
+      dataset: ecommerce
+      calculation order_count {
+        label: 'Orders'
+        formula: @aql ecommerce_orders | count(ecommerce_orders.id);;
+        calc_type: 'measure'
+        data_type: 'number'
+      }
+      x_axis: VizFieldFull {
+        ref: r(ecommerce_orders.created_at)
+        transformation: 'datetrunc quarter'
+        format {
+          type: 'date'
+          pattern: 'yyyy Qq'
+        }
+      }
+      legend: VizFieldFull {
+        ref: r(ecommerce_orders.status)
+        format {
+          type: 'text'
+        }
+      }
+      y_axis {
+        series {
+          field: VizFieldFull {
+            ref: 'order_count'
+            format {
+              type: 'number'
+              pattern: '#,###'
+            }
+          }
+          settings {
+            point {
+              value: 'delivered'
+              color: '#f5a524'
+            }
+            point {
+              value: 'cancelled'
+              color: '#ff5a5f'
+            }
+            point {
+              value: 'refunded'
+              color: '#8b91a3'
+            }
+          }
+        }
+        settings {
+          stack_series_by: 'value'
+        }
+      }
+      settings {
+        row_limit: 500
+        legend_label: 'hidden'
+        aggregate_awareness {
+          enabled: true
+          debug_comments: false
+        }
+      }
+    }
+    settings {
+      hide_label: true
+    }
+  }
+  block v_s5_kpi: VizBlock {
+    label: 'Gross Sales Trend'
+    viz: AreaChart {
+      dataset: ecommerce
+      x_axis: VizFieldFull {
+        ref: r(ecommerce_orders.created_at)
+        transformation: 'datetrunc quarter'
+        format {
+          type: 'date'
+          pattern: 'yyyy Qq'
+        }
+      }
+      y_axis {
+        series {
+          field: VizFieldFull {
+            ref: r(ecommerce.gross_sales)
+            format {
+              type: 'number'
+              pattern: 'inherited'
+            }
+          }
+          settings {
+            color: '#a78bfa'
+            line_interpolation: 'smooth'
+          }
+        }
+        settings {
+          hidden: true
+        }
+      }
+      settings {
+        row_limit: 5000
+        legend_label: 'hidden'
+        show_data_points: false
+        connect_discontinuous_points: true
+        x_axis_show_null_datetime: false
+        aggregate_awareness {
+          enabled: true
+          debug_comments: false
+        }
+      }
+    }
+    settings {
+      hide_label: true
     }
   }
 
@@ -443,6 +650,22 @@ Dashboard html_slides {
       background: var(--in-red);
       width: 40px;
     }
+
+    /* ---------- Live chart overrides ---------- */
+    .insights .in-chart.in-chart-live {
+      border: 1px solid var(--in-border);
+      background-image: none;
+      background: var(--in-surface);
+      align-items: stretch;
+      justify-content: stretch;
+      padding: 12px;
+    }
+    .insights .in-chart.in-chart-live::after { display: none; }
+    .insights .in-chart.in-chart-live * {
+      background: transparent !important;
+      color: var(--in-text) !important;
+    }
+
   </style>
 
   <!-- =================== TOP BAR (static) =================== -->
@@ -471,10 +694,8 @@ Dashboard html_slides {
     </div>
 
     <div class="in-slide-body">
-      <div class="in-chart">
-        <div class="in-chart-icon">📈</div>
-        <div class="in-chart-label">Line / Bar Combo</div>
-        <div class="in-chart-id">#chart-revenue-trend</div>
+      <div class="in-chart in-chart-live">
+        <h-block name="v_sroh" />
       </div>
       <div class="in-insight">
         <div class="in-eyebrow">Q2 2026 · Top-line Finding</div>
@@ -512,10 +733,8 @@ Dashboard html_slides {
     </div>
 
     <div class="in-slide-body">
-      <div class="in-chart">
-        <div class="in-chart-icon">📊</div>
-        <div class="in-chart-label">Stacked Area</div>
-        <div class="in-chart-id">#chart-channel-mix</div>
+      <div class="in-chart in-chart-live">
+        <h-block name="v_7dri" />
       </div>
       <div class="in-insight">
         <div class="in-eyebrow">Channel Attribution</div>
@@ -553,10 +772,8 @@ Dashboard html_slides {
     </div>
 
     <div class="in-slide-body">
-      <div class="in-chart">
-        <div class="in-chart-icon">🔁</div>
-        <div class="in-chart-label">Cohort Retention</div>
-        <div class="in-chart-id">#chart-retention</div>
+      <div class="in-chart in-chart-live">
+        <h-block name="v_s3_area" />
       </div>
       <div class="in-insight">
         <div class="in-eyebrow">Customer Health</div>
@@ -594,10 +811,8 @@ Dashboard html_slides {
     </div>
 
     <div class="in-slide-body">
-      <div class="in-chart">
-        <div class="in-chart-icon">⚡</div>
-        <div class="in-chart-label">Funnel</div>
-        <div class="in-chart-id">#chart-sales-cycle</div>
+      <div class="in-chart in-chart-live">
+        <h-block name="v_s4_bar" />
       </div>
       <div class="in-insight">
         <div class="in-eyebrow">Sales Velocity</div>
@@ -635,10 +850,8 @@ Dashboard html_slides {
     </div>
 
     <div class="in-slide-body">
-      <div class="in-chart">
-        <div class="in-chart-icon">🎯</div>
-        <div class="in-chart-label">Gauge / Bullet</div>
-        <div class="in-chart-id">#chart-nps</div>
+      <div class="in-chart in-chart-live">
+        <h-block name="v_s5_kpi" />
       </div>
       <div class="in-insight">
         <div class="in-eyebrow">Voice of Customer</div>
@@ -670,5 +883,5 @@ Dashboard html_slides {
 </div>
     ;;
   }
-  theme: H.themes.vanilla
+  theme: my_theme
 }
