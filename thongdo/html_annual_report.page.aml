@@ -7,7 +7,7 @@ PageTheme my_theme {
   }
 }
 
-Dashboard untitled_5_2 {
+Dashboard html_annual_report {
   title: 'untitled_5'
   description: ''
   owner: 'thong.do@holistics.io'
@@ -15,7 +15,7 @@ Dashboard untitled_5_2 {
     content: @md # Your title goes here ;;
   }
   block v_sroh: VizBlock {
-    label: 'Users signup'
+    label: ''
     viz: ColumnChart {
       dataset: ecommerce
       calculation count_of_users_id {
@@ -42,7 +42,7 @@ Dashboard untitled_5_2 {
             }
           }
           settings {
-            color_palette: 0
+            color: '#1a3a5c'
           }
         }
       }
