@@ -1,0 +1,12 @@
+Skill fin_balance_sheet {
+  label: '⚖️ Balance sheet'
+  description: '''
+    Produces a balance sheet snapshot as of a given date: assets, liabilities, and equity, with comparison to the prior period. 
+    Use when a user asks for the balance sheet, financial position, what the company owns or owes, cash and AR balances, or deferred revenue 
+    — e.g., "show me the balance sheet," "what's our cash position," "how much AR is outstanding.
+  '''
+  content: @md
+   This is an empty skill for demo purpose.
+  ;;
+  invocation: "manual"
+}

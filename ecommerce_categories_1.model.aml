@@ -1,13 +1,12 @@
 Model ecommerce_categories_12 {
   type: 'table'
-  label: 'Categories'
-  description: 'Categories abc'
+  label: 'Categories 12'
   data_source_name: 'demodb'
   dimension id {
     label: 'Id'
     type: 'number'
-    hidden: false
     definition: @sql {{ #SOURCE.id }};;
+    description: "primary ha"
   }
   dimension name {
     label: 'Name'
@@ -21,7 +20,7 @@ Model ecommerce_categories_12 {
     hidden: false
     definition: @sql {{ #SOURCE.parent_id }};;
   }
-// commend sthing
+  // commend sthing
   owner: 'huy.vu@holistics.io'
   table_name: '"ecommerce"."categories"'
 }

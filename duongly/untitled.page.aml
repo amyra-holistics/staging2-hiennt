@@ -44,6 +44,6 @@ Dashboard untitled {
     }
   }
 
-  theme: H.themes.classic
+//  theme: H.themes.classic
 
 }

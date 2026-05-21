@@ -1,35 +1,34 @@
 Model homestay_hosts {
   type: 'table'
-  label: 'Hostssss'
-  description: 'Description 111'
+  label: 'Hosts homestay A'
+  description: 'Name & Information of the homestay hosts a'
   data_source_name: 'demodb'
   dimension id {
-    label: 'Iddddd'
+    label: 'Id'
     type: 'number'
-    hidden: false
     definition: @sql {{ #SOURCE.id }};;
+    description: ""
   }
-  dimension id_2 {
-    label: 'Id -->'
+  dimension dup_id {
+    label: 'Dup Id'
     type: 'text'
     hidden: false
     definition: @sql concat({{ #SOURCE.id }},'-->', {{ #SOURCE.id}});;
   }
   dimension url {
     label: 'Url'
-    description: 'abcdefghi'
     type: 'text'
     hidden: false
     definition: @sql {{ #SOURCE.url }};;
   }
-  dimension name {
-    label: 'Name'
-    type: 'text'
-    hidden: false
-    definition: @sql {{ #SOURCE.name }};;
-  }
+  // dimension name {
+  //   label: 'Name'
+  //   type: 'text'
+  //   hidden: false
+  //   definition: @sql {{ #SOURCE.name }};;
+  // }
   dimension registered_date {
-    label: 'Registered Date'
+    label: ''
     type: 'date'
     hidden: false
     definition: @sql {{ #SOURCE.registered_date }};;
@@ -105,6 +104,22 @@ Model homestay_hosts {
     type: 'truefalse'
     hidden: false
     definition: @sql {{ #SOURCE.identity_verified }};;
+  }
+  dimension identity_verified_pii {
+    label: 'Identity Verified (PII)'
+    type: 'text'
+    definition: @aql case(
+  when:
+    in(1, H.current_user.pii_access),
+  then: homestay_hosts.verifications,
+  else: '(redacted)'
+)}
+    ;;
+  }
+  dimension test {
+    label: 'Test'
+    type: 'text'
+    definition: @aql }} ;;
   }
 
   owner: 'vu.dq@holistics.io'

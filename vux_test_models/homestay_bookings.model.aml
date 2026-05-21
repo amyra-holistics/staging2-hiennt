@@ -1,7 +1,7 @@
 Model homestay_bookings {
   type: 'table'
   label: 'Bookings'
-  description: 'anh Huy ngoi canh anh Thong 1'
+  description: 'anh Huy ngoi canh anh Hoang, anh Hoang ngoi canh anh Huy'
   data_source_name: 'demodb'
   dimension id {
     label: 'Id'
@@ -11,7 +11,7 @@ Model homestay_bookings {
   }
   dimension listing_id {
     description: '123'
-    label: 'Listing Idddd'
+    label: 'Listing Iddd'
     type: 'number'
     hidden: false
     definition: @sql {{ #SOURCE.listing_id }};;

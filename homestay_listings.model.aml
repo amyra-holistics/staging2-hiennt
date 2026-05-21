@@ -1,13 +1,12 @@
 Model homestay_listings {
   type: 'table'
   label: 'Listings'
-  description: 'test 123123'
   data_source_name: 'demodb'
   dimension id {
     label: 'Id'
     type: 'number'
-    hidden: false
     definition: @sql {{ #SOURCE.id }};;
+    description: ""
   }
   dimension name {
     label: 'Name'
@@ -140,6 +139,12 @@ Model homestay_listings {
     type: 'number'
     hidden: false
     definition: @sql {{ #SOURCE.host_id }};;
+  }
+  dimension name_and_type {
+    label: "Name And Type"
+    type: "text"
+    description: ""
+    definition: @sql concat({{ name }}, '_', {{ room_type }});;
   }
 
   owner: 'vu.dq@holistics.io'

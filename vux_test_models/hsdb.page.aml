@@ -6,7 +6,7 @@ Dashboard unnamed {
     width: 1210
     height: 810
     block v1 {
-      position: pos(60, 20, 570, 310)
+      position: pos(30, 20, 570, 310)
     }
   }
   block v1: VizBlock {
@@ -15,22 +15,25 @@ Dashboard unnamed {
       dataset: hsds
       fields: [
         VizFieldFull {
-          ref: ref('homestay_hosts', 'name')
+          ref: ref('homestay_listings', 'name')
           format {
             type: 'text'
           }
         },
         VizFieldFull {
-          ref: ref('homestay_listings', 'name')
+          ref: ref('homestay_hosts', 'registered_date')
           format {
-            type: 'text'
+            type: 'date'
           }
         }
       ]
       settings {
         show_row_number: true
+        aggregate_awareness {
+          enabled: true
+          debug_comments: true
+        }
       }
     }
   }
-
 }
