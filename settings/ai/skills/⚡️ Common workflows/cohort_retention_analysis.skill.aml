@@ -1,0 +1,12 @@
+Skill _cohort_retention_analysis {
+  label: '🛍️ Cohort retention analysis'
+  description: '''
+    Builds a cohort retention table for a chosen metric (users, revenue, accounts), showing how each cohort's retention evolves over time and flagging where retention is breaking down. 
+    Use when a user asks about retention, stickiness, cohort behavior, how long customers stay, or whether newer cohorts are performing differently 
+    — e.g., "show me retention by cohort," "are new users sticking around," "how's our cohort curve looking," "is retention getting worse."
+  '''
+  content: @md
+   This is an empty skill for demo purpose.
+  ;;
+}
+

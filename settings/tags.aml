@@ -85,25 +85,25 @@ Tag {
 // Indicates which team or department owns and maintains this content
 // ---------------------
 Tag {
-  name: 'Owner/Marketing'
-  description: 'Maintained by the Marketing team. Related to campaigns, channels, or brand efforts.'
+  name: 'Team/Growth & Marketing'
+  description: ''
   color: '#800080'
 }
 
 Tag {
-  name: 'Owner/Sales'
-  description: 'Maintained by the Sales team. Related to sales performance or operations.'
+  name: 'Team/BA'
+  description: ''
   color: '#800080'
 }
 
 Tag {
-  name: 'Owner/Finance'
+  name: 'Team/Finance'
   description: 'Maintained by the Finance team. Related to revenue, costs, budgets, and forecasts.'
   color: '#800080'
 }
 
 Tag {
-  name: 'Owner/Product'
-  description: 'Maintained by the Product team. Related to product analytics, feature usage, and insights.'
+  name: 'Team/Purchasing'
+  description: ''
   color: '#800080'
 }
