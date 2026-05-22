@@ -499,7 +499,7 @@ Dashboard html_tabbed_report_pro {
       border-radius: var(--dh-radius);
       min-height: 600px;
       position: relative;
-      overflow: hidden;
+      overflow: auto;
       height: 100%;
     }
 
