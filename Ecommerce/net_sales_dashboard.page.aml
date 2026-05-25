@@ -1,0 +1,330 @@
+Dashboard net_sales_dashboard {
+  title: 'Net Sales Dashboard'
+  description: '''
+A focused executive dashboard for monitoring net sales performance, leakage drivers, and key breakdowns in @Dataset:ecommerce.
+'''
+
+  block t1: TextBlock {
+    content: @md
+# Net Sales Dashboard
+Track **net sales**, its main deductions, and where performance is strongest or weakest.
+    ;;
+  }
+
+  block v1: VizBlock {
+    label: 'Executive KPI Summary'
+    viz: MarkdownViz {
+      dataset: ecommerce
+      values: [
+        VizFieldFull {
+          ref: r(ecommerce.gross_sales)
+          label: 'Gross Sales'
+          format {
+            type: 'number'
+            pattern: 'inherited'
+          }
+        },
+        VizFieldFull {
+          ref: r(ecommerce.net_sales)
+          label: 'Net Sales'
+          format {
+            type: 'number'
+            pattern: 'inherited'
+          }
+        },
+        VizFieldFull {
+          ref: r(ecommerce.returned_amount)
+          label: 'Returned Amount'
+          format {
+            type: 'number'
+            pattern: 'inherited'
+          }
+        },
+        VizFieldFull {
+          ref: r(ecommerce.cancelled_amount)
+          label: 'Cancelled Amount'
+          format {
+            type: 'number'
+            pattern: 'inherited'
+          }
+        },
+        VizFieldFull {
+          ref: r(ecommerce.discount_amount)
+          label: 'Discount Amount'
+          format {
+            type: 'number'
+            pattern: 'inherited'
+          }
+        },
+        VizFieldFull {
+          ref: r(ecommerce.net_sales_margin)
+          label: 'Net Sales Margin'
+          format {
+            type: 'number'
+            pattern: 'inherited'
+          }
+        }
+      ]
+      content: @md
+<style>
+  .kpi-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px;
+    padding: 4px;
+  }
+  .kpi-card {
+    background: #FFFFFF;
+    border: 1px solid #E5E7EB;
+    border-radius: 12px;
+    padding: 18px 20px;
+    box-shadow: 0 1px 2px rgba(16, 24, 40, 0.04);
+  }
+  .kpi-label {
+    font-size: 12px;
+    line-height: 18px;
+    font-weight: 600;
+    color: #667085;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    margin-bottom: 8px;
+  }
+  .kpi-value {
+    font-size: 28px;
+    line-height: 34px;
+    font-weight: 700;
+    color: #101828;
+  }
+  .kpi-card.margin .kpi-value {
+    color: #1570EF;
+  }
+  @media (max-width: 1100px) {
+    .kpi-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+  @media (max-width: 700px) {
+    .kpi-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+
+<div class="kpi-grid">
+  <div class="kpi-card">
+    <div class="kpi-label">Gross Sales</div>
+    <div class="kpi-value">{{ rows[0].values.`Gross Sales` }}</div>
+  </div>
+  <div class="kpi-card">
+    <div class="kpi-label">Net Sales</div>
+    <div class="kpi-value">{{ rows[0].values.`Net Sales` }}</div>
+  </div>
+  <div class="kpi-card">
+    <div class="kpi-label">Returned Amount</div>
+    <div class="kpi-value">{{ rows[0].values.`Returned Amount` }}</div>
+  </div>
+  <div class="kpi-card">
+    <div class="kpi-label">Cancelled Amount</div>
+    <div class="kpi-value">{{ rows[0].values.`Cancelled Amount` }}</div>
+  </div>
+  <div class="kpi-card">
+    <div class="kpi-label">Discount Amount</div>
+    <div class="kpi-value">{{ rows[0].values.`Discount Amount` }}</div>
+  </div>
+  <div class="kpi-card margin">
+    <div class="kpi-label">Net Sales Margin</div>
+    <div class="kpi-value">{{ rows[0].values.`Net Sales Margin` }}</div>
+  </div>
+</div>
+      ;;
+      settings {
+        row_limit: 100
+      }
+    }
+  }
+
+  block v2: VizBlock {
+    label: 'Monthly Net Sales Trend'
+    viz: LineChart {
+      dataset: ecommerce
+      x_axis: VizFieldFull {
+        ref: r(ecommerce_orders.created_at)
+        label: 'Month'
+        transformation: 'datetrunc month'
+        format {
+          type: 'date'
+          pattern: 'LLL yyyy'
+        }
+      }
+      y_axis {
+        label: 'Net Sales'
+        series {
+          field: VizFieldFull {
+            ref: r(ecommerce.net_sales)
+            label: 'Net Sales'
+            format {
+              type: 'number'
+              pattern: 'inherited'
+            }
+          }
+          settings {
+            color: '#3B82F6'
+            line_interpolation: 'linear'
+          }
+        }
+      }
+      settings {
+        x_axis_label: 'Month'
+        legend_label: 'hidden'
+        show_data_points: true
+        connect_discontinuous_points: false
+        row_limit: 100
+        sort: LineFamilySort {
+          type: 'xaxis'
+          direction: 'asc'
+        }
+      }
+    }
+  }
+
+  block v3: VizBlock {
+    label: 'Net Sales by Country'
+    viz: BarChart {
+      dataset: ecommerce
+      x_axis: VizFieldFull {
+        ref: r(ecommerce_countries.name)
+        label: 'Country Name'
+        format {
+          type: 'text'
+        }
+      }
+      y_axis {
+        label: 'Net Sales'
+        series {
+          field: VizFieldFull {
+            ref: r(ecommerce.net_sales)
+            label: 'Net Sales'
+            format {
+              type: 'number'
+              pattern: 'inherited'
+            }
+          }
+          settings {
+            color: '#4F46E5'
+          }
+        }
+      }
+      settings {
+        row_limit: 100
+        sort: LineFamilySort {
+          type: 'yaxis'
+          field_index: 0
+          direction: 'desc'
+        }
+        legend_label: 'hidden'
+      }
+    }
+  }
+
+  block v4: VizBlock {
+    label: 'Top Products by Net Sales'
+    viz: BarChart {
+      dataset: ecommerce
+      x_axis: VizFieldFull {
+        ref: r(ecommerce_products.name)
+        label: 'Product Name'
+        format {
+          type: 'text'
+        }
+      }
+      y_axis {
+        label: 'Net Sales'
+        series {
+          field: VizFieldFull {
+            ref: r(ecommerce.net_sales)
+            label: 'Net Sales'
+            format {
+              type: 'number'
+              pattern: 'inherited'
+            }
+          }
+          settings {
+            color: '#1D4ED8'
+          }
+        }
+      }
+      settings {
+        row_limit: 10
+        sort: LineFamilySort {
+          type: 'yaxis'
+          field_index: 0
+          direction: 'desc'
+        }
+        legend_label: 'hidden'
+      }
+    }
+  }
+
+  block v5: VizBlock {
+    label: 'Top 10 Products by Return Ratio'
+    viz: BarChart {
+      dataset: ecommerce
+      x_axis: VizFieldFull {
+        ref: r(ecommerce_products.name)
+        label: 'Product Name'
+        format {
+          type: 'text'
+        }
+      }
+      y_axis {
+        label: 'Return Ratio'
+        series {
+          field: VizFieldFull {
+            ref: r(ecommerce.return_ratio)
+            label: 'Return Ratio'
+            format {
+              type: 'number'
+              pattern: 'inherited'
+            }
+          }
+          settings {
+            color: '#F1434B'
+          }
+        }
+      }
+      settings {
+        row_limit: 10
+        sort: LineFamilySort {
+          type: 'yaxis'
+          field_index: 0
+          direction: 'desc'
+        }
+      }
+    }
+  }
+
+  view: CanvasLayout {
+    label: 'Overview'
+    width: 1440
+    height: 1280
+
+    block t1 {
+      position: pos(20, 20, 1400, 70)
+    }
+    block v1 {
+      position: pos(20, 110, 1400, 250)
+    }
+    block v2 {
+      position: pos(20, 380, 900, 320)
+    }
+    block v3 {
+      position: pos(940, 380, 480, 320)
+    }
+    block v4 {
+      position: pos(20, 720, 700, 520)
+    }
+    block v5 {
+      position: pos(740, 720, 680, 520)
+    }
+  }
+}

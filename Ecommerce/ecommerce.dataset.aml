@@ -64,6 +64,14 @@ Dataset ecommerce {
     definition: @aql gross_sales - returned_amount - cancelled_amount - discount_amount;;
     format: "#,###"
   }
+  metric net_sales_margin {
+    label: "Net sales margin"
+    type: "number"
+    hidden: false
+    description: 'Net sales margin = Net sales / Gross sales. Shows how much gross sales is retained after returns, cancellations, and discounts.'
+    definition: @aql safe_divide(net_sales, gross_sales) ;;
+    format: "#,###0.0%"
+  }
   metric return_ratio {
     label: "Return ratio"
     type: "number"

@@ -1,0 +1,28 @@
+Dataset orca {
+  __engine__: 'aql'
+  label: 'orca'
+  description: ''
+  data_source_name: 'orca'
+
+  models: [
+    public_conversations,
+    public_chat_messages
+  ]
+
+  relationships: [
+    relationship(public_chat_messages.conversation_id > public_conversations.id, true)
+  ]
+
+  dimension conversation_feedback_types {
+    model: public_conversations
+    label: 'Conversation Feedback Types'
+    type: 'text'
+    description: 'All distinct feedback types found in chat messages within the conversation'
+    definition: @aql string_agg(public_chat_messages.feedback_type, sep: ', ', distinct: true, order: 'asc');;
+  }
+
+  view {
+    model public_conversations { }
+    model public_chat_messages { }
+  }
+}
