@@ -1,0 +1,71 @@
+Model public_chat_messages {
+  type: 'table'
+  label: 'Chat Messages'
+  description: ''
+  owner: 'admin@domain.com'
+  data_source_name: 'orca'
+  table_name: '"public"."chat_messages"'
+
+  dimension id {
+    label: 'Id'
+    type: 'text'
+    hidden: false
+    definition: @sql {{ #SOURCE.id }};;
+  }
+
+  dimension content {
+    label: 'Content'
+    type: 'text'
+    hidden: false
+    definition: @sql {{ #SOURCE.content }};;
+  }
+
+  dimension role {
+    label: 'Role'
+    type: 'text'
+    hidden: false
+    definition: @sql {{ #SOURCE.role }};;
+  }
+
+  dimension conversation_id {
+    label: 'Conversation Id'
+    type: 'text'
+    hidden: false
+    definition: @sql {{ #SOURCE.conversation_id }};;
+  }
+
+  dimension created_at {
+    label: 'Created At'
+    type: 'datetime'
+    hidden: false
+    definition: @sql {{ #SOURCE.created_at }};;
+  }
+
+  dimension data {
+    label: 'Data'
+    type: 'text'
+    hidden: false
+    definition: @sql {{ #SOURCE.data }};;
+  }
+
+  dimension feedback_type {
+    label: 'Feedback Type'
+    type: 'text'
+    hidden: false
+    definition: @sql ({{ #SOURCE.data }}->'meta'->'feedback'->>'type') ;;
+  }
+
+  dimension feedback_message {
+    label: 'Feedback Message'
+    type: 'text'
+    hidden: false
+    definition: @sql ({{ #SOURCE.data }}->'meta'->'feedback'->>'message') ;;
+  }
+
+  dimension seq_index {
+    label: 'Seq Index'
+    type: 'number'
+    hidden: false
+    definition: @sql {{ #SOURCE.seq_index }};;
+  }
+}

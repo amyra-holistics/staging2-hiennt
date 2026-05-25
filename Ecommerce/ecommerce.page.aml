@@ -2,34 +2,42 @@ Dashboard untitled_3 {
   title: 'Ecommerce Dashboard'
   description: ''''''
 
-  view: CanvasLayout {
+  view: TabLayout {
     label: 'View 1'
-    height: 840
-    block v1 {
-      position: pos(5, 5, 260, 145)
-      layer: 1
+    tab tab1: CanvasLayout {
+      label: 'Tab 1'
+      width: 1245
+      height: 1275
+      grid_size: 5
+      block v1 {
+        position: pos(30, 40, 260, 140)
+        layer: 1
+      }
+      block v2 {
+        position: pos(30, 185, 260, 145)
+        layer: 2
+      }
+      block v3 {
+        position: pos(295, 40, 510, 290)
+        layer: 3
+      }
+      block v4 {
+        position: pos(815, 40, 400, 290)
+        layer: 4
+      }
+      block v5 {
+        position: pos(25, 335, 780, 520)
+        layer: 5
+      }
+      block v6 {
+        position: pos(810, 335, 400, 520)
+        layer: 6
+      }
+      block v_q9i8 {
+        position: pos(5, 860, 615, 410)
+        layer: 7
+      }
     }
-    block v2 {
-      position: pos(5, 155, 260, 145)
-      layer: 2
-    }
-    block v3 {
-      position: pos(270, 10, 510, 290)
-      layer: 3
-    }
-    block v4 {
-      position: pos(790, 5, 400, 295)
-      layer: 4
-    }
-    block v5 {
-      position: pos(0, 305, 780, 520)
-      layer: 5
-    }
-    block v6 {
-      position: pos(785, 305, 400, 520)
-      layer: 6
-    }
-    grid_size: 5
   }
   theme: H.themes.oasis
   block v1: VizBlock {
@@ -233,6 +241,50 @@ Dashboard untitled_3 {
         }
       }
       settings {
+        aggregate_awareness {
+          enabled: true
+          debug_comments: true
+        }
+      }
+    }
+  }
+  block v_q9i8: VizBlock {
+    label: 'Order count broken down by country'
+    viz: CombinationChart {
+      dataset: ecommerce
+      calculation order_count {
+        label: 'Order Count'
+        formula: @aql ecommerce_orders | count(ecommerce_orders.id);;
+        calc_type: 'measure'
+        data_type: 'number'
+      }
+      x_axis: VizFieldFull {
+        label: 'Country'
+        ref: r(ecommerce_countries.name)
+        format {
+          type: 'text'
+        }
+      }
+      y_axis {
+        settings {
+          group_values_into: 10
+          show_data_label_by: 'value'
+        }
+        series {
+          field: VizFieldFull {
+            label: 'Order Count'
+            ref: 'order_count'
+            format {
+              type: 'number'
+              pattern: '#,###'
+            }
+          }
+        }
+      }
+      settings {
+        row_limit: 100
+        x_axis_label: 'Country'
+        x_axis_show_null_datetime: false
         aggregate_awareness {
           enabled: true
           debug_comments: true

@@ -1,3 +1,4 @@
+@tag('Trust/Endorsed')
 Dataset hsds_dub_test {
   label: 'Homestay Dataset'
   description: 'Explore homestay listings with this dataset'
@@ -14,7 +15,7 @@ Dataset hsds_dub_test {
     label: "Count Room Type"
     type: "number"
     hidden: false
-    description: ""
+    description: "How many unique room names are available in the homestay listings"
     definition: @aql count_distinct(homestay_listings.name);;
   }
 }

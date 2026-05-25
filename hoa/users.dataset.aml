@@ -8,4 +8,11 @@ Dataset users {
   relationships: [
   ]
   owner: 'hoa.huynh@holistics.io'
+  metric asdf {
+    label: "asdf1"
+    type: "number"
+    hidden: false
+    description: ""
+    definition: @aql count(public_users.id);;
+  }
 }

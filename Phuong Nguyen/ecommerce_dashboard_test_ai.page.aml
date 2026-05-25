@@ -1,0 +1,317 @@
+Dashboard ecommerce_dashboard_test_ai {
+  title: 'Ecommerce Dashboard - Test AI'
+  description: ''''''
+  view: TabLayout {
+    label: 'View 1'
+    tab tab1: CanvasLayout {
+      label: 'Business overview'
+      width: 1850
+      height: 1750
+      grid_size: 25
+      block v1 {
+        position: pos(50, 175, 300, 125)
+        layer: 1
+      }
+      block v2 {
+        position: pos(50, 625, 300, 125)
+        layer: 2
+      }
+      block v3 {
+        position: pos(400, 50, 775, 350)
+        layer: 3
+      }
+      block v_1bbl {
+        position: pos(400, 1000, 775, 475)
+        layer: 11
+      }
+      block v_785l {
+        position: pos(400, 500, 775, 475)
+        layer: 10
+      }
+      block f_users_sign_up_at {
+        position: pos(50, 50, 300, 100)
+      }
+      block f_orders_created_at {
+        position: pos(50, 500, 300, 100)
+      }
+      block v_oray {
+        position: pos(1225, 500, 300, 200)
+        layer: 10
+      }
+      block t_3fu4 {
+        position: pos(50, 800, 300, 125)
+        layer: 10
+      }
+    }
+  }
+  theme: H.themes.classic
+  block v1: VizBlock {
+    label: 'Total Users'
+    viz: MetricKpi {
+      dataset: ecommerce
+      theme {
+      }
+      value: VizFieldFull {
+        label: 'Total Users'
+        ref: r(ecommerce_orders.user_id)
+        aggregation: 'count'
+        format {
+          type: 'number'
+          pattern: 'inherited'
+        }
+      }
+      settings {
+        aggregate_awareness {
+          enabled: true
+          debug_comments: true
+        }
+        alignment: 'left'
+      }
+    }
+    settings {
+      hide_label: true
+    }
+  }
+  block v2: VizBlock {
+    label: 'Count of Order Id'
+    viz: MetricKpi {
+      dataset: ecommerce
+      filter {
+        field: r(ecommerce_orders.created_at)
+        operator: 'matches'
+        value: '2025 - 2026'
+      }
+      theme {
+      }
+      value: VizFieldFull {
+        label: 'Total Orders'
+        ref: r(ecommerce_order_items.order_id)
+        aggregation: 'count'
+        format {
+          type: 'number'
+          pattern: 'inherited'
+        }
+      }
+      settings {
+        aggregate_awareness {
+          enabled: true
+          debug_comments: true
+        }
+        alignment: 'left'
+      }
+    }
+    settings {
+      hide_label: true
+    }
+  }
+  block v3: VizBlock {
+    label: 'Total Users by Month Sign Up At and Gender'
+    viz: ColumnChart {
+      dataset: ecommerce
+      theme {
+      }
+      x_axis: VizFieldFull {
+        ref: r(ecommerce_users.sign_up_at)
+        transformation: 'datetrunc month'
+        format {
+          type: 'date'
+          pattern: 'LLL yyyy'
+        }
+      }
+      legend: VizFieldFull {
+        ref: r(ecommerce_users.gender)
+        format {
+          type: 'text'
+        }
+      }
+      y_axis {
+        settings {
+          show_data_label_by: 'value'
+          stack_series_by: 'value'
+        }
+        series {
+          field: VizFieldFull {
+            label: 'Total Users'
+            ref: r(ecommerce_users.id)
+            aggregation: 'count'
+            format {
+              type: 'number'
+              pattern: '#,###'
+            }
+          }
+        }
+      }
+      settings {
+        x_axis_show_null_datetime: true
+        aggregate_awareness {
+          enabled: true
+          debug_comments: true
+        }
+      }
+    }
+  }
+  block v_785l: VizBlock {
+    label: 'Gross sales and net sales'
+    viz: CombinationChart {
+      dataset: ecommerce
+      filter {
+        field: r(ecommerce_orders.created_at)
+        operator: 'matches'
+        value: '2025'
+      }
+      theme {
+      }
+      x_axis: VizFieldFull {
+        ref: r(ecommerce_orders.created_at)
+        transformation: 'datetrunc month'
+        format {
+          type: 'date'
+          pattern: 'LLL yyyy'
+        }
+      }
+      y_axis {
+        settings {
+          show_data_label_by: 'value'
+        }
+        series {
+          mark_type: 'line'
+          field: VizFieldFull {
+            ref: r(ecommerce.gross_sales)
+            format {
+              type: 'number'
+              pattern: '#,###'
+            }
+          }
+        }
+        series {
+          mark_type: 'line'
+          field: VizFieldFull {
+            ref: r(ecommerce.net_sales)
+            format {
+              type: 'number'
+              pattern: 'inherited'
+            }
+          }
+        }
+      }
+      settings {
+        x_axis_show_null_datetime: true
+        aggregate_awareness {
+          enabled: true
+          debug_comments: true
+        }
+      }
+    }
+  }
+  block v_1bbl: VizBlock {
+    label: 'Revenue by country'
+    viz: BarChart {
+      dataset: ecommerce
+      calculation value_per_order {
+        label: 'Value Per Order'
+        formula: @aql revenue / total_orders;;
+        calc_type: 'measure'
+        data_type: 'number'
+      }
+      x_axis: VizFieldFull {
+        label: 'Country'
+        ref: r(ecommerce_countries.name)
+        format {
+          type: 'text'
+        }
+      }
+      y_axis {
+        settings {
+          show_data_label_by: 'value'
+        }
+        series {
+          field: VizFieldFull {
+            ref: r(ecommerce.gross_sales)
+            format {
+              type: 'number'
+              pattern: '#,###'
+            }
+          }
+        }
+      }
+      settings {
+        sort {
+          field_index: 0
+          direction: 'desc'
+          type: 'series'
+        }
+        x_axis_label: 'Country'
+        x_axis_show_null_datetime: true
+        aggregate_awareness {
+          enabled: true
+          debug_comments: true
+        }
+      }
+    }
+    settings {
+      hide_label: true
+    }
+  }
+  block f_users_sign_up_at: FilterBlock {
+    label: 'Users Sign Up At'
+    type: 'field'
+    source: FieldFilterSource {
+      dataset: ecommerce
+      field: r(ecommerce_users.sign_up_at)
+    }
+    default {
+      operator: 'matches'
+      value: '2025 - 2026'
+    }
+  }
+  block f_orders_created_at: FilterBlock {
+    label: 'Orders Created At'
+    type: 'field'
+    source: FieldFilterSource {
+      dataset: ecommerce
+      field: r(ecommerce_orders.created_at)
+    }
+    default {
+      operator: 'matches'
+      value: '2025 - 2026'
+    }
+  }
+  block t_3fu4: TextBlock {
+    content: @md 
+    <h1>Net sales description</h1>
+
+    ${ecommerce.metric.net_sales.description};;
+  }  
+
+  interactions: [
+    FilterInteraction {
+      from: 'f_users_sign_up_at'
+      to: [
+        CustomMapping {
+          block: [
+            'v2',
+            'v_785l',
+            'v_1bbl',
+            'v_oray',
+            'f_orders_created_at'
+          ]
+          disabled: true
+        }
+      ]
+    },
+    FilterInteraction {
+      from: 'f_orders_created_at'
+      to: [
+        CustomMapping {
+          block: [
+            'v1',
+            'v3',
+            'v_oray',
+            'f_users_sign_up_at'
+          ]
+          disabled: true
+        }
+      ]
+    }
+  ]
+}

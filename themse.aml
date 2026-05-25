@@ -1,0 +1,5 @@
+BlockTheme transparentBlock {
+  background {
+    bg_color: "transparent"
+  }
+}
