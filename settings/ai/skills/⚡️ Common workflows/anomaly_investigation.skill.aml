@@ -1,4 +1,4 @@
-Skill _anomaly_investigation {
+Skill anomaly_investigation {
   label: '🕵️‍♀️ Anomaly investigation'
   invocation: "auto"
   allow_switching_invocation: true

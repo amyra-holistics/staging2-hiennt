@@ -1,4 +1,4 @@
-Skill _cohort_retention_analysis {
+Skill cohort_retention_analysis {
   label: '🛍️ Cohort retention analysis'
   invocation: "manual"
   allow_switching_invocation: true
