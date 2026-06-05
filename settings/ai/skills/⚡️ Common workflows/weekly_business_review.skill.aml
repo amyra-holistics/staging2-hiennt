@@ -1,9 +1,9 @@
 Skill weekly_sales_report {
   label: '📊 Weekly sales report'
+  invocation: "manual"
+  allow_switching_invocation: true
   description: '''
-    Use this skill when a user asks for weekly update, Monday report, or similar.
-    Generate a summary of how key sales metrics changed from last week to this week. 
-
+    Use this skill when user wants to get a summary of how sales changed from last week to this week.
   '''
   content: @md
     **Step 1: Determine the comparison window**
