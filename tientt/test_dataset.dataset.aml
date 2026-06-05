@@ -7,4 +7,11 @@ Dataset test_dataset {
     public_users_123
   ]
   relationships: []
+
+  metric count_user {
+    label: 'Count User'
+    type: 'number'
+    description: 'Count of users'
+    definition: @aql count(public_users_123.abc) ;;
+  }
 }

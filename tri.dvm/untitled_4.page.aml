@@ -10,7 +10,7 @@ Dashboard untitled_4 {
       mode: 'auto'
     }
     block f1 {
-      position: pos(20, 20, 300, 100)
+      position: pos(20, 20, 300, 105)
       layer: 1
     }
     block f2 {
