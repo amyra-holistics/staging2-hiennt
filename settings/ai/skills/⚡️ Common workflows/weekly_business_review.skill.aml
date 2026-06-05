@@ -1,8 +1,9 @@
-Skill _weekly_business_review {
-  label: '📊 Weekly business review'
+Skill weekly_sales_report {
+  label: '📊 Weekly sales report'
   description: '''
-    Generate a summary of how key metrics changed from last week to this week. 
-    Use it when a user asks for WBR, weekly update, Monday report, or similar.
+    Use this skill when a user asks for weekly update, Monday report, or similar.
+    Generate a summary of how key sales metrics changed from last week to this week. 
+
   '''
   content: @md
     **Step 1: Determine the comparison window**
@@ -13,6 +14,8 @@ Skill _weekly_business_review {
     
     
     **Step 2: Determine which metrics to compare**
+    
+    Use metrics from the dataset @Dataset:${ ecommerce.name }
     
     Priority order:
     
@@ -45,7 +48,7 @@ Skill _weekly_business_review {
     
     
     
-    📊 Weekly Business Review (use heading 1)
+    📊 Weekly Sales Report (use heading 1)
     
     Week from [date] to [date]
     
@@ -53,7 +56,7 @@ Skill _weekly_business_review {
     
     💡 Highlights (use heading 2)
     
-    Pick up to 3 metrics with the largest % change (either direction). Lead with unfavorable moves.
+    Pick up to 1 - 3 metrics with the largest % change (either direction). Lead with unfavorable moves.
     
     
     
