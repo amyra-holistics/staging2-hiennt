@@ -1,4 +1,4 @@
-Skill weekly_sales_report_final {
+Skill weekly_sales_report {
   label: '📊 Weekly sales report'
   invocation: "auto"
   allow_switching_invocation: true
