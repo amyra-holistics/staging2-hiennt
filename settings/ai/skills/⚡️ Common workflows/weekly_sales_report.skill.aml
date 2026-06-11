@@ -16,8 +16,6 @@ Skill weekly_sales_report {
     **Step 2: Determine which metrics to compare**
     
     Use metrics from the dataset @Dataset:${ ecommerce.name }
-    Focus on gross sales, net sales and returned amount.
-    DO NOT ask users which metrics they want.
         
     
     **Step 3: Compute changes**
