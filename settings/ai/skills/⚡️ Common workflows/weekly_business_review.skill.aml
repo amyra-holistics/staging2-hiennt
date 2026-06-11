@@ -1,6 +1,6 @@
-Skill weekly_sales_report {
+Skill weekly_sales_report_final {
   label: '📊 Weekly sales report'
-  invocation: "manual"
+  invocation: "auto"
   allow_switching_invocation: true
   description: '''
     Use this skill when user wants to get a summary of how sales changed from last week to this week.
