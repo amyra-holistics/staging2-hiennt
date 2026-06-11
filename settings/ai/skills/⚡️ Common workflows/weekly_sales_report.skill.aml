@@ -15,16 +15,8 @@ Skill weekly_sales_report {
     
     **Step 2: Determine which metrics to compare**
     
-    Use metrics from the dataset @Dataset:${ ecommerce.name }
-    
-    Priority order:
-    
-    1. Metrics the user explicitly names.
-    2. If user has a pinned or mentioned dashboard, use the metrics extracted from the dashboard's AML.
-    3. If user has a pinned or mentioned dataset, use the metrics defined in the dataset.
-    4. Metrics extracted from a dataset that user has used most frequently and recently.
-    5. If none of the above, ask the user which metrics to include. Always pull existing metrics. Never compute new metrics in this report.
-    
+    Use gross sales and net sales metrics from the dataset @Dataset:${ ecommerce.name }
+    Otherwise, use metrics that user explicitly names.
     
     
     **Step 3: Compute changes**
