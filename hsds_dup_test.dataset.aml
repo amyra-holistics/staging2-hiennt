@@ -9,6 +9,7 @@ Dataset hsds_dub_test {
   ]
   relationships: [
     relationship(homestay_listings.host_id > homestay_hosts.id, true)
+    ,
   ]
   owner: 'hoang.do+gaa@holistics.io'
   metric count_room_type {
