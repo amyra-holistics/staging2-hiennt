@@ -2,6 +2,7 @@ Skill anomaly_investigation {
   label: '🕵️‍♀️ Anomaly investigation'
   invocation: "auto"
   allow_switching_invocation: true
+  disabled: H.current_user.team != 'Purchasing'
   description: '''
     Walk through segment breakdowns and related metrics to find what drove it an unexpected metric movement.
     Use when a user asks why a metric spiked, dropped, or deviated from expected 
