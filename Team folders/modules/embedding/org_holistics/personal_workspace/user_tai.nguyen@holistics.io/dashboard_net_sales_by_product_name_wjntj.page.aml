@@ -1,67 +1,67 @@
-// Dashboard dashboard_net_sales_by_product_name_wjntj {
-//   title: 'Dashboard Net Sales by Product Name'
-//   owner: 'embed_c482354ccc48d46ae5@holistics.io'
-//   block v_dyb0: VizBlock {
-//     label: 'Net Sales by Product Name'
-//     viz: CombinationChart {
-//       dataset: ecommerce
-//       filter {
-//         field: r(ecommerce_order_items.order_id)
-//         operator: 'not_null'
-//         value: []
-//       }
-//       filter {
-//         field: r(ecommerce_orders.created_at)
-//         operator: 'matches'
-//         value: 'this year'
-//       }
-//       x_axis: VizFieldFull {
-//         label: 'Product Name'
-//         ref: r(ecommerce_products.name)
-//         format {
-//           type: 'text'
-//         }
-//       }
-//       y_axis {
-//         settings {
-//           group_values_into: 10
-//           show_data_label_by: 'value'
-//         }
-//         series {
-//           field: VizFieldFull {
-//             label: 'Net Sales'
-//             ref: r(ecommerce.net_sales)
-//             format {
-//               type: 'number'
-//               pattern: '#,###0.00'
-//             }
-//           }
-//         }
-//       }
-//       settings {
-//         row_limit: 5
-//         x_axis_label: 'Product Name'
-//         x_axis_show_null_datetime: false
-//         aggregate_awareness {
-//           enabled: true
-//           debug_comments: true
-//         }
-//       }
-//     }
-//   }
-//   interactions: []
-//   view: CanvasLayout {
-//     label: 'View 1'
-//     width: 1300
-//     height: 800
-//     grid_size: 20
-//     auto_expand_vertically: true
-//     block v_dyb0 {
-//       position: pos(20, 20, 620, 420)
-//     }
-//     mobile {
-//       mode: 'auto'
-//     }
-//   }
-//   theme: H.themes.vanilla
-// }
+Dashboard dashboard_net_sales_by_product_name_wjntj {
+  title: 'Dashboard Net Sales by Product Name'
+  owner: 'embed_c482354ccc48d46ae5@holistics.io'
+  block v_dyb0: VizBlock {
+    label: 'Net Sales by Product Name'
+    viz: CombinationChart {
+      dataset: ecommerce
+      filter {
+        field: r(ecommerce_order_items.order_id)
+        operator: 'not_null'
+        value: []
+      }
+      filter {
+        field: r(ecommerce_orders.created_at)
+        operator: 'matches'
+        value: 'this year'
+      }
+      x_axis: VizFieldFull {
+        label: 'Product Name'
+        ref: r(ecommerce_products.name)
+        format {
+          type: 'text'
+        }
+      }
+      y_axis {
+        settings {
+          group_values_into: 10
+          show_data_label_by: 'value'
+        }
+        series {
+          field: VizFieldFull {
+            label: 'Net Sales'
+            ref: r(ecommerce.net_sales)
+            format {
+              type: 'number'
+              pattern: '#,###0.00'
+            }
+          }
+        }
+      }
+      settings {
+        row_limit: 5
+        x_axis_label: 'Product Name'
+        x_axis_show_null_datetime: false
+        aggregate_awareness {
+          enabled: true
+          debug_comments: true
+        }
+      }
+    }
+  }
+  interactions: []
+  view: CanvasLayout {
+    label: 'View 1'
+    width: 1300
+    height: 800
+    grid_size: 20
+    auto_expand_vertically: true
+    block v_dyb0 {
+      position: pos(20, 20, 620, 420)
+    }
+    mobile {
+      mode: 'auto'
+    }
+  }
+  theme: H.themes.vanilla
+}
