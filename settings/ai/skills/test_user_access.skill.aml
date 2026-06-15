@@ -1,0 +1,8 @@
+Skill test_user_access {
+  label: 'Test User Access'
+  description: 'test'
+  disabled: H.current_user.h_email == "di.hoang@holistics.io"
+  content: @md
+    test
+  ;;
+}

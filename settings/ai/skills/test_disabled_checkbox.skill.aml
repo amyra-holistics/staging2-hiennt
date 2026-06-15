@@ -1,8 +1,0 @@
-Skill test_disabled_checkbox {
-  label: 'Test Disabled Checkbox'
-  description: 'test'
-  disabled: false
-  content: @md
-    test
-  ;;
-}
