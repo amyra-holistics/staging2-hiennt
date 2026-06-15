@@ -1,13 +1,13 @@
-Skill fin_cash_flows {
-  label: '💵 Cash flows'
-  description: '''
-    Produces a cash flow statement for a given period, 
-    broken into operating, investing, and financing activities, with comparison to plan and prior period. 
-    Use when a user asks about cash flow, sources and uses of cash, or how cash moved during a period 
-    — e.g., "show me the cash flow statement," "where did our cash go last quarter," "what's driving the change in cash."
-  '''
-  content: @md
-   This is an empty skill for demo purpose.
-  ;;
-  invocation: "manual"
-}
+// Skill fin_cash_flows {
+//   label: '💵 Cash flows'
+//   description: '''
+//     Produces a cash flow statement for a given period, 
+//     broken into operating, investing, and financing activities, with comparison to plan and prior period. 
+//     Use when a user asks about cash flow, sources and uses of cash, or how cash moved during a period 
+//     — e.g., "show me the cash flow statement," "where did our cash go last quarter," "what's driving the change in cash."
+//   '''
+//   content: @md
+//    This is an empty skill for demo purpose.
+//   ;;
+//   invocation: "manual"
+// }
