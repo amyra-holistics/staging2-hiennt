@@ -1,0 +1,8 @@
+Skill test_disabled_checkbox {
+  label: 'Test Disabled Checkbox'
+  description: 'test'
+  disabled: true
+  content: @md
+    test
+  ;;
+}
