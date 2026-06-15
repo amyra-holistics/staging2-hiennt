@@ -1,7 +1,7 @@
 Skill test_user_access {
   label: 'Test User Access'
   description: 'test'
-  disabled: H.current_user.h_email == "tunglee0305@gmail.com"
+  disabled: H.current_user.level == "CEO"
   content: @md
     test
   ;;
