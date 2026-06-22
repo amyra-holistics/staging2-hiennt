@@ -1,7 +1,0 @@
-EmbedPortal test {
-  objects: [
-    ecommerce_dashboard_test_ai,
-    ecommerce
-  ]
-  required_permissions: []
-}
