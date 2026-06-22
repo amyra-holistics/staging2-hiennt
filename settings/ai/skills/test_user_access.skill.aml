@@ -1,7 +1,7 @@
 Skill test_user_access {
   label: 'Test User Access'
   description: 'test'
-  disabled: H.current_user.team == "Purchasing"
+  disabled: H.current_user.team != "Purchasing" || H.current_user.team != "Finance"
   content: @md
     test
   ;;
