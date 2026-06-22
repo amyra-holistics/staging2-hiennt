@@ -1,4 +1,4 @@
-Dashboard ecommerce_dashboard_test_ai {
+Dashboard ecommerce_dashboard_test_ai_1 {
   title: 'Ecommerce Dashboard - Test AI'
   description: ''''''
   view: TabLayout {
