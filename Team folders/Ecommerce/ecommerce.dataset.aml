@@ -1,7 +1,7 @@
 @tag('Trust/Endorsed')
 Dataset ecommerce {
   label: 'Ecommerce - Sales'
-  description: '''
+  description: ''' If user asks about a metric that is not yet defined in this dataset, always ask back for their expected definition.
   '''
   data_source_name: 'demodb'
   models: [
