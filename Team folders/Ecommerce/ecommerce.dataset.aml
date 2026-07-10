@@ -83,13 +83,5 @@ Dataset ecommerce {
     definition: @aql safe_divide(returned_amount,gross_sales) ;;
     format: "#,###0.0%"
   }
-
-  metric monthly_active_users {
-    label: "Monthly active users"
-    type: "number"
-    hidden: false
-    description: 'Distinct users with at least 1 order in the selected period, using order created time as activity date. When grouped by month, this is MAU.'
-    definition: @aql ecommerce_orders | count_distinct(ecommerce_orders.user_id);;
-    format: "#,###"
-  }
+  
 }
