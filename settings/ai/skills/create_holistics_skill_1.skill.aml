@@ -1,7 +1,7 @@
 Skill create_holistics_skill_1 {
   label: 'Create Holistics Skill 1'
   description: 'Author a Holistics skill. Use whenever the user wants to write, edit, or refine a skill that gives Holistics AI specific knowledge, workflows, or guardrails — including phrasings like "add a skill for X", "create a workspace glossary skill", "turn this prompt into a reusable skill", or "make this Holistics AI smarter about Y". For converting a skill written for another runtime (Claude, OpenAI/Codex) into AML, use `convert-agent-skill-to-holistics` instead.'
-  disabled: H.git.is_production
+  disabled: true
   allow_switching_invocation: true
   content: @md
     # Creating a Holistics skill
