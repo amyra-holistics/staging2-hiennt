@@ -1,7 +1,7 @@
 Skill convert_agent_skill_to_holistics {
   label: 'Convert Agent Skill To Holistics'
   description: 'Convert an agent skill written for another runtime (Claude `SKILL.md`, OpenAI/Codex skill, raw system prompt) into a Holistics AML `Skill` block — or the reverse direction. Use whenever the user wants to migrate, port, or translate a skill across formats, including phrasings like "convert this Claude skill to AML", "port this OpenAI skill to Holistics", "turn this SKILL.md into an AML Skill", "translate this AML skill back to Claude", or "migrate this agent skill".'
-  disabled: H.git.is_production
+  disabled: true
   allow_switching_invocation: true
   content: @md
     # Converting an agent skill into a Holistics AML Skill
