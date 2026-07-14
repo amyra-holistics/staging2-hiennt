@@ -83,30 +83,5 @@ Dataset ecommerce {
     definition: @aql safe_divide(returned_amount,gross_sales) ;;
     format: "#,###0.0%"
   }
-
-  metric monthly_active_users {
-    label: "Monthly active users"
-    type: "number"
-    hidden: false
-    description: '''
-      Canonical active-user metric for this dataset.
-
-      Definition:
-      - Counts distinct users who placed at least one order in the current analysis period.
-      - When explored by month on ecommerce_orders.created_at, this is the dataset's MAU definition.
-
-      Accepted synonyms:
-      - MAU
-      - active users
-      - ordering active users
-
-      Notes:
-      - This is order-based activity, not login-based activity.
-      - The metric follows the report's grouping grain; use a monthly date dimension for monthly active users.
-      - Includes all order statuses unless additional filters are applied in the query.
-    '''
-    definition: @aql count_distinct(ecommerce_orders.user_id) ;;
-    format: "#,###"
-  }
   
 }
