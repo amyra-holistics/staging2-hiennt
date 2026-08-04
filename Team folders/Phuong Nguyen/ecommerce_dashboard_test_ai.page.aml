@@ -6,50 +6,173 @@ Dashboard ecommerce_dashboard_test_ai {
     tab tab1: CanvasLayout {
       label: 'Business overview'
       width: 1850
-      height: 1750
-      grid_size: 25
+      height: 1320
+      grid_size: 20
       block v1 {
-        position: pos(50, 175, 300, 125)
-        layer: 1
-      }
-      block v2 {
-        position: pos(50, 625, 300, 125)
-        layer: 2
-      }
-      block v3 {
-        position: pos(400, 50, 775, 350)
+        position: pos(20, 290, 320, 120)
         layer: 3
       }
+      block v2 {
+        position: pos(360, 290, 320, 120)
+        layer: 3
+      }
+      block v3 {
+        position: pos(20, 430, 1810, 320)
+        layer: 4
+      }
       block v_1bbl {
-        position: pos(400, 1000, 775, 475)
-        layer: 11
+        position: pos(20, 1040, 1810, 240)
+        layer: 6
       }
       block v_785l {
-        position: pos(400, 500, 775, 475)
-        layer: 10
+        position: pos(20, 770, 1180, 250)
+        layer: 5
       }
       block f_users_sign_up_at {
-        position: pos(50, 50, 300, 100)
+        position: pos(20, 170, 320, 100)
+        layer: 2
       }
       block f_orders_created_at {
-        position: pos(50, 500, 300, 100)
+        position: pos(360, 170, 320, 100)
+        layer: 2
       }
       block v_oray {
         position: pos(1225, 500, 300, 200)
         layer: 10
       }
       block t_3fu4 {
-        position: pos(50, 800, 300, 125)
-        layer: 10
+        position: pos(20, 20, 1810, 130)
+        layer: 1
+      }
+      auto_expand_vertically: true
+    }
+  }
+  theme {
+    background {
+      bg_color: '#fffefb'
+    }
+    canvas {
+      border {
+        border_width: 1
+        border_radius: 12
+        border_color: '#c5c0b1'
+        border_style: 'solid'
+      }
+      background {
+        bg_color: '#fffefb'
+      }
+      shadow: 'none'
+      opacity: 1
+    }
+    block {
+      label {
+        font_family: 'Inter'
+        font_color: '#201515'
+        font_size: 14
+        font_weight: 'medium'
+        font_style: 'normal'
+      }
+      text {
+        font_family: 'Inter'
+        font_color: '#605d52'
+        font_size: 14
+        font_weight: 'normal'
+        font_style: 'normal'
+      }
+      border {
+        border_width: 1
+        border_radius: 12
+        border_color: '#c5c0b1'
+        border_style: 'solid'
+      }
+      background {
+        bg_color: '#f8f4f0'
+      }
+      padding: 16
+      shadow: 'none'
+      opacity: 1
+    }
+    viz {
+      table {
+        general {
+          bg_color: '#fffefb'
+          hover_color: '#f8f4f0'
+          banding_color: '#f8f4f0'
+          font_size: 12
+          font_color: '#605d52'
+          font_family: 'Inter'
+          border_color: '#c5c0b1'
+          border_width: 1
+          grid_color: '#c5c0b1'
+        }
+        header {
+          bg_color: '#201515'
+          font_size: 12
+          font_weight: 'bold'
+          font_color: '#fffefb'
+        }
+      }
+      metric_kpi {
+        label {
+          font_family: 'Inter'
+          font_color: '#939084'
+          font_size: 14
+          font_weight: 'medium'
+        }
+        value {
+          font_family: 'Inter'
+          font_color: '#201515'
+          font_size: 32
+          font_weight: 'bold'
+        }
+        trend {
+          positive {
+            text {
+              font_color: '#ff4f00'
+            }
+            background {
+              bg_color: '#fff1e8'
+            }
+          }
+          negative {
+            text {
+              font_color: '#201515'
+            }
+            background {
+              bg_color: '#f3ece6'
+            }
+          }
+          neutral {
+            text {
+              font_color: '#605d52'
+            }
+            background {
+              bg_color: '#f8f4f0'
+            }
+          }
+        }
       }
     }
   }
-  theme: H.themes.classic
   block v1: VizBlock {
     label: 'Total Users'
     viz: MetricKpi {
       dataset: ecommerce
       theme {
+        metric_kpi {
+          label {
+            font_family: 'Inter'
+            font_color: '#939084'
+            font_size: 14
+            font_weight: 'medium'
+          }
+          value {
+            font_family: 'Inter'
+            font_color: '#201515'
+            font_size: 32
+            font_weight: 'bold'
+          }
+        }
       }
       value: VizFieldFull {
         label: 'Total Users'
@@ -57,7 +180,7 @@ Dashboard ecommerce_dashboard_test_ai {
         aggregation: 'count'
         format {
           type: 'number'
-          pattern: 'inherited'
+          pattern: '#,###'
         }
       }
       settings {
@@ -65,7 +188,6 @@ Dashboard ecommerce_dashboard_test_ai {
           enabled: true
           debug_comments: true
         }
-        alignment: 'left'
       }
     }
     settings {
@@ -76,12 +198,21 @@ Dashboard ecommerce_dashboard_test_ai {
     label: 'Count of Order Id'
     viz: MetricKpi {
       dataset: ecommerce
-      filter {
-        field: r(ecommerce_orders.created_at)
-        operator: 'matches'
-        value: '2025 - 2026'
-      }
       theme {
+        metric_kpi {
+          label {
+            font_family: 'Inter'
+            font_color: '#939084'
+            font_size: 14
+            font_weight: 'medium'
+          }
+          value {
+            font_family: 'Inter'
+            font_color: '#201515'
+            font_size: 32
+            font_weight: 'bold'
+          }
+        }
       }
       value: VizFieldFull {
         label: 'Total Orders'
@@ -89,7 +220,7 @@ Dashboard ecommerce_dashboard_test_ai {
         aggregation: 'count'
         format {
           type: 'number'
-          pattern: 'inherited'
+          pattern: '#,###'
         }
       }
       settings {
@@ -97,7 +228,6 @@ Dashboard ecommerce_dashboard_test_ai {
           enabled: true
           debug_comments: true
         }
-        alignment: 'left'
       }
     }
     settings {
@@ -154,13 +284,6 @@ Dashboard ecommerce_dashboard_test_ai {
     label: 'Gross sales and net sales'
     viz: CombinationChart {
       dataset: ecommerce
-      filter {
-        field: r(ecommerce_orders.created_at)
-        operator: 'matches'
-        value: '2025'
-      }
-      theme {
-      }
       x_axis: VizFieldFull {
         ref: r(ecommerce_orders.created_at)
         transformation: 'datetrunc month'
@@ -179,7 +302,7 @@ Dashboard ecommerce_dashboard_test_ai {
             ref: r(ecommerce.gross_sales)
             format {
               type: 'number'
-              pattern: '#,###'
+              pattern: '#,###,,"M"'
             }
           }
         }
@@ -189,7 +312,7 @@ Dashboard ecommerce_dashboard_test_ai {
             ref: r(ecommerce.net_sales)
             format {
               type: 'number'
-              pattern: 'inherited'
+              pattern: '#,###,,"M"'
             }
           }
         }
@@ -259,10 +382,6 @@ Dashboard ecommerce_dashboard_test_ai {
       dataset: ecommerce
       field: r(ecommerce_users.sign_up_at)
     }
-    default {
-      operator: 'matches'
-      value: '2025 - 2026'
-    }
   }
   block f_orders_created_at: FilterBlock {
     label: 'Orders Created At'
@@ -271,18 +390,33 @@ Dashboard ecommerce_dashboard_test_ai {
       dataset: ecommerce
       field: r(ecommerce_orders.created_at)
     }
-    default {
-      operator: 'matches'
-      value: '2025 - 2026'
-    }
   }
   block t_3fu4: TextBlock {
-    content: @md 
-    <h1>Net sales description</h1>
+    content: @md # Ecommerce Overview
+A clean snapshot of **user growth**, **order volume**, and **sales performance**.
 
-    ${ecommerce.metric.net_sales.description};;
-  }  
-
+Use the filters to narrow the time window, scan the KPI cards first, then review the trend and country-level sales breakdown below.;;
+    theme {
+      text {
+        font_family: 'Inter'
+        font_color: '#fffefb'
+        font_size: 16
+        font_weight: 'normal'
+        font_style: 'normal'
+      }
+      border {
+        border_width: 0
+        border_radius: 12
+        border_color: '#201515'
+        border_style: 'solid'
+      }
+      background {
+        bg_color: '#201515'
+      }
+      padding: 24
+      shadow: 'none'
+    }
+  }
   interactions: [
     FilterInteraction {
       from: 'f_users_sign_up_at'
