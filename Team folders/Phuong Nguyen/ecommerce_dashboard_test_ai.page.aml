@@ -4,36 +4,36 @@ Dashboard ecommerce_dashboard_test_ai {
   view: TabLayout {
     label: 'View 1'
     tab tab1: CanvasLayout {
-      label: 'Business overview'
+      label: 'Overview'
       width: 1850
-      height: 1320
+      height: 1280
       grid_size: 20
       block v1 {
-        position: pos(20, 290, 320, 120)
+        position: pos(20, 280, 280, 120)
         layer: 3
       }
       block v2 {
-        position: pos(360, 290, 320, 120)
+        position: pos(320, 280, 280, 120)
         layer: 3
       }
       block v3 {
-        position: pos(20, 430, 1810, 320)
+        position: pos(20, 420, 1160, 320)
         layer: 4
       }
       block v_1bbl {
-        position: pos(20, 1040, 1810, 240)
+        position: pos(20, 1020, 1180, 240)
         layer: 6
       }
       block v_785l {
-        position: pos(20, 770, 1180, 250)
+        position: pos(20, 760, 1180, 240)
         layer: 5
       }
       block f_users_sign_up_at {
-        position: pos(20, 170, 320, 100)
+        position: pos(20, 160, 280, 100)
         layer: 2
       }
       block f_orders_created_at {
-        position: pos(360, 170, 320, 100)
+        position: pos(320, 160, 280, 100)
         layer: 2
       }
       block v_oray {
@@ -41,113 +41,167 @@ Dashboard ecommerce_dashboard_test_ai {
         layer: 10
       }
       block t_3fu4 {
-        position: pos(20, 20, 1810, 130)
+        position: pos(20, 20, 1810, 120)
         layer: 1
       }
+      block f_gender {
+        position: pos(620, 160, 280, 100)
+        layer: 2
+      }
       auto_expand_vertically: true
+    }
+    tab tab_order_details: CanvasLayout {
+      label: 'Order details'
+      width: 1850
+      height: 1100
+      grid_size: 20
+      auto_expand_vertically: true
+      block v_1bbl {
+        position: pos(620, 260, 580, 220)
+        layer: 3
+      }
+      block v_785l {
+        position: pos(20, 260, 580, 220)
+        layer: 3
+      }
+      block t_order_details {
+        position: pos(20, 20, 1810, 100)
+        layer: 1
+      }
+      block f_orders_created_at {
+        position: pos(20, 140, 280, 100)
+        layer: 2
+      }
+    }
+    tab tab_user_details: CanvasLayout {
+      label: 'User details'
+      width: 1850
+      height: 1100
+      grid_size: 20
+      auto_expand_vertically: true
+      block f_gender {
+        position: pos(320, 140, 280, 100)
+        layer: 2
+      }
+      block v_user_detail {
+        position: pos(20, 400, 1810, 660)
+        layer: 4
+      }
+      block t_user_details {
+        position: pos(20, 20, 1820, 100)
+        layer: 1
+      }
+      block f_users_sign_up_at {
+        position: pos(20, 140, 280, 100)
+        layer: 2
+      }
+      block v_user_kpi_total_users {
+        position: pos(20, 260, 280, 120)
+        layer: 3
+      }
     }
   }
   theme {
     background {
-      bg_color: '#fffefb'
+      bg_color: '#F5F7FF'
     }
     canvas {
       border {
         border_width: 1
-        border_radius: 12
-        border_color: '#c5c0b1'
+        border_radius: 16
+        border_color: '#C7D2FE'
         border_style: 'solid'
       }
       background {
-        bg_color: '#fffefb'
+        bg_color: '#FFFFFF'
       }
-      shadow: 'none'
+      shadow: 'sm'
       opacity: 1
     }
     block {
       label {
         font_family: 'Inter'
-        font_color: '#201515'
+        font_color: '#1E1B4B'
         font_size: 14
-        font_weight: 'medium'
+        font_weight: 'semibold'
         font_style: 'normal'
       }
       text {
         font_family: 'Inter'
-        font_color: '#605d52'
+        font_color: '#4338CA'
         font_size: 14
         font_weight: 'normal'
         font_style: 'normal'
       }
       border {
         border_width: 1
-        border_radius: 12
-        border_color: '#c5c0b1'
+        border_radius: 14
+        border_color: '#BFDBFE'
         border_style: 'solid'
       }
       background {
-        bg_color: '#f8f4f0'
+        bg_color: '#EEF2FF'
       }
       padding: 16
-      shadow: 'none'
+      shadow: 'sm'
       opacity: 1
     }
     viz {
       table {
         general {
-          bg_color: '#fffefb'
-          hover_color: '#f8f4f0'
-          banding_color: '#f8f4f0'
+          bg_color: '#FFFFFF'
+          hover_color: '#E0F2FE'
+          banding_color: '#F8FAFC'
           font_size: 12
-          font_color: '#605d52'
+          font_color: '#334155'
           font_family: 'Inter'
-          border_color: '#c5c0b1'
+          border_color: '#BFDBFE'
           border_width: 1
-          grid_color: '#c5c0b1'
+          grid_color: '#DBEAFE'
         }
         header {
-          bg_color: '#201515'
+          bg_color: '#4F46E5'
           font_size: 12
           font_weight: 'bold'
-          font_color: '#fffefb'
+          font_color: '#FFFFFF'
         }
       }
       metric_kpi {
         label {
           font_family: 'Inter'
-          font_color: '#939084'
+          font_color: '#6366F1'
           font_size: 14
           font_weight: 'medium'
         }
         value {
           font_family: 'Inter'
-          font_color: '#201515'
+          font_color: '#0F172A'
           font_size: 32
           font_weight: 'bold'
         }
         trend {
           positive {
             text {
-              font_color: '#ff4f00'
+              font_color: '#047857'
             }
             background {
-              bg_color: '#fff1e8'
+              bg_color: '#D1FAE5'
             }
           }
           negative {
             text {
-              font_color: '#201515'
+              font_color: '#BE123C'
             }
             background {
-              bg_color: '#f3ece6'
+              bg_color: '#FFE4E6'
             }
           }
           neutral {
             text {
-              font_color: '#605d52'
+              font_color: '#1D4ED8'
             }
             background {
-              bg_color: '#f8f4f0'
+              bg_color: '#DBEAFE'
             }
           }
         }
@@ -328,7 +382,7 @@ Dashboard ecommerce_dashboard_test_ai {
   }
   block v_1bbl: VizBlock {
     label: 'Revenue by country'
-    viz: BarChart {
+    viz: ColumnChart {
       dataset: ecommerce
       calculation value_per_order {
         label: 'Value Per Order'
@@ -371,9 +425,6 @@ Dashboard ecommerce_dashboard_test_ai {
         }
       }
     }
-    settings {
-      hide_label: true
-    }
   }
   block f_users_sign_up_at: FilterBlock {
     label: 'Users Sign Up At'
@@ -399,22 +450,348 @@ Use the filters to narrow the time window, scan the KPI cards first, then review
     theme {
       text {
         font_family: 'Inter'
-        font_color: '#fffefb'
+        font_color: '#1E1B4B'
         font_size: 16
         font_weight: 'normal'
         font_style: 'normal'
       }
       border {
-        border_width: 0
-        border_radius: 12
-        border_color: '#201515'
+        border_width: 1
+        border_radius: 14
+        border_color: '#BFDBFE'
         border_style: 'solid'
       }
       background {
-        bg_color: '#201515'
+        bg_color: '#EEF2FF'
       }
       padding: 24
-      shadow: 'none'
+      shadow: 'sm'
+    }
+  }
+  block v_user_detail: VizBlock {
+    label: 'User Detail'
+    viz: DataTable {
+      dataset: ecommerce
+      calculation total_orders_calc {
+        label: 'Total Orders'
+        formula: @aql ecommerce_orders | count(ecommerce_orders.id);;
+        calc_type: 'measure'
+        data_type: 'number'
+      }
+      calculation user_gross_sales_calc {
+        label: 'Gross Sales'
+        formula: @aql unique(ecommerce_users.id) | select(v: gross_sales) | sum(v);;
+        calc_type: 'measure'
+        data_type: 'number'
+      }
+      calculation user_net_sales_calc {
+        label: 'Net Sales'
+        formula: @aql unique(ecommerce_users.id) | select(v: net_sales) | sum(v);;
+        calc_type: 'measure'
+        data_type: 'number'
+      }
+      calculation latest_order_created_at_calc {
+        label: 'Latest Order Created At'
+        formula: @aql ecommerce_orders | max(ecommerce_orders.created_at);;
+        calc_type: 'measure'
+        data_type: 'datetime'
+      }
+      fields: [
+        VizFieldFull {
+          label: 'User ID'
+          ref: r(ecommerce_users.id)
+          format {
+            type: 'number'
+            pattern: 'inherited'
+          }
+          uname: 'user_id'
+        },
+        VizFieldFull {
+          label: 'Sign Up At'
+          ref: r(ecommerce_users.sign_up_at)
+          format {
+            type: 'datetime'
+            pattern: 'dd/LL/yyyy'
+          }
+          uname: 'sign_up_at'
+        },
+        VizFieldFull {
+          label: 'Full Name'
+          ref: r(ecommerce_users.full_name)
+          format {
+            type: 'text'
+          }
+          uname: 'full_name'
+        },
+        VizFieldFull {
+          label: 'Email'
+          ref: r(ecommerce_users.email)
+          format {
+            type: 'text'
+          }
+          uname: 'email'
+        },
+        VizFieldFull {
+          label: 'Gender'
+          ref: r(ecommerce_users.gender)
+          format {
+            type: 'text'
+          }
+          uname: 'gender'
+        },
+        VizFieldFull {
+          label: 'City Name'
+          ref: r(ecommerce_cities.name)
+          format {
+            type: 'text'
+          }
+          uname: 'city_name'
+        },
+        VizFieldFull {
+          label: 'Country Name'
+          ref: r(ecommerce_countries.name)
+          format {
+            type: 'text'
+          }
+          uname: 'country_name'
+        },
+        VizFieldFull {
+          label: 'Total Orders'
+          ref: 'total_orders_calc'
+          format {
+            type: 'number'
+            pattern: '#,###0'
+          }
+          uname: 'total_orders'
+        },
+        VizFieldFull {
+          label: 'Gross Sales'
+          ref: 'user_gross_sales_calc'
+          format {
+            type: 'number'
+            pattern: 'inherited'
+          }
+          uname: 'gross_sales'
+        },
+        VizFieldFull {
+          label: 'Net Sales'
+          ref: 'user_net_sales_calc'
+          format {
+            type: 'number'
+            pattern: 'inherited'
+          }
+          uname: 'net_sales'
+        },
+        VizFieldFull {
+          label: 'Latest Order Created At'
+          ref: 'latest_order_created_at_calc'
+          format {
+            type: 'datetime'
+            pattern: 'dd/LL/yyyy'
+          }
+          uname: 'latest_order_created_at'
+        }
+      ]
+      settings {
+        wrap_header_text: true
+        show_row_number: true
+        sorts: [
+          SortSetting {
+            key: 'sign_up_at'
+            direction: 'desc'
+          },
+          SortSetting {
+            key: 'user_id'
+            direction: 'asc'
+          }
+        ]
+        row_limit: 100
+        aggregate_awareness {
+          enabled: true
+          debug_comments: true
+        }
+        frozen_columns: 2
+        single_cell_display: 'normal'
+        column_styles: [
+          ColumnStyle {
+            key: 'email'
+            width: 246
+          },
+          ColumnStyle {
+            key: 'gender'
+            width: 112
+          },
+          ColumnStyle {
+            key: 'user_id'
+            width: 101
+          },
+          ColumnStyle {
+            key: 'city_name'
+            width: 156
+          },
+          ColumnStyle {
+            key: 'full_name'
+            width: 201
+          },
+          ColumnStyle {
+            key: 'net_sales'
+            width: 134
+          },
+          ColumnStyle {
+            key: 'sign_up_at'
+            width: 145
+          },
+          ColumnStyle {
+            key: 'gross_sales'
+            width: 134
+          },
+          ColumnStyle {
+            key: 'country_name'
+            width: 167
+          },
+          ColumnStyle {
+            key: 'total_orders'
+            width: 123
+          },
+          ColumnStyle {
+            key: 'latest_order_created_at'
+            width: 0
+          }
+        ]
+      }
+    }
+  }
+  block f_gender: FilterBlock {
+    label: 'Gender'
+    type: 'field'
+    source: FieldFilterSource {
+      dataset: ecommerce
+      field: r(ecommerce_users.gender)
+    }
+  }
+  block t_order_details: TextBlock {
+    content: @md # Order details
+Review order-level sales activity, country performance, and order-date trends.;;
+    theme {
+      text {
+        font_family: 'Inter'
+        font_color: '#1E1B4B'
+        font_size: 16
+        font_weight: 'normal'
+        font_style: 'normal'
+      }
+      border {
+        border_width: 1
+        border_radius: 14
+        border_color: '#BFDBFE'
+        border_style: 'solid'
+      }
+      background {
+        bg_color: '#EEF2FF'
+      }
+      padding: 24
+      shadow: 'sm'
+    }
+  }
+  block t_user_details: TextBlock {
+    content: @md # User details
+Explore user-level records, signup activity, geography, and user attributes.;;
+    theme {
+      text {
+        font_family: 'Inter'
+        font_color: '#1E1B4B'
+        font_size: 16
+        font_weight: 'normal'
+        font_style: 'normal'
+      }
+      border {
+        border_width: 1
+        border_radius: 14
+        border_color: '#BFDBFE'
+        border_style: 'solid'
+      }
+      background {
+        bg_color: '#EEF2FF'
+      }
+      padding: 24
+      shadow: 'sm'
+    }
+  }
+  block v_user_kpi_total_users: VizBlock {
+    label: 'Total Users'
+    viz: MetricKpi {
+      dataset: ecommerce
+      theme {
+        metric_kpi {
+          label {
+            font_family: 'Inter'
+            font_color: '#939084'
+            font_size: 14
+            font_weight: 'medium'
+          }
+          value {
+            font_family: 'Inter'
+            font_color: '#201515'
+            font_size: 32
+            font_weight: 'bold'
+          }
+        }
+      }
+      value: VizFieldFull {
+        label: 'Total Users'
+        ref: r(ecommerce_users.id)
+        aggregation: 'count'
+        format {
+          type: 'number'
+          pattern: '#,###'
+        }
+      }
+      settings {
+        aggregate_awareness {
+          enabled: true
+          debug_comments: true
+        }
+      }
+    }
+    settings {
+      hide_label: true
+    }
+  }
+  block v_test_orders_by_status: VizBlock {
+    label: 'Total Orders by Order Status'
+    viz: BarChart {
+      dataset: ecommerce
+      calculation total_orders {
+        label: 'Total Orders'
+        formula: @aql ecommerce_orders | count(ecommerce_orders.id);;
+        calc_type: 'measure'
+        data_type: 'number'
+      }
+      x_axis: VizFieldFull {
+        label: 'Order Status'
+        ref: r(ecommerce_orders.status)
+      }
+      y_axis {
+        series {
+          field: VizFieldFull {
+            label: 'Total Orders'
+            ref: 'total_orders'
+            format {
+              type: 'number'
+              pattern: '#,###0'
+            }
+          }
+        }
+      }
+      settings {
+        row_limit: 100
+        sort {
+          field_index: 0
+          direction: 'desc'
+          type: 'yaxis'
+        }
+        x_axis_label: 'Order Status'
+      }
     }
   }
   interactions: [
@@ -426,8 +803,8 @@ Use the filters to narrow the time window, scan the KPI cards first, then review
             'v2',
             'v_785l',
             'v_1bbl',
-            'v_oray',
-            'f_orders_created_at'
+            'f_orders_created_at',
+            'f_gender'
           ]
           disabled: true
         }
@@ -440,8 +817,24 @@ Use the filters to narrow the time window, scan the KPI cards first, then review
           block: [
             'v1',
             'v3',
-            'v_oray',
-            'f_users_sign_up_at'
+            'v_user_detail',
+            'f_users_sign_up_at',
+            'f_gender'
+          ]
+          disabled: true
+        }
+      ]
+    },
+    FilterInteraction {
+      from: 'f_gender'
+      to: [
+        CustomMapping {
+          block: [
+            'v2',
+            'v_785l',
+            'v_1bbl',
+            'f_users_sign_up_at',
+            'f_orders_created_at'
           ]
           disabled: true
         }
