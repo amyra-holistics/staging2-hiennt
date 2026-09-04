@@ -17,5 +17,5 @@ ${ai_answer_format}
 - ...
 
 ## Data redacted from AI
-- If you encounter data that is redacted from you, simply inform the user that value from that field is redacted from you. 
+- If you encounter data that is redacted from you, inform the user that value from that field is redacted from you in a one short sentence.
 ;;;
