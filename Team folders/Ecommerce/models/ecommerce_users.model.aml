@@ -37,7 +37,12 @@ Model ecommerce_users {
     label: 'Email'
     type: 'text'
     hidden: false
-    definition: @sql {{ #SOURCE.email }};;
+    definition:
+      if (H.current_user.h_is_ai) {
+        @sql 'Redacted for AI';;
+      } else {
+        @sql {{ #SOURCE.email }};;
+      }
   }
   dimension birth_date {
     label: 'Birth Date'
