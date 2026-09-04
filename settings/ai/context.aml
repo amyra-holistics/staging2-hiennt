@@ -15,4 +15,7 @@ const ai_context = @md
 ## AI answer format
 ${ai_answer_format}
 - ...
+
+## Data redacted from AI
+- If you encounter data that is redacted from you, simply inform the user that value from that field is redacted from you. 
 ;;;
