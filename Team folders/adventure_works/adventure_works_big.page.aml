@@ -356,42 +356,40 @@ Dashboard adventure_works_big {
     viz: DataTable {
       dataset: adventure_works
       fields: [
+        r(production_product.name),
         VizFieldFull {
-          ref: ref('production_product', 'name')
-        },
-        VizFieldFull {
-          ref: ref('production_product', 'product_number')
+          ref: r(production_product.product_number)
           format {
             type: 'text'
           }
         },
         VizFieldFull {
-          ref: ref('production_product', 'size')
+          ref: r(production_product.size)
           format {
             type: 'text'
           }
         },
         VizFieldFull {
-          ref: ref('production_product', 'size_unit_measure_code')
+          ref: r(production_product.size_unit_measure_code)
           format {
             type: 'text'
           }
         },
         VizFieldFull {
-          ref: ref('production_product', 'weight')
+          ref: r(production_product.weight)
           format {
             type: 'number'
             pattern: 'inherited'
           }
         },
         VizFieldFull {
-          ref: ref('production_product', 'weight_unit_measure_code')
+          ref: r(production_product.weight_unit_measure_code)
           format {
             type: 'text'
           }
         },
         VizFieldFull {
-          ref: ref('production_product', 'list_price')
+          ref: r(production_product.list_price)
           format {
             type: 'number'
             pattern: 'inherited'
@@ -400,6 +398,7 @@ Dashboard adventure_works_big {
       ]
       settings {
         show_row_number: true
+        show_field_description: true
         sorts: [
           SortSetting {
             field_index: 2
@@ -410,6 +409,10 @@ Dashboard adventure_works_big {
             direction: 'asc'
           }
         ]
+        aggregate_awareness {
+          enabled: true
+          debug_comments: true
+        }
       }
     }
   }
