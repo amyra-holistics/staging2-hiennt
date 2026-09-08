@@ -1,7 +1,6 @@
 Dashboard untitled_3 {
   title: 'Ecommerce Dashboard'
   description: ''''''
-
   view: TabLayout {
     label: 'View 1'
     tab tab1: CanvasLayout {
@@ -159,19 +158,16 @@ Dashboard untitled_3 {
     label: 'Order Details'
     viz: DataTable {
       dataset: ecommerce
-      theme {
-
-      }
       fields: [
         VizFieldFull {
-          ref: ref('ecommerce_orders', 'id')
+          ref: r(ecommerce_orders.id)
           format {
             type: 'number'
             pattern: 'inherited'
           }
         },
         VizFieldFull {
-          ref: ref('ecommerce_orders', 'created_at')
+          ref: r(ecommerce_orders.created_at)
           transformation: 'datetrunc year'
           format {
             type: 'date'
@@ -179,20 +175,20 @@ Dashboard untitled_3 {
           }
         },
         VizFieldFull {
-          ref: ref('ecommerce_orders', 'status')
+          ref: r(ecommerce_orders.status)
           format {
             type: 'text'
           }
         },
         VizFieldFull {
-          ref: ref('ecommerce_orders', 'discount')
+          ref: r(ecommerce_orders.discount)
           format {
             type: 'number'
             pattern: 'inherited'
           }
         },
         VizFieldFull {
-          ref: ref('ecommerce_orders', 'delivery_attempts')
+          ref: r(ecommerce_orders.delivery_attempts)
           format {
             type: 'number'
             pattern: 'inherited'
@@ -201,6 +197,7 @@ Dashboard untitled_3 {
       ]
       settings {
         show_row_number: true
+        show_field_description: true
         aggregate_awareness {
           enabled: true
           debug_comments: true
