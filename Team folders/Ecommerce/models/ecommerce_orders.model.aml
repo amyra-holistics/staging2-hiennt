@@ -12,6 +12,16 @@ Model ecommerce_orders {
   dimension status {
     label: 'Status'
     type: 'text'
+    description: '''Order lifecycle status.
+
+| Status | Meaning |
+|---|---|
+| `delivered` | Order was fulfilled successfully |
+| `cancelled` | Order was cancelled before fulfillment/delivery |
+| `refunded` | Order was refunded after processing/delivery |
+
+Verified from current dataset values in @Dataset:ecommerce.
+'''
     hidden: false
     definition: @sql {{ #SOURCE.status }};;
   }
