@@ -19,8 +19,6 @@ Model ecommerce_orders {
 | `delivered` | Order was fulfilled successfully |
 | `cancelled` | Order was cancelled before fulfillment/delivery |
 | `refunded` | Order was refunded after processing/delivery |
-
-Verified from current dataset values in @Dataset:ecommerce.
 '''
     hidden: false
     definition: @sql {{ #SOURCE.status }};;

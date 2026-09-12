@@ -197,7 +197,6 @@ Dashboard untitled_3 {
       ]
       settings {
         show_row_number: true
-        show_field_description: true
         aggregate_awareness {
           enabled: true
           debug_comments: true
