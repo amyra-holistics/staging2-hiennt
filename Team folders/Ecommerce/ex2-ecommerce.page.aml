@@ -32,9 +32,9 @@ Dashboard untitled_3 {
         position: pos(810, 335, 400, 520)
         layer: 6
       }
-      block v_q9i8 {
-        position: pos(5, 860, 615, 410)
-        layer: 7
+      block v_u3ll {
+        position: pos(25, 870, 1185, 410)
+        layer: 6
       }
     }
   }
@@ -245,48 +245,129 @@ Dashboard untitled_3 {
       }
     }
   }
-  block v_q9i8: VizBlock {
-    label: 'Order count broken down by country'
-    viz: CombinationChart {
+  block v_u3ll: VizBlock {
+    label: 'Gross sales by Name and Continent Name'
+    viz: PivotTable {
       dataset: ecommerce
-      calculation order_count {
-        label: 'Order Count'
-        formula: @aql ecommerce_orders | count(ecommerce_orders.id);;
-        calc_type: 'measure'
-        data_type: 'number'
-      }
-      x_axis: VizFieldFull {
-        label: 'Country'
-        ref: r(ecommerce_countries.name)
-        format {
-          type: 'text'
-        }
-      }
-      y_axis {
-        settings {
-          group_values_into: 10
-          show_data_label_by: 'value'
-        }
-        series {
-          field: VizFieldFull {
-            label: 'Order Count'
-            ref: 'order_count'
-            format {
-              type: 'number'
-              pattern: '#,###'
-            }
+      rows: [
+        VizFieldFull {
+          ref: r(ecommerce_products.name)
+          format {
+            type: 'text'
           }
         }
-      }
+      ]
+      columns: [
+        VizFieldFull {
+          ref: r(ecommerce_countries.continent_name)
+          format {
+            type: 'text'
+          }
+        }
+      ]
+      values: [
+        VizFieldFull {
+          ref: r(ecommerce.gross_sales)
+          format {
+            type: 'number'
+            pattern: 'inherited'
+          }
+        }
+      ]
       settings {
-        row_limit: 100
-        x_axis_label: 'Country'
-        x_axis_show_null_datetime: false
+        show_row_total: true
+        show_column_total: true
+        row_limit: 5000
         aggregate_awareness {
           enabled: true
           debug_comments: true
         }
       }
     }
+  }
+  explicit_interactions: [
+    FilterInteraction {
+      from: 'v1'
+      to: [
+        'v2',
+        'v3',
+        'v4',
+        'v5',
+        'v6',
+        'v_u3ll'
+      ]
+    },
+    FilterInteraction {
+      from: 'v2'
+      to: [
+        'v1',
+        'v3',
+        'v4',
+        'v5',
+        'v6',
+        'v_u3ll'
+      ]
+    },
+    FilterInteraction {
+      from: 'v3'
+      to: [
+        'v1',
+        'v2',
+        'v4',
+        'v5',
+        'v6',
+        'v_u3ll'
+      ]
+    },
+    FilterInteraction {
+      from: 'v4'
+      to: [
+        'v1',
+        'v2',
+        'v3',
+        'v5',
+        'v6',
+        'v_u3ll'
+      ]
+    },
+    FilterInteraction {
+      from: 'v5'
+      to: [
+        'v1',
+        'v2',
+        'v3',
+        'v4',
+        'v6',
+        'v_u3ll'
+      ]
+    },
+    FilterInteraction {
+      from: 'v6'
+      to: [
+        'v1',
+        'v2',
+        'v3',
+        'v4',
+        'v5',
+        'v_u3ll'
+      ]
+    },
+    FilterInteraction {
+      from: 'v_u3ll'
+      to: [
+        'v1',
+        'v2',
+        'v3',
+        'v4',
+        'v5',
+        'v6'
+      ]
+    }
+  ]
+  settings {
+    timezone: 'Etc/UTC'
+    cache_duration: 1440
+    autorun_on_open: true
+    show_field_description: true
   }
 }
