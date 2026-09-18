@@ -38,7 +38,7 @@ Dashboard untitled_3 {
       }
     }
   }
-  theme: H.themes.oasis
+  theme: H.themes.vanilla
   block v1: VizBlock {
     label: 'Total Users compared with Total Users (Prev. 1y)'
     viz: MetricKpi {
