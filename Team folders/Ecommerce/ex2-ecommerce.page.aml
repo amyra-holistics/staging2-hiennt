@@ -25,11 +25,11 @@ Dashboard untitled_3 {
         layer: 4
       }
       block v5 {
-        position: pos(25, 335, 780, 520)
+        position: pos(25, 335, 660, 520)
         layer: 5
       }
       block v6 {
-        position: pos(810, 335, 400, 520)
+        position: pos(695, 335, 515, 520)
         layer: 6
       }
       block v_u3ll {
@@ -165,6 +165,7 @@ Dashboard untitled_3 {
             type: 'number'
             pattern: 'inherited'
           }
+          uname: 'ecommerce_orders_id'
         },
         VizFieldFull {
           ref: r(ecommerce_orders.status)
@@ -194,6 +195,12 @@ Dashboard untitled_3 {
           enabled: true
           debug_comments: true
         }
+        column_styles: [
+          ColumnStyle {
+            key: 'ecommerce_orders_id'
+            width: 65
+          }
+        ]
       }
     }
   }
