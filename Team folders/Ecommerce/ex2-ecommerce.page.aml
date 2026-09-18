@@ -167,14 +167,6 @@ Dashboard untitled_3 {
           }
         },
         VizFieldFull {
-          ref: r(ecommerce_orders.created_at)
-          transformation: 'datetrunc year'
-          format {
-            type: 'date'
-            pattern: 'yyyy'
-          }
-        },
-        VizFieldFull {
           ref: r(ecommerce_orders.status)
           format {
             type: 'text'
