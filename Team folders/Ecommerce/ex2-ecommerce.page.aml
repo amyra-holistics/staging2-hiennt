@@ -207,15 +207,15 @@ Dashboard untitled_3 {
         column_styles: [
           ColumnStyle {
             key: 'ecommerce_orders_id'
-            width: 82
+            width: 136
           },
           ColumnStyle {
             key: 'ecommerce_cities_name'
-            width: 285
+            width: 295
           },
           ColumnStyle {
             key: 'ecommerce_orders_status'
-            width: 278
+            width: 305
           }
         ]
       }
