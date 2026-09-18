@@ -25,15 +25,15 @@ Dashboard untitled_3 {
         layer: 4
       }
       block v5 {
-        position: pos(25, 335, 660, 520)
+        position: pos(25, 335, 1190, 520)
         layer: 5
       }
       block v6 {
-        position: pos(695, 335, 515, 520)
+        position: pos(685, 870, 515, 520)
         layer: 6
       }
       block v_u3ll {
-        position: pos(25, 870, 1185, 410)
+        position: pos(25, 870, 655, 410)
         layer: 6
       }
     }
@@ -168,10 +168,19 @@ Dashboard untitled_3 {
           uname: 'ecommerce_orders_id'
         },
         VizFieldFull {
+          label: 'City'
+          ref: r(ecommerce_cities.name)
+          format {
+            type: 'text'
+          }
+          uname: 'ecommerce_cities_name'
+        },
+        VizFieldFull {
           ref: r(ecommerce_orders.status)
           format {
             type: 'text'
           }
+          uname: 'ecommerce_orders_status'
         },
         VizFieldFull {
           ref: r(ecommerce_orders.discount)
@@ -198,7 +207,15 @@ Dashboard untitled_3 {
         column_styles: [
           ColumnStyle {
             key: 'ecommerce_orders_id'
-            width: 65
+            width: 82
+          },
+          ColumnStyle {
+            key: 'ecommerce_cities_name'
+            width: 285
+          },
+          ColumnStyle {
+            key: 'ecommerce_orders_status'
+            width: 278
           }
         ]
       }
