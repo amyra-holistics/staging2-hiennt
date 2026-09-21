@@ -9,32 +9,36 @@ Dashboard untitled_3 {
       height: 1315
       grid_size: 5
       block v1 {
-        position: pos(30, 40, 260, 140)
+        position: pos(30, 120, 260, 140)
         layer: 1
       }
       block v2 {
-        position: pos(30, 185, 260, 145)
+        position: pos(30, 265, 260, 145)
         layer: 2
       }
       block v3 {
-        position: pos(295, 40, 510, 290)
+        position: pos(295, 120, 510, 290)
         layer: 3
       }
       block v4 {
-        position: pos(815, 40, 400, 290)
+        position: pos(815, 120, 400, 290)
         layer: 4
       }
       block v5 {
-        position: pos(25, 335, 780, 520)
+        position: pos(25, 415, 780, 520)
         layer: 5
       }
       block v6 {
-        position: pos(810, 335, 400, 520)
+        position: pos(810, 415, 400, 520)
         layer: 6
       }
       block v_u3ll {
-        position: pos(25, 870, 1185, 410)
+        position: pos(25, 950, 1185, 410)
         layer: 6
+      }
+      block f_date {
+        position: pos(30, 15, 300, 80)
+        layer: 5
       }
     }
   }
@@ -284,7 +288,28 @@ Dashboard untitled_3 {
       }
     }
   }
+  block f_date: FilterBlock {
+    label: 'Date'
+    type: 'date'
+    default {
+      operator: 'matches'
+      value: '$H_NIL$'
+    }
+  }
   explicit_interactions: [
+    FilterInteraction {
+      from: 'f_date'
+      to: [
+        'v1',
+        'v3',
+        'v4',
+        'v5',
+        'v6',
+        'v_u3ll',
+        'v2'
+      ]
+      field: r(ecommerce_orders.created_at)
+    },
     FilterInteraction {
       from: 'v1'
       to: [
@@ -367,5 +392,6 @@ Dashboard untitled_3 {
     timezone: 'Etc/UTC'
     cache_duration: 1440
     autorun_on_open: true
+    show_field_description: true
   }
 }
