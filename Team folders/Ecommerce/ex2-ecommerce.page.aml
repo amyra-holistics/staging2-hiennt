@@ -42,7 +42,7 @@ Dashboard untitled_3 {
       }
     }
   }
-  theme: H.themes.oasis
+  theme: H.themes.vanilla
   block v1: VizBlock {
     label: 'Total Users compared with Total Users (Prev. 1y)'
     viz: MetricKpi {
@@ -169,20 +169,22 @@ Dashboard untitled_3 {
             type: 'number'
             pattern: 'inherited'
           }
+          uname: 'ecommerce_orders_id'
         },
         VizFieldFull {
-          ref: r(ecommerce_orders.created_at)
-          transformation: 'datetrunc year'
+          label: 'City'
+          ref: r(ecommerce_cities.name)
           format {
-            type: 'date'
-            pattern: 'yyyy'
+            type: 'text'
           }
+          uname: 'ecommerce_cities_name'
         },
         VizFieldFull {
           ref: r(ecommerce_orders.status)
           format {
             type: 'text'
           }
+          uname: 'ecommerce_orders_status'
         },
         VizFieldFull {
           ref: r(ecommerce_orders.discount)
@@ -205,6 +207,20 @@ Dashboard untitled_3 {
           enabled: true
           debug_comments: true
         }
+        column_styles: [
+          ColumnStyle {
+            key: 'ecommerce_orders_id'
+            width: 136
+          },
+          ColumnStyle {
+            key: 'ecommerce_cities_name'
+            width: 295
+          },
+          ColumnStyle {
+            key: 'ecommerce_orders_status'
+            width: 305
+          }
+        ]
       }
     }
   }
