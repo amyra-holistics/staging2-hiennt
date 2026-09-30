@@ -398,7 +398,6 @@ Dashboard adventure_works_big {
       ]
       settings {
         show_row_number: true
-        show_field_description: true
         sorts: [
           SortSetting {
             field_index: 2
