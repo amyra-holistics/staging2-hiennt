@@ -3,14 +3,12 @@ Dashboard net_sales_dashboard {
   description: '''
 A focused executive dashboard for monitoring net sales performance, leakage drivers, and key breakdowns in @Dataset:ecommerce.
 '''
-
   block t1: TextBlock {
     content: @md
 # Net Sales Dashboard
 Track **net sales**, its main deductions, and where performance is strongest or weakest.
     ;;
   }
-
   block v1: VizBlock {
     label: 'Executive KPI Summary'
     viz: MarkdownViz {
@@ -142,7 +140,6 @@ Track **net sales**, its main deductions, and where performance is strongest or 
       }
     }
   }
-
   block v2: VizBlock {
     label: 'Monthly Net Sales Trend'
     viz: LineChart {
@@ -186,7 +183,6 @@ Track **net sales**, its main deductions, and where performance is strongest or 
       }
     }
   }
-
   block v3: VizBlock {
     label: 'Net Sales by Country'
     viz: BarChart {
@@ -225,7 +221,6 @@ Track **net sales**, its main deductions, and where performance is strongest or 
       }
     }
   }
-
   block v4: VizBlock {
     label: 'Top Products by Net Sales'
     viz: BarChart {
@@ -264,7 +259,6 @@ Track **net sales**, its main deductions, and where performance is strongest or 
       }
     }
   }
-
   block v5: VizBlock {
     label: 'Top 10 Products by Return Ratio'
     viz: BarChart {
@@ -302,12 +296,76 @@ Track **net sales**, its main deductions, and where performance is strongest or 
       }
     }
   }
-
+  block v_88k7: VizBlock {
+    label: 'Id, City and 3 more'
+    viz: DataTable {
+      dataset: ecommerce
+      fields: [
+        VizFieldFull {
+          ref: r(ecommerce_orders.id)
+          format {
+            type: 'number'
+            pattern: 'inherited'
+          }
+          uname: 'ecommerce_orders_id'
+        },
+        VizFieldFull {
+          label: 'City'
+          ref: r(ecommerce_cities.name)
+          format {
+            type: 'text'
+          }
+          uname: 'ecommerce_cities_name'
+        },
+        VizFieldFull {
+          ref: r(ecommerce_orders.status)
+          format {
+            type: 'text'
+          }
+          uname: 'ecommerce_orders_status'
+        },
+        VizFieldFull {
+          ref: r(ecommerce_orders.discount)
+          format {
+            type: 'number'
+            pattern: 'inherited'
+          }
+        },
+        VizFieldFull {
+          ref: r(ecommerce_orders.delivery_attempts)
+          format {
+            type: 'number'
+            pattern: 'inherited'
+          }
+        }
+      ]
+      settings {
+        show_row_number: true
+        aggregate_awareness {
+          enabled: true
+          debug_comments: true
+        }
+        column_styles: [
+          ColumnStyle {
+            key: 'ecommerce_orders_id'
+            width: 136
+          },
+          ColumnStyle {
+            key: 'ecommerce_cities_name'
+            width: 295
+          },
+          ColumnStyle {
+            key: 'ecommerce_orders_status'
+            width: 305
+          }
+        ]
+      }
+    }
+  }
   view: CanvasLayout {
     label: 'Overview'
     width: 1440
-    height: 1280
-
+    height: 1680
     block t1 {
       position: pos(20, 20, 1400, 70)
     }
@@ -326,5 +384,71 @@ Track **net sales**, its main deductions, and where performance is strongest or 
     block v5 {
       position: pos(740, 720, 680, 520)
     }
+    block v_88k7 {
+      position: pos(10, 1250, 620, 420)
+      layer: 1
+    }
   }
+  explicit_interactions: [
+    FilterInteraction {
+      from: 'v1'
+      to: [
+        'v2',
+        'v3',
+        'v4',
+        'v5',
+        'v_88k7'
+      ]
+    },
+    FilterInteraction {
+      from: 'v2'
+      to: [
+        'v1',
+        'v3',
+        'v4',
+        'v5',
+        'v_88k7'
+      ]
+    },
+    FilterInteraction {
+      from: 'v3'
+      to: [
+        'v1',
+        'v2',
+        'v4',
+        'v5',
+        'v_88k7'
+      ]
+    },
+    FilterInteraction {
+      from: 'v4'
+      to: [
+        'v1',
+        'v2',
+        'v3',
+        'v5',
+        'v_88k7'
+      ]
+    },
+    FilterInteraction {
+      from: 'v5'
+      to: [
+        'v1',
+        'v2',
+        'v3',
+        'v4',
+        'v_88k7'
+      ]
+    },
+    FilterInteraction {
+      from: 'v_88k7'
+      to: [
+        'v1',
+        'v2',
+        'v3',
+        'v4',
+        'v5'
+      ]
+    }
+  ]
 }

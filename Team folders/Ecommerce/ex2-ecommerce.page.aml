@@ -6,7 +6,7 @@ Dashboard untitled_3 {
     tab tab1: CanvasLayout {
       label: 'Tab 1'
       width: 1245
-      height: 1315
+      height: 1780
       grid_size: 5
       block v1 {
         position: pos(30, 120, 260, 140)
@@ -39,6 +39,10 @@ Dashboard untitled_3 {
       block f_date {
         position: pos(30, 15, 300, 80)
         layer: 5
+      }
+      block v_yaer {
+        position: pos(5, 1365, 615, 410)
+        layer: 7
       }
     }
   }
@@ -312,6 +316,49 @@ Dashboard untitled_3 {
       value: '$H_NIL$'
     }
   }
+  block v_yaer: VizBlock {
+    label: 'Coral'
+    viz: BarChart {
+      dataset: ecommerce
+      x_axis: VizFieldFull {
+        label: 'Product Name'
+        ref: r(ecommerce_products.name)
+        format {
+          type: 'text'
+        }
+      }
+      y_axis {
+        label: 'Return Ratio'
+        series {
+          field: VizFieldFull {
+            label: 'Return Ratio'
+            ref: r(ecommerce.return_ratio)
+            format {
+              type: 'number'
+              pattern: 'inherited'
+            }
+          }
+          settings {
+            color: '#FD9D76'
+          }
+        }
+      }
+      settings {
+        row_limit: 10
+        sort {
+          field_index: 0
+          direction: 'desc'
+          type: 'yaxis'
+        }
+        x_axis_label: 'Product Name'
+        x_axis_show_null_datetime: true
+        aggregate_awareness {
+          enabled: true
+          debug_comments: true
+        }
+      }
+    }
+  }
   explicit_interactions: [
     FilterInteraction {
       from: 'f_date'
@@ -334,7 +381,8 @@ Dashboard untitled_3 {
         'v4',
         'v5',
         'v6',
-        'v_u3ll'
+        'v_u3ll',
+        'v_yaer'
       ]
     },
     FilterInteraction {
@@ -345,7 +393,8 @@ Dashboard untitled_3 {
         'v4',
         'v5',
         'v6',
-        'v_u3ll'
+        'v_u3ll',
+        'v_yaer'
       ]
     },
     FilterInteraction {
@@ -356,7 +405,8 @@ Dashboard untitled_3 {
         'v4',
         'v5',
         'v6',
-        'v_u3ll'
+        'v_u3ll',
+        'v_yaer'
       ]
     },
     FilterInteraction {
@@ -367,7 +417,8 @@ Dashboard untitled_3 {
         'v3',
         'v5',
         'v6',
-        'v_u3ll'
+        'v_u3ll',
+        'v_yaer'
       ]
     },
     FilterInteraction {
@@ -378,7 +429,8 @@ Dashboard untitled_3 {
         'v3',
         'v4',
         'v6',
-        'v_u3ll'
+        'v_u3ll',
+        'v_yaer'
       ]
     },
     FilterInteraction {
@@ -389,7 +441,8 @@ Dashboard untitled_3 {
         'v3',
         'v4',
         'v5',
-        'v_u3ll'
+        'v_u3ll',
+        'v_yaer'
       ]
     },
     FilterInteraction {
@@ -400,7 +453,20 @@ Dashboard untitled_3 {
         'v3',
         'v4',
         'v5',
-        'v6'
+        'v6',
+        'v_yaer'
+      ]
+    },
+    FilterInteraction {
+      from: 'v_yaer'
+      to: [
+        'v1',
+        'v2',
+        'v3',
+        'v4',
+        'v5',
+        'v6',
+        'v_u3ll'
       ]
     }
   ]
