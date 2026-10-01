@@ -408,6 +408,5 @@ Dashboard untitled_3 {
     timezone: 'Etc/UTC'
     cache_duration: 1440
     autorun_on_open: true
-    show_field_description: true
   }
 }
