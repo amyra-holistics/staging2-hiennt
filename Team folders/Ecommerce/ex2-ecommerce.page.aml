@@ -190,6 +190,9 @@ Dashboard untitled_3 {
             type: 'text'
           }
           uname: 'ecommerce_orders_status'
+          description: VizFieldDescription  {
+            type: 'inherit'
+          }
         },
         VizFieldFull {
           ref: r(ecommerce_orders.discount)
