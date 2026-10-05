@@ -6,43 +6,35 @@ Dashboard untitled_3 {
     tab tab1: CanvasLayout {
       label: 'Tab 1'
       width: 1245
-      height: 1780
+      height: 1250
       grid_size: 5
       block v1 {
-        position: pos(30, 120, 260, 140)
+        position: pos(30, 5, 260, 140)
         layer: 1
       }
       block v2 {
-        position: pos(30, 265, 260, 145)
+        position: pos(30, 150, 260, 145)
         layer: 2
       }
       block v3 {
-        position: pos(295, 120, 510, 290)
+        position: pos(295, 5, 510, 290)
         layer: 3
       }
       block v4 {
-        position: pos(815, 120, 400, 290)
+        position: pos(815, 5, 400, 290)
         layer: 4
       }
       block v5 {
-        position: pos(25, 415, 780, 520)
+        position: pos(25, 300, 780, 520)
         layer: 5
       }
       block v6 {
-        position: pos(810, 415, 400, 520)
+        position: pos(810, 300, 400, 520)
         layer: 6
       }
       block v_u3ll {
-        position: pos(25, 950, 1185, 410)
+        position: pos(25, 835, 1185, 410)
         layer: 6
-      }
-      block f_date {
-        position: pos(30, 15, 300, 80)
-        layer: 5
-      }
-      block v_yaer {
-        position: pos(5, 1365, 615, 410)
-        layer: 7
       }
     }
   }
@@ -230,17 +222,17 @@ Dashboard untitled_3 {
     }
   }
   block v6: VizBlock {
-    label: 'Total Orders by Name'
+    label: 'Total Orders by Country'
     viz: ColumnChart {
       dataset: ecommerce
       x_axis: VizFieldFull {
-        ref: ref('ecommerce_countries', 'name')
+        ref: r(ecommerce_countries.name)
         format {
           type: 'text'
         }
       }
       legend: VizFieldFull {
-        ref: ref('ecommerce_orders', 'status')
+        ref: r(ecommerce_orders.status)
         format {
           type: 'text'
         }
@@ -252,7 +244,7 @@ Dashboard untitled_3 {
         series {
           field: VizFieldFull {
             label: 'Total Orders'
-            ref: ref('ecommerce_orders', 'id')
+            ref: r(ecommerce_orders.id)
             aggregation: 'count'
             format {
               type: 'number'
@@ -262,6 +254,7 @@ Dashboard untitled_3 {
         }
       }
       settings {
+        x_axis_show_null_datetime: true
         aggregate_awareness {
           enabled: true
           debug_comments: true
@@ -309,71 +302,7 @@ Dashboard untitled_3 {
       }
     }
   }
-  block f_date: FilterBlock {
-    label: 'Date'
-    type: 'date'
-    default {
-      operator: 'matches'
-      value: '$H_NIL$'
-    }
-  }
-  block v_yaer: VizBlock {
-    label: 'Coral'
-    viz: BarChart {
-      dataset: ecommerce
-      x_axis: VizFieldFull {
-        label: 'Product Name'
-        ref: r(ecommerce_products.name)
-        format {
-          type: 'text'
-        }
-      }
-      y_axis {
-        label: 'Return Ratio'
-        series {
-          field: VizFieldFull {
-            label: 'Return Ratio'
-            ref: r(ecommerce.return_ratio)
-            format {
-              type: 'number'
-              pattern: 'inherited'
-            }
-          }
-          settings {
-            color: '#FD9D76'
-          }
-        }
-      }
-      settings {
-        row_limit: 10
-        sort {
-          field_index: 0
-          direction: 'desc'
-          type: 'yaxis'
-        }
-        x_axis_label: 'Product Name'
-        x_axis_show_null_datetime: true
-        aggregate_awareness {
-          enabled: true
-          debug_comments: true
-        }
-      }
-    }
-  }
   explicit_interactions: [
-    FilterInteraction {
-      from: 'f_date'
-      to: [
-        'v1',
-        'v3',
-        'v4',
-        'v5',
-        'v6',
-        'v_u3ll',
-        'v2'
-      ]
-      field: r(ecommerce_orders.created_at)
-    },
     FilterInteraction {
       from: 'v1'
       to: [
@@ -382,8 +311,7 @@ Dashboard untitled_3 {
         'v4',
         'v5',
         'v6',
-        'v_u3ll',
-        'v_yaer'
+        'v_u3ll'
       ]
     },
     FilterInteraction {
@@ -394,8 +322,7 @@ Dashboard untitled_3 {
         'v4',
         'v5',
         'v6',
-        'v_u3ll',
-        'v_yaer'
+        'v_u3ll'
       ]
     },
     FilterInteraction {
@@ -406,8 +333,7 @@ Dashboard untitled_3 {
         'v4',
         'v5',
         'v6',
-        'v_u3ll',
-        'v_yaer'
+        'v_u3ll'
       ]
     },
     FilterInteraction {
@@ -418,8 +344,7 @@ Dashboard untitled_3 {
         'v3',
         'v5',
         'v6',
-        'v_u3ll',
-        'v_yaer'
+        'v_u3ll'
       ]
     },
     FilterInteraction {
@@ -430,8 +355,7 @@ Dashboard untitled_3 {
         'v3',
         'v4',
         'v6',
-        'v_u3ll',
-        'v_yaer'
+        'v_u3ll'
       ]
     },
     FilterInteraction {
@@ -442,8 +366,7 @@ Dashboard untitled_3 {
         'v3',
         'v4',
         'v5',
-        'v_u3ll',
-        'v_yaer'
+        'v_u3ll'
       ]
     },
     FilterInteraction {
@@ -454,20 +377,7 @@ Dashboard untitled_3 {
         'v3',
         'v4',
         'v5',
-        'v6',
-        'v_yaer'
-      ]
-    },
-    FilterInteraction {
-      from: 'v_yaer'
-      to: [
-        'v1',
-        'v2',
-        'v3',
-        'v4',
-        'v5',
-        'v6',
-        'v_u3ll'
+        'v6'
       ]
     }
   ]
