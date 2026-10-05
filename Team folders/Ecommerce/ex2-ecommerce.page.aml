@@ -169,7 +169,6 @@ Dashboard untitled_3 {
         },
         VizFieldFull {
           label: 'City'
-          description: 'custom description'
           ref: r(ecommerce_cities.name)
           format {
             type: 'text'
