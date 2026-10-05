@@ -13,6 +13,7 @@ Model ecommerce_cities {
     label: 'Name'
     type: 'text'
     hidden: false
+    description: 'City the order was shipped to'
     definition: @sql {{ #SOURCE.name }};;
   }
   dimension country_code {

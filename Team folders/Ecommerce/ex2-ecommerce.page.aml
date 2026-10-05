@@ -177,6 +177,7 @@ Dashboard untitled_3 {
         },
         VizFieldFull {
           ref: r(ecommerce_orders.status)
+          description: VizFieldDescription {type: 'inherit'}
           format {
             type: 'text'
           }
