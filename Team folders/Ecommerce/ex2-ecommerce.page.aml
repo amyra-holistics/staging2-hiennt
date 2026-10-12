@@ -6,7 +6,7 @@ Dashboard untitled_3 {
     tab tab1: CanvasLayout {
       label: 'Tab 1'
       width: 1245
-      height: 1250
+      height: 1500
       grid_size: 5
       block v1 {
         position: pos(30, 5, 260, 140)
@@ -35,6 +35,9 @@ Dashboard untitled_3 {
       block v_u3ll {
         position: pos(25, 835, 1185, 410)
         layer: 6
+      }
+      block v_u1mr {
+        position: pos(25, 1250, 1185, 215)
       }
     }
   }
@@ -177,7 +180,9 @@ Dashboard untitled_3 {
         },
         VizFieldFull {
           ref: r(ecommerce_orders.status)
-          description: VizFieldDescription {type: 'inherit'}
+          description: VizFieldDescription {
+            type: 'inherit'
+          }
           format {
             type: 'text'
           }
@@ -302,6 +307,46 @@ Dashboard untitled_3 {
       }
     }
   }
+  block v_u1mr: VizBlock {
+    label: 'Month Created At, Date and 4 more'
+    viz: MetricSheet {
+      dataset: ecommerce
+      date_field: VizFieldFull {
+        ref: r(ecommerce_orders.created_at)
+        transformation: 'datetrunc month'
+        format {
+          type: 'date'
+          pattern: 'LLL yyyy'
+        }
+      }
+      rows: [
+        MetricSeries {
+          field: VizFieldFull {
+            ref: r(ecommerce.gross_sales)
+            format {
+              type: 'number'
+              pattern: 'inherited'
+            }
+          }
+        },
+        MetricSeries {
+          field: VizFieldFull {
+            ref: r(ecommerce.net_sales)
+            format {
+              type: 'number'
+              pattern: 'inherited'
+            }
+          }
+        }
+      ]
+      settings {
+        aggregate_awareness {
+          enabled: true
+          debug_comments: true
+        }
+      }
+    }
+  }
   explicit_interactions: [
     FilterInteraction {
       from: 'v1'
@@ -311,7 +356,8 @@ Dashboard untitled_3 {
         'v4',
         'v5',
         'v6',
-        'v_u3ll'
+        'v_u3ll',
+        'v_u1mr'
       ]
     },
     FilterInteraction {
@@ -322,7 +368,8 @@ Dashboard untitled_3 {
         'v4',
         'v5',
         'v6',
-        'v_u3ll'
+        'v_u3ll',
+        'v_u1mr'
       ]
     },
     FilterInteraction {
@@ -333,7 +380,8 @@ Dashboard untitled_3 {
         'v4',
         'v5',
         'v6',
-        'v_u3ll'
+        'v_u3ll',
+        'v_u1mr'
       ]
     },
     FilterInteraction {
@@ -344,7 +392,8 @@ Dashboard untitled_3 {
         'v3',
         'v5',
         'v6',
-        'v_u3ll'
+        'v_u3ll',
+        'v_u1mr'
       ]
     },
     FilterInteraction {
@@ -355,7 +404,8 @@ Dashboard untitled_3 {
         'v3',
         'v4',
         'v6',
-        'v_u3ll'
+        'v_u3ll',
+        'v_u1mr'
       ]
     },
     FilterInteraction {
@@ -366,7 +416,8 @@ Dashboard untitled_3 {
         'v3',
         'v4',
         'v5',
-        'v_u3ll'
+        'v_u3ll',
+        'v_u1mr'
       ]
     },
     FilterInteraction {
@@ -377,7 +428,20 @@ Dashboard untitled_3 {
         'v3',
         'v4',
         'v5',
-        'v6'
+        'v6',
+        'v_u1mr'
+      ]
+    },
+    FilterInteraction {
+      from: 'v_u1mr'
+      to: [
+        'v1',
+        'v2',
+        'v3',
+        'v4',
+        'v5',
+        'v6',
+        'v_u3ll'
       ]
     }
   ]
