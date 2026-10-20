@@ -1,0 +1,63 @@
+Dashboard di_test {
+  title: 'di-test'
+  description: ''
+  owner: 'di.hoang@holistics.io'
+
+  view: CanvasLayout {
+    label: 'View 1'
+    width: 1300
+    height: 800
+    grid_size: 20
+    auto_expand_vertically: true
+    mobile {
+      mode: 'auto'
+    }
+    block v_1xe4 {
+      position: pos(320, 180, 620, 420)
+    }
+  }
+
+  theme: DynamicPageTheme {
+    light: H.themes.vanilla
+    dark: H.themes.charcoal
+  }
+  explicit_interactions: []
+  block v_1xe4: VizBlock {
+    label: 'Count of Id by Year Created At and Name'
+    viz: ColumnChart {
+      dataset: ecommerce
+      x_axis: VizFieldFull {
+        ref: r(ecommerce_orders.created_at)
+        transformation: 'datetrunc year'
+        format {
+          type: 'date'
+          pattern: 'yyyy'
+        }
+      }
+      legend: r(ecommerce_countries.name)
+      y_axis {
+        settings {
+          group_values_into: 4
+          others_group_color: '#C54978'
+        }
+        series {
+          field: VizFieldFull {
+            ref: r(ecommerce_orders.id)
+            aggregation: 'count'
+          }
+          settings {
+            color_palette: H.color_palettes.seq_viridis
+          }
+        }
+      }
+      settings {
+        row_limit: 5000
+        x_axis_show_null_datetime: false
+        aggregate_awareness {
+          enabled: true
+          debug_comments: true
+        }
+      }
+    }
+  }
+}
