@@ -288,13 +288,7 @@ Dashboard untitled_3 {
         }
       ]
       values: [
-        VizFieldFull {
-          ref: r(ecommerce.gross_sales)
-          format {
-            type: 'number'
-            pattern: 'inherited'
-          }
-        }
+        r(ecommerce.gross_sales)
       ]
       settings {
         show_row_total: true
@@ -303,6 +297,9 @@ Dashboard untitled_3 {
         aggregate_awareness {
           enabled: true
           debug_comments: true
+        }
+        value_labels_position {
+          placement: 'rows'
         }
       }
     }
